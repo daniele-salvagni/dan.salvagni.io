@@ -1,0 +1,33 @@
+{
+  "name": "dan.salvagni.io",
+  "version": "0.0.0",
+  "description": "Dan's personal website",
+  "private": true,
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "finalhandler": "^0.5.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "handlebars": "^4.0.5",
+    "handlebars-layouts": "^3.1.4",
+    "highlighter": "^0.1.0",
+    "metalsmith": "^2.2.2",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-date-formatter": "^1.0.2",
+    "metalsmith-define": "^2.0.1",
+    "metalsmith-drafts": "^0.0.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "serve-static": "^1.11.1"
+  },
+  "author": {
+    "name": "Daniele Salvagni",
+    "email": "dan@salvagni.io",
+    "url": "http://dan.salvagni.io"
+  },
+  "license": "MIT"
+}
