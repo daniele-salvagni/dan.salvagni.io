@@ -12,9 +12,10 @@ var Metalsmith = require('metalsmith'); // Plugins are included from config.js
 var config = require('./config');
 
 // Sass
-var sass     = require('gulp-sass');
-var bourbon  = require('bourbon'),
-    neat     = require('bourbon-neat');
+var sass      = require('gulp-sass');
+var normalize = require('node-normalize-scss'),
+    bourbon   = require('bourbon'),
+    neat      = require('bourbon-neat');
 
 // Template
 var handlebars = require('handlebars'),
@@ -87,7 +88,7 @@ gulp.task('styles', function() {
       outputStyle: args.production ? 'compressed' : 'expanded',
       includePaths: []
         .concat(config.styles.include)
-        //.concat(normalize.includePaths)
+        .concat(normalize.includePaths)
         .concat(bourbon.includePaths)
         .concat(neat.includePaths),
       errLogToConsole: true,
