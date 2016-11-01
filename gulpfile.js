@@ -1,17 +1,20 @@
 // Dependencies ==========================================================================
 
 // Common
-var gulp = require('gulp'),
-var path = require('path'),
+var gulp = require('gulp');
+var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 
 // Metalsmith
 var Metalsmith = require('metalsmith'); // Plugins are included from config.js
 
+// Configuration
+var config = require('./config');
+
 // Sass
 var sass     = require('gulp-sass');
-var bourbon  = require('node-bourbon'),
-    neat     = require('node-neat');
+var bourbon  = require('bourbon'),
+    neat     = require('bourbon-neat');
 
 // Template
 var handlebars = require('handlebars'),
@@ -29,7 +32,7 @@ var args = {
 
 function setupMetalsmith(callback) {
   var ms = new Metalsmith(process.cwd());
-  var msconfig = site.metalsmith || {};
+  var msconfig = config.metalsmith || {};
   var msplugins = msconfig.plugins || {};
 
   ms.source(msconfig.config.contentRoot);
@@ -78,23 +81,23 @@ gulp.task('metalsmith', function(callback) {
 // Styles task ===========================================================================
 
 gulp.task('styles', function() {
-  return gulp.src(path.join(__dirname, site.metalsmith.config.styleRoot, 'app.scss'))
+  return gulp.src(path.join(__dirname, config.metalsmith.config.styleRoot, 'app.scss'))
     .pipe(sass({
       sourceComments: args.production ? false : true,
       outputStyle: args.production ? 'compressed' : 'expanded',
       includePaths: []
-        .concat(site.styles.include)
-        .concat(normalize.includePaths)
+        .concat(config.styles.include)
+        //.concat(normalize.includePaths)
         .concat(bourbon.includePaths)
         .concat(neat.includePaths),
       errLogToConsole: true,
       onError: console.log
     }))
     //.pipe(autoprefixer({
-    //  browsers: site.styles.prefix,
+    //  browsers: config.styles.prefix,
     //  cascade: false
     //}))
-    .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'assets')));
+    .pipe(gulp.dest(path.join(__dirname, config.metalsmith.config.assetRoot, 'assets')));
 });
 
 
