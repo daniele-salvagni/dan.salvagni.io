@@ -1,0 +1,10 @@
+.container {
+  //@include grid-container;
+  @include margin(null auto);
+  max-width: 57rem;
+  //position: relative;
+}
+
+.main {
+
+}

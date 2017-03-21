@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,500);
+
+$roboto-mono: 'Roboto Mono', monospace;;
+
+// Breakpoints
+$medium-screen: 600px;
+$large-screen: 900px;
+
+// Typography
+$base-font-family: $roboto-mono;
+$heading-font-family: $roboto-mono;
+
+// Font Sizes
+$html-font-size: 12px;
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 2;
+$heading-line-height: 1.8;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$green: #4aa664;
+$dark-gray: #323232;
+$medium-gray: #999;
+$light-gray: #eaeaea;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $green;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;

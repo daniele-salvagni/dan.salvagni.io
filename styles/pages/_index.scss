@@ -1,0 +1,17 @@
+.logo-home {
+  margin: 0 auto;
+  display: block;
+}
+
+#content-home {
+  text-align: center;
+}
+
+.container-home {
+  //@include grid-container;
+  @include margin(null auto);
+  text-align: center;
+  max-width: 60rem;
+  position: relative;
+  top: 15%;
+}
