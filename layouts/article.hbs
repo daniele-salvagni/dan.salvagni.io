@@ -1,0 +1,18 @@
+{{#extend "default"}}
+  {{#content "main"}}
+
+    <article class="post">
+      <header>
+        <h1 class="title">{{{title}}}</h1>
+        <div class="meta">
+          <time>{{{date}}}</time>
+        </div>
+      </header>
+      <hr>
+      <div class="content">{{{contents}}}</div>
+    </article>
+
+    <hr>
+
+  {{/content}}
+{{/extend}}
