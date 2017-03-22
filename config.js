@@ -40,24 +40,43 @@ module.exports = {
           "format": "MMMM DD, YYYY"
         }
       },
-      "metalsmith-permalinks": {
-        "pattern": ":collection/:title",
-        "relative": false
-      },
       "metalsmith-collections": {
-        "b": {
+        "blog": {
           "sortBy": "date",
-          "reverse": true
+          "reverse": false
         }
+      },
+      "metalsmith-permalinks": {
+        "relative": false,
+
+        "linksets": [{
+          "match": { "collection": "blog" },
+          "pattern": "b/:title"
+        },{
+          "match": { "collection": "pages" },
+          "pattern": "pages/:title"
+        },{
+          "match": { "function": "bloglist" },
+          "pattern": "b"
+      }]
       },
       "metalsmith-layouts": {
         "engine": "handlebars",
         "directory": "./layouts",
         "partials": "./layouts/partials"
       },
+      "metalsmith-concat": {
+        "output": "assets/app.js",
+        "files": [
+          "vue/dist/vue.min.js", // will be resolved from the node_modules 
+          "axios/dist/axios.min.js",
+          "comments-app.js" // will be resolved from the directory given to Metalsmith 
+        ],
+        "searchPaths": [ 'node_modules', 'js' ]
+      },
       "metalsmith-assets": {
         "source": "./assets",
-        "destination": "./"
+        "destination": "./assets"
       }
     }
   }
