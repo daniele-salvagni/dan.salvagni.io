@@ -28,6 +28,13 @@ let args = {
   production: !!argv.production
 };
 
+// Handlebars helpers --------------------------------------------------------------------
+
+// Define a Raw block to let VueJS handle a mustache block
+// {{{{raw}}}} {{{{/raw}}}} - http://handlebarsjs.com/block_helpers.html
+handlebars.registerHelper('raw', function(options) {
+    return options.fn();
+});
 
 // Metalsmith task -----------------------------------------------------------------------
 
