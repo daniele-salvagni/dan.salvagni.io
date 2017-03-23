@@ -2,7 +2,7 @@
   {{#content "main"}}
   <section id='main'>
     <header class='page-title'>
-        <h1>Dan's Blog</h1>
+        <h1 class='title'>Dan's Blog</h1>
         <p class='page-desc'>{{description}}</p>
     </header>
 
@@ -12,7 +12,6 @@
         {{#each collections.blog}}
             <li>
                 <strong><a href='/{{this.path}}'>{{this.title}}</a></strong> - <span class='date'>{{this.date}}</span>
-                
             </li>
         {{/each}}
     </ul>
