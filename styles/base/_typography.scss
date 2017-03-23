@@ -13,7 +13,7 @@ body {
   background:#fff159;
 }
 
-code::selection, code span::selection {
+.hljs::selection, .hljs span::selection {
   background: #767676;
 }
 
@@ -21,7 +21,7 @@ code::selection, code span::selection {
   background:#fff159;
 }
 
-code::-moz-selection, code span::-moz-selection {
+.hljs::-moz-selection, .hljs span::-moz-selection {
   background: #767676;
 }
 
@@ -33,13 +33,14 @@ h5,
 h6 {
   font-size: 1rem;
   font-family: $heading-font-family;
-  font-weight: 500;
+  font-weight: 700;
   line-height: $heading-line-height;
   margin: $base-spacing 0 $small-spacing;
 }
 
-h1 {
-  font-size: 1.25rem;
+h2 {
+  display: inline-block;
+  background-color: #fff159;
 }
 
 p {
@@ -50,6 +51,7 @@ a {
   color: $action-color;
   text-decoration: none;
   transition: color $base-duration $base-timing;
+  text-decoration: underline;
 
   &:active,
   &:focus,
@@ -64,9 +66,9 @@ hr {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  margin: $base-spacing 0;
+  margin: 2.5rem 0;
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 700;
 }
