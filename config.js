@@ -11,7 +11,9 @@ module.exports = {
   "metalsmith": {
     "metadata": {
       "site": {
-        "url": "https://dan.salvagni.io"
+        "url": "https://dan.salvagni.io",
+        "issuePage": "https://github.com/daniele-salvagni/dan.salvagni.io/issues/",
+        "footnote": "Made with ❤ by Daniele Salvagni"
       }
     },
 
