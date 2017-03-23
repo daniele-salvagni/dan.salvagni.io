@@ -12,6 +12,7 @@ module.exports = {
     "metadata": {
       "site": {
         "url": "https://dan.salvagni.io",
+        "name": "Daniele Salvagni",
         "issuePage": "https://github.com/daniele-salvagni/dan.salvagni.io/issues/",
         "footnote": "Made with ❤ by Daniele Salvagni"
       }
