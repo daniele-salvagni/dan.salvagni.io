@@ -18,21 +18,20 @@
 
       {{#if issue}} <!-- Only if the post has an issue number in the metadata -->
       {{{{raw}}}} <!-- Prevent Handlebars from rendering this block -->
-     
+
           <div class="comment" v-for="comment in comments">
             <div class="comment-avatar">
               <img v-bind:src="comment.user.avatar_url + '&s=80'">
             </div>
             <div class="comment-meta">
               <a class="comment-user" v-bind:href="comment.user.html_url" target="_blank">
-                {{comment.user.login}}
-              </a> commented on {{comment.created_at}}
+                {{comment.user.login}}</a> commented on {{comment.created_at}}
             </div>
             <div class="comment-body" v-html="comment.body_html"></div>
           </div>
 
           <hr v-if="comments.length > 0">
-      
+
       {{{{/raw}}}}
 
           <div class="comment-write">
