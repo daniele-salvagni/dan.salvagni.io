@@ -1,17 +1,28 @@
-.logo-home {
-  margin: 0 auto;
-  display: block;
-}
-
-#content-home {
-  text-align: center;
-}
-
 .container-home {
   //@include grid-container;
   @include margin(null auto);
   text-align: center;
   max-width: 60rem;
   position: relative;
-  top: 15%;
+  top: 20%;
+}
+
+#index-header {
+  padding: 4em 0;
+}
+
+.logo-home {
+  height: 6rem;
+}
+
+#content-home {
+  text-align: center;
+}
+
+#particles {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -25;
 }

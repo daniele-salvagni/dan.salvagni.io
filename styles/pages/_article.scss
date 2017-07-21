@@ -15,8 +15,101 @@
 
 h1.title {
   font-size: 1.25rem;
+  //////////////////////
+  display: block;
+  background-color: transparent;
 }
 
 .post > .content {
-  text-align: justify;
+  text-align: left;
+}
+
+.post-image {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 1em;
+  margin: 2em 0;
+  line-height: 0;
+  border-radius: 3px;
+}
+
+// Comments ------------------------------------------------------------------------------
+
+#comments-app {
+  @include grid-container;
+  font-size: 0.889rem;
+}
+
+.comment {
+  @include grid-container;
+  margin: 1em 0;
+}
+
+.comment-avatar {
+  @include grid-column(1);
+  margin-top: 0.35rem;
+}
+
+.comment-avatar img {
+  border-radius: 50%;
+}
+
+.comment-meta {
+  @include grid-column(11);
+  color: $medium-gray;
+}
+
+.comment-body {
+  @include grid-column(11);
+}
+
+.comment-write{
+  text-align: center;
+}
+
+.comment-user {
+  font-weight: 700;
+  color: #323232;
+  text-decoration: none;
+  //font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+
+}
+
+.comment-body pre {
+  padding: 1em;
+  //background-color: #f6f8fa;
+          background: #f2f2f2;
+    color: #323232;
+}
+
+pre > code {
+font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+
+}
+
+code {
+      padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
 }

@@ -13,16 +13,8 @@ body {
   background:#fff159;
 }
 
-.hljs::selection, .hljs span::selection {
-  background: #767676;
-}
-
 ::-moz-selection {
   background:#fff159;
-}
-
-.hljs::-moz-selection, .hljs span::-moz-selection {
-  background: #767676;
 }
 
 h1,
