@@ -36,13 +36,14 @@ h1.title {
 // Comments ------------------------------------------------------------------------------
 
 #comments-app {
-  @include grid-container;
+  //@include grid-collapse;
+  //@include grid-container;
   font-size: 0.889rem;
 }
 
 .comment {
   @include grid-container;
-  margin: 1em 0;
+  //margin: 1em 0;
 }
 
 .comment-avatar {
@@ -52,6 +53,7 @@ h1.title {
 
 .comment-avatar img {
   border-radius: 50%;
+  max-width: 3em;
 }
 
 .comment-meta {
@@ -61,6 +63,14 @@ h1.title {
 
 .comment-body {
   @include grid-column(11);
+}
+
+@media screen and (max-width: 650px) {
+  .comment-avatar,
+  .comment-meta,
+  .comment-body {
+    @include grid-column(12); text-align: center;
+  }
 }
 
 .comment-write{
@@ -73,12 +83,6 @@ h1.title {
   text-decoration: none;
   //font-size: 1rem;
 }
-
-
-
-
-
-
 
 
 
