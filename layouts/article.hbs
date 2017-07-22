@@ -25,7 +25,7 @@
             </div>
             <div class="comment-meta">
               <a class="comment-user" v-bind:href="comment.user.html_url" target="_blank">
-                {{comment.user.login}}</a> commented on {{comment.created_at}}
+                {{comment.user.login}}</a> commented on {{ comment.created_at | truncate(10) }}
             </div>
             <div class="comment-body" v-html="comment.body_html"></div>
           </div>
@@ -35,7 +35,7 @@
       {{{{/raw}}}}
 
           <div class="comment-write">
-            <strong>Want to leave a comment?</strong> Visit <a href="{{site.issuePage}}{{issue}}">this post's issue page</a> on GitHub, it will show up here!
+            <strong>Want to leave a comment?</strong> Use this post's <a href="{{site.issuePage}}{{issue}}">issue page</a> on GitHub, it will show up here!
           </div>
 
       {{/if}}

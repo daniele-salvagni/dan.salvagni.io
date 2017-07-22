@@ -1,3 +1,7 @@
+Vue.filter('truncate', function(string, value) {
+    return string.substring(0, value);
+});
+
 new Vue({
   el: '#comments-app',
 
@@ -15,8 +19,6 @@ new Vue({
       timeout: 10000,
       headers: {'Accept': 'application/vnd.github.VERSION.html+json'}
     });
-
-
 
     instance.get('repos/daniele-salvagni/dan.salvagni.io/issues/' + this.issueNum + '/comments')
     //.then(response => console.log(response.data));
