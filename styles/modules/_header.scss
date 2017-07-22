@@ -1,4 +1,5 @@
 #header {
+  @include grid-column(12);
   text-align: center;
   padding: 4em 0 1em 0;
 }
@@ -7,3 +8,7 @@
   height: 6rem;
 }
 
+@media screen and (max-width: 650px) {
+  #header { padding: 3em 0 0em 0; }
+  .logo { height: 4rem; }
+}

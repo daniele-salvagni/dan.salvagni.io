@@ -1,12 +1,16 @@
 .container {
-  //@include grid-container;
+  @include grid-container;
   @include margin(null auto);
-  max-width: 57rem;
+  max-width: 58rem;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  //////////padding: 0 1rem;
   //position: relative;
 }
 
-.main {
-
+#main {
+  @include grid-column(12);
 }
 
 .page-title {
