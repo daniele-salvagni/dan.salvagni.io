@@ -1,0 +1,18 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "8"
+
+cache:
+  yarn: true
+  pip: true
+  directories:
+    - node_modules
+
+install:
+  # - pip install awscli
+  - yarn global add gulp-cli
+
+script: gulp
