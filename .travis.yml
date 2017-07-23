@@ -14,5 +14,6 @@ cache:
 install:
   # - pip install awscli
   - yarn global add gulp-cli
+  - yarn install
 
 script: gulp
