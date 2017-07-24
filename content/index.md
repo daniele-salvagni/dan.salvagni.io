@@ -5,7 +5,7 @@ description: I’m Daniele Salvagni, a computer engineering student. I currently
 layout: index.hbs
 permalink: false
 ---
-<h2 style='display:none;'>Daniele Salvagni</h2>
+<h1 style='display:none;'>Daniele Salvagni</h1>
 
 <div class='intro'>I’m **Daniele Salvagni**, a computer engineering student. I currently live in Milan and I’m interested in programming, electronics, design and guitars. I make stuff when I feel like it.</div>
 <div class='skills'>
