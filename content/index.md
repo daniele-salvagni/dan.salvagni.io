@@ -24,5 +24,5 @@ English language (TOEIC 990/990)<br><br>
 LINKS<br>
 You can read some of my [Articles](/b/),<br>
 look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a> or<br>
-contact me directly at: [dan@salvagni.io](dan@salvagni.io)
+contact me directly at: [dan@salvagni.io](mailto:dan@salvagni.io)
 </div>
