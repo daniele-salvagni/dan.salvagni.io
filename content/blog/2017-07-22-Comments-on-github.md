@@ -3,7 +3,7 @@ title: Hosting comments on GitHub for static websites
 date: 2017-07-22
 author: Daniele Salvagni
 collection: blog
-excerpt:
+excerpt: How I'm hosting comments on GitHub for my static website with Vue.js and GitHub APIs
 layout: article.hbs
 draft: false
 issue: 1
