@@ -12,20 +12,19 @@ cache:
     - node_modules
 
 install:
-  # - pip install awscli
   - yarn global add gulp-cli
   - yarn install
 
 script: gulp
 
-#deploy:
-#  on:
-#    branch: master
-#  provider: s3
-#  # Use the environment variables from Travis repo settings
-#  access_key_id: $AWS_ACCESS_KEY_ID
-#  secret_access_key: $AWS_SECRET_ACCESS_KEY
-#  # Name of the S3 bucket
-#  bucket: dan.salvagni.io
-#  skip_cleanup: true
-#  local_dir: build
+deploy:
+  on:
+    branch: master
+  provider: s3
+  # Use environment variables
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  # Name of the S3 Bucket
+  bucket: dan.salvagni.io
+  skip_cleanup: true
+  local_dir: build
