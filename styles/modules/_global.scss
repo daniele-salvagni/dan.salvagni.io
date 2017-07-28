@@ -1,7 +1,7 @@
 .container {
   @include grid-container;
   @include margin(null auto);
-  max-width: 58rem;
+  max-width: 52rem;
 
   overflow-wrap: break-word;
   word-wrap: break-word;
