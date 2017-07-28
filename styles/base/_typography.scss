@@ -10,11 +10,11 @@ body {
 }
 
 ::selection {
-  background:#fff159;
+  background:#fff1c5;
 }
 
 ::-moz-selection {
-  background:#fff159;
+  background:#fff1c5;
 }
 
 h1,
@@ -23,16 +23,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-family: $heading-font-family;
   font-weight: 700;
   line-height: $heading-line-height;
   margin: $base-spacing 0 $small-spacing;
+  position: relative;
 }
 
-h2 {
-  display: inline-block;
-  background-color: #fff159;
+.post h2:before {
+    content: '';
+    border-left: 5px solid $action-color;
+    position: absolute;
+    left: -15px;
+    height: 75%;
+    top: 12%;
 }
 
 p {
@@ -43,8 +48,6 @@ a {
   color: $action-color;
   text-decoration: none;
   transition: color $base-duration $base-timing;
-  text-decoration: underline;
-
   &:active,
   &:focus,
   &:hover {
@@ -54,7 +57,7 @@ a {
 }
 
 hr {
-  border-bottom: $base-border;
+  border-bottom: 1px solid $gray-4;
   border-left: 0;
   border-right: 0;
   border-top: 0;
