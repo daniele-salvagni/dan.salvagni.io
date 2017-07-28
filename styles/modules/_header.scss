@@ -5,7 +5,8 @@
 }
 
 .logo {
-  height: 6rem;
+  height: 100%;
+  user-select: none;
 }
 
 @media screen and (max-width: 650px) {
