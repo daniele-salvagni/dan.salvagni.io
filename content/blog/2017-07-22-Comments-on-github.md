@@ -43,7 +43,8 @@ We will have to manually create a new issue for each post we make, this could be
 Here is an example of how the request should look like:
 
 ```http
-Request URL: https://api.github.com/repos/daniele-salvagni/dan.salvagni.io/issues/1/comments
+Request URL:
+https://api.github.com/repos/daniele-salvagni/dan.salvagni.io/issues/1/comments
 Request Method: GET
 Accept: application/vnd.github.VERSION.html+json
 ```
@@ -105,7 +106,8 @@ let instance = axios.create({
     headers: {'Accept': 'application/vnd.github.VERSION.html+json'}
 });
 
-instance.get('/repos/daniele-salvagni/dan.salvagni.io/issues/' + issueNum + '/comments')
+instance.get('/repos/daniele-salvagni/dan.salvagni.io/issues/'
+    + issueNum + '/comments')
 .then(response => console.log(response.data))
 .catch(function (error) {
   console.log(error);
@@ -133,32 +135,28 @@ I'm rendering the comments with [Vue.JS](https://vuejs.org/) (you don't need to!
 In Vue I'm just adding the response from the axios call mentioned before as property to the data object. Then it is easy to iterate over the comments with a `v-for` directive.
 
 ```html
-<!-- Our VueJS app, notice that we put the issue number in a data-issue attribute -->
+<!-- The VueJS app, notice the issue number stored in the data-issue attribute -->
 <div id="comments-app" data-issue="{{issue}}">
-
-{{#if issue}} <!-- Render only if the post has an issue number in the metadata -->
-{{{{raw}}}} <!-- Prevent Handlebars from rendering this block (will be rendered by Vue) -->
-
+<!-- Render only if the post has an issue number in the metadata -->
+{{#if issue}}
+<!-- Prevent Handlebars from rendering this block (will be rendered by Vue) -->
+{{{{raw}}}}
     <div class="comment" v-for="comment in comments">
-    <div class="comment-profile">
-        <img class="comment-avatar" v-bind:src="comment.user.avatar_url + '&s=80'">>
+        <div class="comment-avatar">
+            <img v-bind:src="comment.user.avatar_url + '&s=80'">
+        </div>
+        <div class="comment-meta">
+            <a class="comment-user" v-bind:href="comment.user.html_url">
+            {{comment.user.login}}</a> commented on {{ comment.created_at }}
+        </div>
+        <!--Render the raw html of the comment body -->
+        <div class="comment-body" v-html="comment.body_html"></div>
     </div>
-
-    <div class="comment-intro">
-        <a class="user" v-bind:href="comment.user.html_url" target="_blank">{{comment.user.login}}</a> commented on {{comment.created_at}}
-    </div>
-    <div class="comment-body" v-html="comment.body_html"></div> <!--Render the raw html -->
-    </div>
-
-    <!-- Print an <hr> element before the footer if there is at least one comment -->
-    <hr v-if="comments.length > 0">
-
 {{{{/raw}}}}
-
-    <div class="comment-write"><strong>Want to leave a comment?</strong> Visit <a href="{{site.issuePage}}{{issue}}">this post's issue page</a> on GitHub, it will show up here!</div>
-
+    <div class="comment-write"><strong>Want to leave a comment?</strong>
+    Visit <a href="{{site.issuePage}}{{issue}}">this post's issue page</a>
+    on GitHub, it will show up here!</div>
 {{/if}}
-
 </div>
 ```
 
