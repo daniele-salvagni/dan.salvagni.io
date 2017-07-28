@@ -6,11 +6,12 @@
 }
 
 #index-header {
-  padding: 4em 0;
+  padding: 5rem 0 4rem 0;
 }
 
 .logo-home {
-  height: 6rem;
+  height: 100%;
+  user-select: none;
 }
 
 @media screen and (max-width: 650px) {
@@ -37,6 +38,7 @@
 
 .skills {
   @include grid-column(6);
+  color: $light-gray;
 }
 
 @media screen and (max-width: 650px) {
