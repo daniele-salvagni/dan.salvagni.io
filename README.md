@@ -1,3 +1,7 @@
+<p align="center"><img src="https://user-images.githubusercontent.com/6751621/28732267-8cbce218-73d7-11e7-865b-7693b35adf99.png"></p>
+
+-----
+
 # dan.salvagni.io [![Build Status](https://travis-ci.org/daniele-salvagni/dan.salvagni.io.svg?branch=master)](https://travis-ci.org/daniele-salvagni/dan.salvagni.io)
 
 Source code of my personal website http://dan.salvagni.io
