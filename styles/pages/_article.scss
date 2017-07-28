@@ -5,19 +5,13 @@
 
 .meta {
   font-size: 1rem;
-  color: $medium-gray;
-}
-
-.meta time {
-  display: inline-block;
-  font-style: italic;
+  color: $light-gray;
+  margin-top: -1rem;
 }
 
 h1.title {
   font-size: 1.25rem;
-  //////////////////////
-  display: block;
-  background-color: transparent;
+  text-transform: uppercase;
 }
 
 .post > .content {
