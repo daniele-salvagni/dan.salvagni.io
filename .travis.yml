@@ -26,5 +26,6 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   # Name of the S3 Bucket
   bucket: dan.salvagni.io
+  region: eu-central-1
   skip_cleanup: true
   local_dir: build
