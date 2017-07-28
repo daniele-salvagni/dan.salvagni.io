@@ -5,11 +5,11 @@
 }
 
 .hljs::selection, .hljs span::selection {
-  background: #767676;
+  background: $gray-4;
 }
 
 .hljs::-moz-selection, .hljs span::-moz-selection {
-  background: #767676;
+  background: $gray-4;
 }
 
 pre {
