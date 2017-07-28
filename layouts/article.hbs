@@ -1,15 +1,18 @@
 {{#extend "default"}}
   {{#content "main"}}
   <section id='main'>
-    <article class="post">
+    <article class="post" itemscope itemtype="http://schema.org/Article">
       <header>
-        <h1 class="title">{{title}}</h1>
+        <h1 class="title" itemprop="name">{{title}}</h1>
         <div class="meta">
-          <time>{{date}}</time>
+          Posted by
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+          {{author}}</span></span> on
+          <time itemprop="datePublished" content="{{date}}">{{date}}</time>
         </div>
       </header>
       <hr>
-      <div class="content">{{{contents}}}</div>
+      <div class="content" itemprop="articleBody">{{{contents}}}</div>
     </article>
 
     <hr>
