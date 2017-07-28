@@ -25,13 +25,20 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$green: #4aa664;
-$dark-gray: #323232;
-$medium-gray: #999;
-$light-gray: #eaeaea;
+$green: #44ac57;
+$gray-0: #323232; // very dark
+$gray-1: #535451; // dark
+$gray-2: #807d77; // medium
+$gray-3: #98978e; // medium light
+$gray-4: #ebeae6; // light
+$gray-5: #f6f6f6; // very light
+
+$dark-gray: $gray-1;
+$medium-gray: $gray-2;
+$light-gray: $gray-3;
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $medium-gray;
 $action-color: $green;
 
 // Border
@@ -40,7 +47,7 @@ $base-border: 1px solid $base-border-color;
 
 // Background Colors
 $base-background-color: #fff;
-$secondary-background-color: tint($base-border-color, 75%);
+$secondary-background-color: $gray-5;
 
 // Animations
 $base-duration: 150ms;
