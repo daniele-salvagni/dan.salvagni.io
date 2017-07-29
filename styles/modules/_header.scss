@@ -9,7 +9,7 @@
   user-select: none;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: $medium-screen) {
   #header { padding: 3em 0 0em 0; }
   .logo { height: 4rem; }
 }
