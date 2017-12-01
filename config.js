@@ -56,8 +56,8 @@ module.exports = {
           "match": { "collection": "blog" },
           "pattern": "b/:title"
         },{
-          "match": { "collection": "pages" },
-          "pattern": "pages/:title"
+          "match": { "collection": "software" },
+          "pattern": "s/:title"
         },{
           "match": { "function": "bloglist" },
           "pattern": "b"
@@ -71,9 +71,9 @@ module.exports = {
       "metalsmith-concat": {
         "output": "assets/app.js",
         "files": [
-          "vue/dist/vue.min.js", // will be resolved from the node_modules 
+          "vue/dist/vue.min.js", // will be resolved from the node_modules
           "axios/dist/axios.min.js",
-          "comments-app.js" // will be resolved from the directory given to Metalsmith 
+          "comments-app.js" // will be resolved from the directory given to Metalsmith
         ],
         "searchPaths": [ 'node_modules', 'js' ]
       },
