@@ -16,3 +16,8 @@ Templates are written with [Handlebars](http://handlebarsjs.com/) and the conten
 Comments to the blog posts are retrieved from this repository's issue page using GitHub's API and rendered using [Vue.js](https://vuejs.org).
 
 After a succesful build the website is automatically deployed by [Travis](https://travis-ci.org/) on an [AWS S3 Bucket](https://aws.amazon.com/s3/).
+
+<br>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/6751621/35020782-07abd47e-fb2e-11e7-8f1c-31f67567b40c.png" alt="Color Palette">
+</p>
