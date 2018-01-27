@@ -21,12 +21,12 @@ Intel did not release any public APIs, I had to make this tool by reverse engine
 ## Installation
 
 - Download and extract the .zip archive
-- Open `C:\Windows\System32\DriverStore\FileRepository` and do a search for a file named `igfxDHLib.dll`
+- Open `C:\Windows\System32` and use the Search function to find a file named  `igfxDHLib.dll`
 - Copy `igfxDHLib.dll` in the same folder as `ColorGoggles.exe`
 
 You need to do this because there are multiple versions of `igfxDHLib.dll` depending on your device (they all have the same version number but are actually different), so I cannot embed the code in the assembly nor distribute it with my DLL as it wouldn't work in many cases.
 
-<br><div align="center"><a class="button" align="center" target="_blank" href="https://github.com/daniele-salvagni/color-goggles/releases/download/v1.0.0/Color-Goggles-v1.0.0.zip">Download ColorGoggles (v1.0.0)</a></div>
+<br><div align="center"><a class="button" align="center" target="_blank" href="https://github.com/daniele-salvagni/color-goggles/releases/download/v1.0.1/Color-Goggles-v1.0.1.zipp">Download ColorGoggles (v1.0.1)</a></div>
 
 
 <br>
