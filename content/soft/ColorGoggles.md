@@ -22,7 +22,7 @@ Intel did not release any public APIs, I had to make this tool by reverse engine
 
 - Download and extract the .zip archive
 - Open `C:\Windows\System32` and use the Search function to find a file named  `igfxDHLib.dll`
-- Copy `igfxDHLib.dll` in the same folder as `ColorGoggles.exe`
+- Copy `igfxDHLib.dll` in the same folder as `Color-Goggles.exe`
 
 You need to do this because there are multiple versions of `igfxDHLib.dll` depending on your device (they all have the same version number but are actually different), so I cannot embed the code in the assembly nor distribute it with my DLL as it wouldn't work in many cases.
 
