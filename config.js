@@ -47,6 +47,10 @@ module.exports = {
         "blog": {
           "sortBy": "date",
           "reverse": false
+        },
+        "software": {
+          "sortBy": "title",
+          "reverse": "false"
         }
       },
       "metalsmith-permalinks": {
@@ -73,7 +77,15 @@ module.exports = {
         "files": [
           "vue/dist/vue.min.js", // will be resolved from the node_modules
           "axios/dist/axios.min.js",
-          "comments-app.js" // will be resolved from the directory given to Metalsmith
+          "comments-app.js", // will be resolved from the directory given to Metalsmith
+          "grid-app.js"
+        ],
+        "searchPaths": [ 'node_modules', 'js' ]
+      },"metalsmith-concat": {
+        "output": "assets/app2.js",
+        "files": [
+          "vue/dist/vue.min.js",
+          "grid-app.js"
         ],
         "searchPaths": [ 'node_modules', 'js' ]
       },
