@@ -1,5 +1,6 @@
 ---
-title: Color-Goggles
+title: Color Goggles
+subtitle: Saturation manager for Intel™ and Dual-Graphics laptops.
 date: 2017-12-24
 author: Daniele Salvagni
 collection: software
