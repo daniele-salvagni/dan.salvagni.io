@@ -8,13 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
-    "bourbon": "5.0.0-beta.8",
-    "bourbon-neat": "^2.1.0",
-    "finalhandler": "^1.0.3",
+    "axios": "^0.18.0",
+    "bourbon": "5.1.0",
+    "bourbon-neat": "^3.0.0",
+    "finalhandler": "^1.1.1",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
-    "handlebars": "^4.0.10",
+    "gulp-sass": "^4.0.1",
+    "handlebars": "^4.0.11",
     "handlebars-layouts": "^3.1.4",
     "highlighter": "^0.1.0",
     "metalsmith": "^2.3.0",
@@ -24,12 +24,12 @@
     "metalsmith-date-formatter": "^1.0.2",
     "metalsmith-define": "^2.0.1",
     "metalsmith-drafts": "^0.0.1",
-    "metalsmith-layouts": "^1.8.1",
-    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-layouts": "1.8.1",
+    "metalsmith-markdown": "^0.2.2",
     "metalsmith-permalinks": "^0.5.0",
-    "node-normalize-scss": "^3.0.0",
-    "serve-static": "^1.12.3",
-    "vue": "^2.4.2"
+    "node-normalize-scss": "^8.0.0",
+    "serve-static": "^1.13.2",
+    "vue": "^2.5.16"
   },
   "author": {
     "name": "Daniele Salvagni",
