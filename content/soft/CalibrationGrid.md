@@ -4,7 +4,7 @@ subtitle: Generates a command for pen input calibration on any resolution.
 date: 2018-07-22
 author: Daniele Salvagni
 collection: software
-excerpt: .....
+excerpt: A tool for generating calibration grids for pen input on Windows. Supports any resolution with any number of calibrations points which will be more densely distributed towards the edges.
 layout: page.hbs
 draft: false
 ---
