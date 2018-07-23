@@ -23,8 +23,8 @@ draft: false
 
   - A grid of <input type="text" v-model="hpts" class="grid-input"> x
   <input type="text" v-model="vpts" class="grid-input"> points
-  for a <input type="text" v-model="hres" name="wdt" class="grid-input"> x
-  <input type="text" v-model="vres" name="wdt" class="grid-input"> px resolution.
+  for a <input type="text" v-model="hres" class="grid-input"> x
+  <input type="text" v-model="vres" class="grid-input"> px resolution.
 
   <p>The grid will have a total of {{ hpts\*vpts }} points. To begin the calibration, please copy and paste the following string in a Command Prompt:</p>
 
