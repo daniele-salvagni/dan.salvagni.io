@@ -10,15 +10,15 @@ permalink: false
 <div class='intro'>I’m **Daniele Salvagni**, a computer engineering student. I currently live in Milan and I’m interested in programming, electronics, design and guitars. I make stuff when I feel like it.</div>
 <div class='skills'>
 LANGUAGES<br>
-Javascript, Node.js, Java, C, Bash, HTML5, CSS3<br><br>
+Javascript, Node.js, Java, C, C#, Python, PHP, Bash, HTML5, CSS3<br><br>
 METHODS<br>
-Version control, Continuous integration, Responsive design<br><br>
+Version control, Continuous integration, Responsive design, Reverse Engineering<br><br>
 TECHNOLOGIES<br>
-Git, Redis, RethinkDB, MySQL, Nginx, AWS, SASS, Vue.js, Linux<br><br>
+Git, MySQL, Redis, RethinkDB, Nginx, AWS, SASS, Vue.js, Linux<br><br>
 </div>
 <div class='skills'>
 EDUCATION<br>
-Computer Science and Engineering @ PoliMi<br><br>
+Engineering of Computing Systems @ PoliMi<br><br>
 CERTIFICATIONS<br>
 English language (TOEIC 990/990)<br><br>
 LINKS<br>
