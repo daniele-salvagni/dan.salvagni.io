@@ -21,6 +21,18 @@
 
     <section id='content-home'>
       {{{contents}}}
+
+      <div class="tools"><b>TOOLS AND SOFTWARE</b>
+        <ul>
+          {{#each collections.software}}
+            <li>
+              <strong><a href='/{{this.path}}'>{{this.title}}</a></strong> -
+              <span class='descr'>{{this.subtitle}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
     </section>
 
     <footer id="index-footer">

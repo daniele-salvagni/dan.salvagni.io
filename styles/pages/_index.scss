@@ -41,6 +41,17 @@
   color: $light-gray;
 }
 
+.tools {
+  @include grid-column(12);
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+.descr {
+  font-style: italic;
+  color: $medium-gray;
+}
+
 @media screen and (max-width: $medium-screen) {
   .skills { @include grid-column(12); }
   #index-header { padding: 3rem 0 3rem 0; }
