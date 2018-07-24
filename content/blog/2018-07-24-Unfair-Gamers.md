@@ -67,7 +67,7 @@ It was also the end of an era of its kind, and as I said I like to think that in
 ## Bonus content
 
 - You can get an high resolution version of the splash logo [here](/assets/img/content/ug-logo.png).
-- The top 15 members by post number were in order: *Ryukizashi*, *ThePILLI.TfF*, *GLyTCH*, *Zyrel*, *ionut_baluca*, *D4.Ny*, *xXStephXx*, *vezdebest*, *Sakawa*, *Kingblast*, *MrTiz*, *ActionMan95*, *Sky92*, *Zioborn*, *Madara Uchiha*. ([Top 100](/assets/img/content/users-100.txt))
+- The top 15 members by post number were, in order: *Ryukizashi*, *ThePILLI*, *GLyTCH*, *Zyrel*, *ionut_baluca*, *D4.Ny*, *xXStephXx*, *vezdebest*, *Sakawa*, *Kingblast*, *MrTiz*, *ActionMan95*, *Sky92*, *Zioborn*, *Madara Uchiha*. ([Top 100](/assets/img/content/users-100.txt))
 - The most viewed posts were Metin2 hacks and bots by *D4.Ny*, Metin2 private server guides by *Kingblast* and a Dark Orbit bot by *SnFede*.
 - A [style revamp](/assets/img/content/unreleased-mockup.png) was also in the works, but I never had the time to complete it.
 - The green emoticons <img src="/assets/img/content/sisi.gif" style="display:inline;"/> used on *The Coders Bay* can be donwloaded [here](/assets/img/content/cb-emoticons.zip).
