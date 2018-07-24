@@ -46,11 +46,11 @@ module.exports = {
       "metalsmith-collections": {
         "blog": {
           "sortBy": "date",
-          "reverse": false
+          "reverse": true
         },
         "software": {
           "sortBy": "title",
-          "reverse": "false"
+          "reverse": false
         }
       },
       "metalsmith-permalinks": {
