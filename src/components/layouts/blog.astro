@@ -1,0 +1,22 @@
+---
+	import "../../style/style.scss"
+	import Top from "@components/Top";
+	import Bottom from "@components/Bottom";
+	const {title} = Astro.props;
+---
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Mono" />
+	<title>{title}</title>
+</head>
+<body>
+	<div class="main">
+		<Top />
+		<slot />
+		<Bottom />
+	</div>
+</body>
+</html>

@@ -3,8 +3,7 @@ title: Unfair-Gamers.com - A community 10 years later
 date: 2018-07-24
 author: Daniele Salvagni
 collection: blog
-excerpt: Unfair-Gamers was as a gaming, modding and ethical online-game-hacking community. The main reason the community started was to learn and share the knowledge needed to create such tools, for us there was a more interesting game inside the game; a game made of learning, experimentation, reverse engineering and creation.
-layout: article.hbs
+preview: Unfair-Gamers was as a gaming, modding and ethical online-game-hacking community. The main reason the community started was to learn and share the knowledge needed to create such tools, for us there was a more interesting game inside the game; a game made of learning, experimentation, reverse engineering and creation.
 draft: false
 issue: 2
 ---
@@ -75,11 +74,7 @@ It was also the end of an era of its kind, and as I said I like to think that in
 
 
 
-
 <div align="center">
   <p>*Were you a member of Unfair-Gamers? Leave your story below!*</p>
   <img src="/assets/img/content/ug-dark.png" style="display:inline; width:5rem; display:inline-block;"/>
 </div>
-
-
-

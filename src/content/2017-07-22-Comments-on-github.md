@@ -3,8 +3,7 @@ title: Hosting comments on GitHub for static websites
 date: 2017-07-22
 author: Daniele Salvagni
 collection: blog
-excerpt: How I'm hosting comments on GitHub for my static website with Vue.js and GitHub APIs
-layout: article.hbs
+preview: How I'm hosting comments on GitHub for my static website with Vue.js and GitHub APIs
 draft: false
 issue: 1
 ---
@@ -42,7 +41,7 @@ We will have to manually create a new issue for each post we make, this could be
 
 Here is an example of how the request should look like:
 
-```http
+```
 Request URL:
 https://api.github.com/repos/daniele-salvagni/dan.salvagni.io/issues/1/comments
 Request Method: GET

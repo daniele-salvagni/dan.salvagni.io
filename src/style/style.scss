@@ -1,0 +1,25 @@
+@use "reset";
+@use "variables";
+@use "layout";
+@use "content";
+
+html {
+	font-size: 14px;
+}
+
+body {
+	line-height: 1.6;
+	tab-size: 4;
+	font-weight: 400;
+	font-family: "Ubuntu Mono", monospace;
+	background: var( --background-color );
+	color: var( --text-color );
+}	
+
+a {
+	color: hsl(143, 70%, 36%);
+
+	&:hover, &:focus {
+		color: hsl(143, 70%, 22%);
+	}
+}
