@@ -1,0 +1,9 @@
+---
+	import type { Post } from '@data/post';
+	const post: Post = Astro.props.post
+---
+
+<li>
+    <strong><a href={`/b/${post.slug}`}>{post.title}</a></strong> -
+    <span class="date">{new Date(post.date).toDateString().substring(4)}</span>
+</li>

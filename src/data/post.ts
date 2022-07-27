@@ -6,7 +6,9 @@ export type Post = {
 	title: string,
 	slug: string,
 	preview: string,
+	subtitle: string,
 	timestamp: number,
+	collection: string,
 	draft: boolean,
 	date: string,
 	file: URL,
@@ -24,10 +26,11 @@ export function single(post: MarkdownInstance): Post {
 	}
 }
 
-export function published(posts: MarkdownInstance[]): Post[] {
+export function published(posts: MarkdownInstance[], collection: string): Post[] {
 	return posts
 		.filter(post => post.frontmatter.title )
 		.map(post => single(post))
+		.filter((p) => p.collection === collection)
 		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
@@ -38,7 +41,7 @@ export function getRSS(posts: MarkdownInstance[]) {
 		description: 'Simple Blog RSS Feed',
 		stylesheet: true,
 		customData: `<language>en-us</language>`,
-		items: published(posts).map((post: Post) => ({
+		items: published(posts, 'blog').map((post: Post) => ({
 			title: post.title,
 			description: post.preview,
 			link: post.slug,

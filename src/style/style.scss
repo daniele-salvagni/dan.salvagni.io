@@ -4,7 +4,7 @@
 @use "content";
 
 html {
-	font-size: 14px;
+	font-size: var( --html-font-size );
 }
 
 body {
@@ -17,9 +17,17 @@ body {
 }	
 
 a {
+	text-decoration: none;
 	color: hsl(143, 70%, 36%);
 
 	&:hover, &:focus {
-		color: hsl(143, 70%, 22%);
+		//text-decoration: underline;
+		color: hsl(143, 70%, 30%);
 	}
+}
+
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }

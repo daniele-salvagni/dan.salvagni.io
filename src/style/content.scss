@@ -1,4 +1,6 @@
 .content {
+	text-align: justify;
+    text-justify: inter-word;
 
 	h1,
 	h2,
@@ -29,6 +31,10 @@
 		border-radius: 18px;
 		margin-top: 22px;
 		margin-bottom: 22px;
+	}
+
+	li {
+		text-align: left;
 	}
 
 }

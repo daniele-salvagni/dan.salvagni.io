@@ -5,26 +5,26 @@ import { published, getRSS } from "@data/post"
 
 export async function getStaticPaths({ rss }) {
 	const markdownFiles = await Astro.glob('../../content/**/*.md');
-	const posts = published( markdownFiles, 'blog' );
+	const posts = published( markdownFiles, 'soft');
 	
 	rss(getRSS(markdownFiles));
 
-	return posts.map((post) => {
+	return posts.map((soft) => {
 		return {
-			params: { post: post.slug },
-			props: { post }
+			params: { soft: soft.slug },
+			props: { soft }
 		};
 	})
 }
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
-const { post: { Content }, post } = Astro.props;
+const { soft: { Content }, soft } = Astro.props;
 ---
-<Blog title={post.title}>
+<Blog title={soft.title}>
 	<div class="post-header container">
-		<h1 class="post-title">{post.title}</h1>
+		<h1 class="post-title">{soft.title}</h1>
 		<div class="post-date">
-			<Date date={post.date}/>
+			<Date date={soft.date}/>
 		</div>
 	</div>
 	<div class="content container">
