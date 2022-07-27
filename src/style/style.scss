@@ -11,7 +11,7 @@ body {
 	line-height: 1.6;
 	tab-size: 4;
 	font-weight: 400;
-	font-family: "Ubuntu Mono", monospace;
+	font-family: 'Source Code Pro', monospace;
 	background: var( --background-color );
 	color: var( --text-color );
 }	
@@ -30,4 +30,14 @@ ul, ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.post-header {
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 2rem;
+}
+
+h1.post-title {
+	font-size: 1.25rem;
 }

@@ -4,7 +4,6 @@ date: 2017-07-22
 author: Daniele Salvagni
 collection: blog
 preview: How I'm hosting comments on GitHub for my static website with Vue.js and GitHub APIs
-draft: false
 issue: 1
 ---
 I was in the middle of the development of my new website when I decided that I wanted to allow comments on my posts. That's not an easy task if like me you have decided to go for a static website as you would need some sort of backend on a different server or to rely on a third party service. I started looking for various options, from services like Disqus which didn't give me the flexibility I wanted to a combination of AWS services like Lambda + SNS + Google OAuth which would have been way too complicated for something like this, until I figured: why don't I use GitHub issues? I already have a repository for this website hosted there, I'd just need to to fetch the comments in Javascript using the GitHub APIs, plus almost everyone to whom this blog is addressed has a GitHub account.

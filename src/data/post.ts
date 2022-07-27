@@ -14,7 +14,7 @@ export type Post = {
 	file: URL,
 }
 
-
+// Maps a single post to the Post type
 export function single(post: MarkdownInstance): Post {
 	const slug = post.file.split('/').reverse()[0].replace('.md', '');
 	return {
@@ -26,11 +26,12 @@ export function single(post: MarkdownInstance): Post {
 	}
 }
 
+// Gets all published posts (draft included if dev mode) of a collection
 export function published(posts: MarkdownInstance[], collection: string): Post[] {
 	return posts
 		.filter(post => post.frontmatter.title )
 		.map(post => single(post))
-		.filter((p) => p.collection === collection)
+		.filter(post => post.collection === collection)
 		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }

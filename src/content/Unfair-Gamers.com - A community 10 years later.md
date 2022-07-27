@@ -4,7 +4,6 @@ date: 2018-07-24
 author: Daniele Salvagni
 collection: blog
 preview: Unfair-Gamers was as a gaming, modding and ethical online-game-hacking community. The main reason the community started was to learn and share the knowledge needed to create such tools, for us there was a more interesting game inside the game; a game made of learning, experimentation, reverse engineering and creation.
-draft: false
 issue: 2
 ---
 A few weeks ago I was contacted by a group of people that asked me to join a Whatsapp group called **Unfair-Gamers**, the name of an italian community website that I created almost **10 years ago** while I still was in my teenage years and known online as `D4.Ny`. I was very happy and surprised to discover that many members of the community were able to stick together for this long after the website was closed. This is probably what prompted me to write this commemorative post, and also to serve as a point of reference for anyone that was involved.

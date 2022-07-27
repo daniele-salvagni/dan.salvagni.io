@@ -1,14 +1,75 @@
 ---
 import { published } from "@data/post"
 import Blog from "@layouts/blog";
-import Preview from "@components/blog/preview";
+import BlogEntry from "@components/blog/blog-entry";
+import SoftEntry from "@components/blog/soft-entry";
 
 const markdownFiles = await Astro.glob('../content/**/*.md')
-const posts = published( markdownFiles );
+const posts = published( markdownFiles, 'blog' );
+const soft = published( markdownFiles, 'soft' );
 ---
 
-<Blog title="Simple Blog">
-	<div class="content container">
-		{posts.map((p) => <Preview post={p} />)}
-	</div>
+<Blog title="Daniele Salvagni">
+    <div class="content container" style="">
+
+        <div class='intro'>
+            I'm <b>Daniele Salvagni</b>. I'm currently located in Domaso, Italy and I'm interested in programming, electronics and design. I enjoy learning and creating new things.
+        </div>
+        
+        <div class='skills1'>
+            <strong>LANGUAGES</strong><br>
+            Javascript, HTML5, CSS3, Java, C, C#, Python, PHP, Bash<br><br>
+            <strong>TECHNOLOGIES</strong><br>
+            Git, MySQL, Nginx, AWS, SASS, Astro, Vue.js, Linux<br><br>
+            <strong>METHODS</strong><br>
+            Version control, Continuous integration, Responsive design, Reverse Engineering, Design patterns<br><br>
+        </div>
+
+        <div class='skills2'>
+            <strong>EDUCATION</strong><br>
+            Software Engineering @ PoliMi<br><br>
+            <strong>CERTIFICATIONS</strong><br>
+            English language (TOEIC 990/990)<br><br>
+            <strong>LINKS</strong><br>
+            You can look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a> or contact me directly at [dan@salvagni.io]
+        </div>
+
+       <div class='other'>
+            <strong>TOOLS & SOFTWARE</strong><br>
+            <ul>{soft.map((p) => <SoftEntry post={p} />)}</ul>
+            <br>
+            <strong>NOTES & POSTS</strong><br>
+            <ul>{posts.map((p) => <BlogEntry post={p} />)}</ul>
+        </div>
+
+    </div>
 </Blog>
+
+
+<style>
+    .content {
+        display: grid;
+        gap: 2rem;
+        grid-template-areas: 'intro intro'
+                             'skills1 skills2'
+                             'other other'
+    }
+
+    .intro {
+        grid-area: intro;
+    }
+
+    .skills1 {
+        grid-area: skills1;
+        text-align: left;
+    }
+
+    .skills2 {
+        grid-area: skills2;
+        text-align: left;
+    }
+
+    .other {
+        grid-area: other;
+    }
+</style>
