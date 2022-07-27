@@ -3,41 +3,82 @@
 @use "layout";
 @use "content";
 
+* {line-height: 1.9;}
+
 html {
 	font-size: var( --html-font-size );
 }
 
 body {
-	line-height: 1.6;
 	tab-size: 4;
 	font-weight: 400;
-	font-family: 'Source Code Pro', monospace;
+	font-family: "Roboto Mono", monospace;
 	background: var( --background-color );
 	color: var( --text-color );
 }	
 
 a {
 	text-decoration: none;
-	color: hsl(143, 70%, 36%);
+	color: var( --action-color );
 
 	&:hover, &:focus {
 		//text-decoration: underline;
-		color: hsl(143, 70%, 30%);
+		color: var( --action-color );
 	}
 }
 
+ul, ol {
+    padding-left: 2.5rem;
+	margin: 1.5em 0;
+}
+
+.other{
 ul, ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+}
+
 .post-header {
 	text-align: center;
 	text-transform: uppercase;
-	margin-bottom: 2rem;
+	margin: 0 0 2em;
 }
 
 h1.post-title {
 	font-size: 1.25rem;
+}
+
+.post-date {
+	font-size: 0.75rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: var( --title-color );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.content h2:before {
+    content: '';
+    border-left: 5px solid var( --action-color );;
+    position: absolute;
+    left: -15px;
+    height: 75%;
+    top: 12%;
+}
+
+pre {
+	text-align: left;
 }

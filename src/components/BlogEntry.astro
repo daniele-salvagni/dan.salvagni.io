@@ -1,0 +1,20 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	publishDate: string;
+	url: string;
+}
+const { title, description, publishDate, url } = Astro.props as Props;
+---
+
+<li>
+    <strong><a href={url}>{title}</a></strong> -
+    <span class="date">{new Date(publishDate).toDateString().substring(4)}</span>
+</li>
+
+<style>
+    .date {
+        color: var( --text-color-alt );
+    }
+</style>

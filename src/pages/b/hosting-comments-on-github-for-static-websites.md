@@ -1,10 +1,14 @@
 ---
+layout: "../../layouts/BlogPost.astro"
 title: Hosting comments on GitHub for static websites
-date: 2017-07-22
+publishDate: 2017-07-22
 author: Daniele Salvagni
 collection: blog
 preview: How I'm hosting comments on GitHub for my static website with Vue.js and GitHub APIs
 issue: 1
+heroImage:
+  src: "/assets/blog/introducing-astro.jpg"
+  alt: "Space shuttle leaving curved trail in the sky"
 ---
 I was in the middle of the development of my new website when I decided that I wanted to allow comments on my posts. That's not an easy task if like me you have decided to go for a static website as you would need some sort of backend on a different server or to rely on a third party service. I started looking for various options, from services like Disqus which didn't give me the flexibility I wanted to a combination of AWS services like Lambda + SNS + Google OAuth which would have been way too complicated for something like this, until I figured: why don't I use GitHub issues? I already have a repository for this website hosted there, I'd just need to to fetch the comments in Javascript using the GitHub APIs, plus almost everyone to whom this blog is addressed has a GitHub account.
 
@@ -32,7 +36,7 @@ In this post I will show you how to host comments with GitHub issues, I will try
 
 We will have to manually create a new issue for each post we make, this could be automated but in my opinion it isn't quite worth the effort. If you haven't yet, GitHub issues can be enabled in the repository settings and they will all share the same **base URL** (`https://github.com/daniele-salvagni/dan.salvagni.io/issues/` in my case) followed by a **progressive ID** of the specific issue. As an example, the ID of the issue relative this post is `1`.
 
-[**GitHub's API**](https://developer.github.com/v3/issues/) give us a nice way to get all the comments relative to an issue. Here is all we need to know:
+[GitHub's API](https://developer.github.com/v3/issues/) give us a nice way to get all the comments relative to an issue. Here is all we need to know:
 
 - All API requests will be made to the `https://api.github.com` base URL
 - Comments can be retrieved with a **GET** request to the `/repos/:owner/:repo/issues/:number/comments` endpoint: https://developer.github.com/v3/issues/comments/

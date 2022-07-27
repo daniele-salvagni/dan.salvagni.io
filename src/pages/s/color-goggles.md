@@ -1,21 +1,29 @@
 ---
+layout: "../../layouts/SoftPost.astro"
 title: Color Goggles
-subtitle: Saturation manager for Intel™ laptops.
-date: 2019-12-24
+description: Saturation manager for Intel™ laptops.
+publishDate: 2019-12-24
 author: Daniele Salvagni
 collection: soft
 excerpt: ColorGoggles is an extremely lightweight application that automatically manages your digital saturation when playing games to enhance visibility. This is an alternative to VibranceGUI for Intel HD Graphics or dual-graphics laptops.
 ---
 
-<p align="center">*Saturation manager for Intel™ and Dual-Graphics laptops.*</p>
-
 ![ColorGoggles](/assets/img/content/colorgoggles.png)
 
-ColorGoggles is an extremely lightweight application that automatically manages your digital saturation (**unlocked up to 320%**) when playing games to enhance visibility.
+<p style="text-align: center; font-style: italic;">Saturation manager for Intel™ and Dual-Graphics laptops.</p>
+
+<div class="badges">
+    <img src="https://img.shields.io/badge/requires-igfxDHLib.dll-ff69b4.svg">
+    <img src="https://img.shields.io/github/downloads/daniele-salvagni/color-goggles/total?color=%232d91e3">
+</div>
+
+ColorGoggles is an extremely lightweight application that automatically manages your digital saturation (**unlocked up to 320%**) when opening certain games or software to enhance visibility.
 
 This is an alternative to VibranceGUI for **Intel HD Graphics** or **dual-graphics laptops**. The application is absolutely VAC safe, it does use the same functions as the Intel Control Panel but with the limits removed, many professional players are also known to tweak their digital saturation.
 
 Intel did not release any public APIs so I had to make this tool by reverse engineering the Intel Control Panel and some related driver libraries, contact me if you have any problems.
+
+At the moment this app might need an update, Intel changed many things again and it may have issues with some newer drivers.
 
 ## Installation instructions
 
@@ -31,3 +39,17 @@ There are multiple versions of `igfxDHLib.dll` depending on your drivers version
 <br>
 
 You can always find the latest releases (along with the sourcecode) on **GitHub**: https://github.com/daniele-salvagni/color-goggles/releases
+
+
+
+<style>
+.badges {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.badges img {
+    display:inline-block;
+}
+
+</style>

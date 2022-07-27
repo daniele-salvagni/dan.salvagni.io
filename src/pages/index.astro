@@ -1,19 +1,38 @@
 ---
-import { published } from "@data/post"
-import Blog from "@layouts/blog";
-import BlogEntry from "@components/blog/blog-entry";
-import SoftEntry from "@components/blog/soft-entry";
-
-const markdownFiles = await Astro.glob('../content/**/*.md')
-const posts = published( markdownFiles, 'blog' );
-const soft = published( markdownFiles, 'soft' );
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BlogEntry from "../components/BlogEntry.astro";
+import SoftEntry from "../components/SoftEntry.astro";
+let title = "Example Blog";
+let description = "The perfect starter for your perfect blog.";
+// Use Astro.glob to fetch all post with associated frontmatter
+const unsortedPosts = await Astro.glob("./b/*.md");
+const unsortedSoft = await Astro.glob("./s/*.md");
+const posts = unsortedPosts.sort(function (a, b) {
+	return (
+		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+	);
+});
+const soft = unsortedSoft.sort(function (a, b) {
+	return (
+		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+	);
+});
 ---
 
-<Blog title="Daniele Salvagni">
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+    <body>
+        <div class="main">
+            <Header />
+
     <div class="content container" style="">
 
         <div class='intro'>
-            I'm <b>Daniele Salvagni</b>. I'm currently located in Domaso, Italy and I'm interested in programming, electronics and design. I enjoy learning and creating new things.
+            I'm <b>Daniele Salvagni</b>. I'm currently located at Como Lake, Italy and I'm interested in programming, electronics and design. I enjoy learning and creating new things.
         </div>
         
         <div class='skills1'>
@@ -36,15 +55,39 @@ const soft = published( markdownFiles, 'soft' );
 
        <div class='other'>
             <strong>TOOLS & SOFTWARE</strong><br>
-            <ul>{soft.map((p) => <SoftEntry post={p} />)}</ul>
+            <ul>   
+				{soft.map(({ url, frontmatter }) => (
+                <SoftEntry
+                    title={frontmatter.title}
+                    description={frontmatter.description}
+                    publishDate={frontmatter.publishDate}
+                    url={url}
+                />
+            ))}	
+            </ul>
             <br>
             <strong>NOTES & POSTS</strong><br>
-            <ul>{posts.map((p) => <BlogEntry post={p} />)}</ul>
+            <ul>
+                
+            {posts.map(({ url, frontmatter }) => (
+            <BlogEntry
+                title={frontmatter.title}
+                description={frontmatter.description}
+                publishDate={frontmatter.publishDate}
+                url={url}
+            />
+        ))}
+            </ul>
         </div>
 
     </div>
-</Blog>
+    <Footer />
+</div>
 
+
+</body>
+
+</html>
 
 <style>
     .content {
@@ -62,6 +105,7 @@ const soft = published( markdownFiles, 'soft' );
     .skills1 {
         grid-area: skills1;
         text-align: left;
+        
     }
 
     .skills2 {
@@ -71,5 +115,8 @@ const soft = published( markdownFiles, 'soft' );
 
     .other {
         grid-area: other;
+    }
+
+    .other strong {
     }
 </style>

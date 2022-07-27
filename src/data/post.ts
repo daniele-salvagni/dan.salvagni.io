@@ -36,18 +36,3 @@ export function published(posts: MarkdownInstance[], collection: string): Post[]
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
 
-export function getRSS(posts: MarkdownInstance[]) {
-	return {
-		title: 'Simple Blog RSS',
-		description: 'Simple Blog RSS Feed',
-		stylesheet: true,
-		customData: `<language>en-us</language>`,
-		items: published(posts, 'blog').map((post: Post) => ({
-			title: post.title,
-			description: post.preview,
-			link: post.slug,
-			pubDate: post.date,
-		})),
-	}
-}
-

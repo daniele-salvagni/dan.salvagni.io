@@ -9,8 +9,7 @@
 	h4,
 	h5,
 	h6 {
-		margin-top: 2.4em;
-		margin-bottom: .56em;
+		margin: 2em 0 1em;
 		
 		a {
 			color: inherit;
@@ -24,12 +23,12 @@
 	}
 
 	p {
-		margin-bottom: 30px;
+		margin: 0 0 1em;
 	}
 
 	pre {
-		padding: 33px 22px;
-		border-radius: 18px;
+		padding: 24px 20px;
+		border-radius: 0px;
 		margin-top: 22px;
 		margin-bottom: 22px;
 	}

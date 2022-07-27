@@ -1,25 +1,14 @@
-import astroRemark from '@astrojs/markdown-remark';
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
-export default defineConfig(
-	/** @type {import('astro').AstroUserConfig} */
-	{
-		markdown: {
-			render: [astroRemark, {
-				remarkPlugins: [],
-				rehypePlugins: ['rehype-slug', ['rehype-autolink-headings', {
-					behavior: 'wrap'
-				}]],
-				shikiConfig: {
-					theme: 'poimandres',
-					langs: [],
-					wrap: false
-				}
-			}]
-		},
-		site: 'http://localhost:3000/',
-		integrations: [sitemap()]
-	});
-	
+export default defineConfig({
+	markdown: {
+		shikiConfig: {
+		  theme: 'material-lighter',
+		  wrap: false
+	    },
+	},
+	integrations: [mdx()],
+	site: `http://localhost:3000`,
+});
