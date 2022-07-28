@@ -30,20 +30,18 @@ const {
     <div class="main">
         <Header />
 
-        <article>
+        <main class="content container">
+
             <header class="post-header">
                 <h1 class="post-title">{title}</h1>
-                <div class="post-date">
-                    <!--<Date date={publishDate}/> o <time>{publishDate}</time>-->
-                </div>
             </header>
-            <main class="content container">
-                <slot></slot>
-            </main>
-        </article>
+
+            <slot></slot>
+
+        </main>
+
         <Footer />
     </div>
-
 </body>
 
 </html>

@@ -1,16 +1,15 @@
 ---
 layout: '../../layouts/BlogPost.astro'
-title: Hosting comments on GitHub for static websites
-publishDate: 2017-07-22
-author: Daniele Salvagni
 collection: blog
-preview:
+issue: 3
+
+author: Daniele Salvagni
+title: Hosting comments on GitHub for static websites
+publishDate: 2017-06-18
+
+excerpt:
   How I'm hosting comments on GitHub for my static website with Vue.js and
   GitHub APIs
-issue: 1
-heroImage:
-  src: '/assets/blog/introducing-astro.jpg'
-  alt: 'Space shuttle leaving curved trail in the sky'
 ---
 
 ![Github Comments](/assets/img/content/001/github-comments.png)
@@ -199,7 +198,7 @@ property to the data object. Then it is easy to iterate over the comments with a
   {{{{raw}}}}
   <div class="comment" v-for="comment in comments">
     <div class="comment-avatar">
-      <img v-bind:src="comment.user.avatar_url + '&s=80'">
+      <img v-bind:src="comment.user.avatar_url + '&s=80'" />
     </div>
     <div class="comment-meta">
       <a class="comment-user" v-bind:href="comment.user.html_url">
@@ -222,3 +221,18 @@ property to the data object. Then it is easy to iterate over the comments with a
 
 That's it, GitHub's API are doing all the work and it should be fairly simple to
 replicate this for any static site.
+
+## Alternatives in 2022
+
+It has been a long time since I written this post and while I was remaking my
+website with some new tech, I have been looking at what's available today. Many
+people had similar ideas with clever solutions.
+
+[Giscus](https://giscus.app/) is the one that caught my eye and it's what I'm
+using at the moment. Migrating was super simple, I just had to enable
+[Discussions](https://docs.github.com/en/discussions) in my Github repo and
+[convert](https://docs.github.com/en/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
+the existing issues to discussions.
+
+Doing it manually is still perfectly fine if you want to be minimal as possible,
+but this time I felt like didn't want to reinvent the wheel again.

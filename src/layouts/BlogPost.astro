@@ -9,15 +9,12 @@ export interface Props {
         title: string;
         description: string;
         publishDate: string;
-        heroImage?: {
-            src: string;
-            alt: string;
-        };
+        issue: number;
     };
 }
 
 const {
-    content: { title, description, publishDate, heroImage },
+    content: { title, description, publishDate, issue },
 } = Astro.props as Props;
 ---
 
@@ -31,20 +28,27 @@ const {
     <div class="main">
         <Header />
 
-        <article>
+        <main class="content container">
+
             <header class="post-header">
                 <h1 class="post-title">{title}</h1>
                 <div class="post-date">
                     <Date date={publishDate} />
                 </div>
             </header>
-            <main class="content container">
-                <slot></slot>
-            </main>
-        </article>
+
+            <slot></slot>
+
+            <br>
+            <script src="https://giscus.app/client.js" data-repo="daniele-salvagni/dan.salvagni.io"
+                data-repo-id="MDEwOlJlcG9zaXRvcnk3MjM3NTM3Ng==" data-mapping="number" data-term={issue}
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light"
+                data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+
+        </main>
+
         <Footer />
     </div>
-
 </body>
 
 </html>
@@ -53,5 +57,16 @@ const {
     h1.post-title {
         font-size: 1.25rem;
         text-transform: uppercase;
+    }
+
+    .comment-write {
+        margin: 2em 0;
+        padding: 1em;
+        text-align: center;
+        background-color: #fffce7;
+    }
+
+    .giscus {
+        font-size: 10px;
     }
 </style>

@@ -1,16 +1,18 @@
 ---
 layout: '../../layouts/BlogPost.astro'
+collection: blog
+issue: 4
+
+author: Daniele Salvagni
 title: Unfair-Gamers.com - A community 10 years later
 publishDate: 2018-07-24
-author: Daniele Salvagni
-collection: blog
-preview:
+
+excerpt:
   Unfair-Gamers was as a gaming, modding and ethical online-game-hacking
   community. The main reason the community started was to learn and share the
   knowledge needed to create such tools, for us there was a more interesting
   game inside the game; a game made of learning, experimentation, reverse
   engineering and creation.
-issue: 2
 ---
 
 ![Unfair-Gamers Screenshot](/assets/img/content/002/ug-screenshot.png)

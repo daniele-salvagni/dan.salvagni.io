@@ -4,8 +4,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BlogEntry from "../components/BlogEntry.astro";
 import SoftEntry from "../components/SoftEntry.astro";
-let title = "Example Blog";
-let description = "The perfect starter for your perfect blog.";
+let title = "Daniele Salvagni";
+let description = "Daniele Salvagni's personal website.";
 // Use Astro.glob to fetch all post with associated frontmatter
 const unsortedPosts = await Astro.glob("./b/*.md");
 const unsortedSoft = await Astro.glob("./s/*.md");
@@ -15,9 +15,7 @@ const posts = unsortedPosts.sort(function (a, b) {
     );
 });
 const soft = unsortedSoft.sort(function (a, b) {
-    return (
-        new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
-    );
+    return (a.frontmatter.order - b.frontmatter.order);
 });
 ---
 
