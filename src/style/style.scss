@@ -26,7 +26,7 @@ a {
   &:hover,
   &:focus {
     //text-decoration: underline;
-    color: var(--action-color);
+    color: hsl(143, 70%, 22%);
   }
 }
 
@@ -53,6 +53,7 @@ ol {
 
 h1.post-title {
   font-size: 1.25rem;
+  margin-top: 0;
 }
 
 .post-date {
@@ -82,4 +83,16 @@ h6 {
 
 pre {
   text-align: left;
+}
+
+blockquote {
+  padding: 0 1em;
+  background-color: #fffdf7;
+}
+
+code {
+  padding: 0.2em 0.1em;
+  margin: 0;
+  background-color: #f6f6f6;
+  border-radius: 3px;
 }
