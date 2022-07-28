@@ -1,9 +1,9 @@
 ---
 export interface Props {
-	title: string;
-	description: string;
-	publishDate: string;
-	url: string;
+    title: string;
+    description: string;
+    publishDate: string;
+    url: string;
 }
 const { title, description, publishDate, url } = Astro.props as Props;
 ---
@@ -15,6 +15,6 @@ const { title, description, publishDate, url } = Astro.props as Props;
 
 <style>
     .subt {
-        color: var( --text-color-alt );
+        color: var(--text-color-alt);
     }
 </style>

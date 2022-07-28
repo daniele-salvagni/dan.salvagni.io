@@ -5,50 +5,52 @@ import Footer from "../components/Footer.astro";
 import Date from "../components/utilities/Date.astro";
 
 export interface Props {
-	content: {
-		title: string;
-		description: string;
-		publishDate: string;
-		heroImage?: {
-			src: string;
-			alt: string;
-		};
-	};
+    content: {
+        title: string;
+        description: string;
+        publishDate: string;
+        heroImage?: {
+            src: string;
+            alt: string;
+        };
+    };
 }
 
 const {
-	content: { title, description, publishDate, heroImage },
+    content: { title, description, publishDate, heroImage },
 } = Astro.props as Props;
 ---
 
 <html>
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
 
-	<body>
-        <div class="main">
-		<Header />
+<head>
+    <BaseHead title={title} description={description} />
+</head>
+
+<body>
+    <div class="main">
+        <Header />
 
         <article>
-        <header class="post-header">
-            <h1 class="post-title">{title}</h1>
-            <div class="post-date">
-                <Date date={publishDate}/>
-            </div>
-        </header>
-        <main class="content container">
-            <slot></slot>
-        </main>
-    </article>
-    <Footer />
-</div>
+            <header class="post-header">
+                <h1 class="post-title">{title}</h1>
+                <div class="post-date">
+                    <Date date={publishDate} />
+                </div>
+            </header>
+            <main class="content container">
+                <slot></slot>
+            </main>
+        </article>
+        <Footer />
+    </div>
 
-	</body>
+</body>
+
 </html>
 
 <style>
-	h1.post-title {
+    h1.post-title {
         font-size: 1.25rem;
         text-transform: uppercase;
     }

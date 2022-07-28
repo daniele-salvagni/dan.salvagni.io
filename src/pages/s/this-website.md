@@ -1,16 +1,19 @@
 ---
-layout: "../../layouts/SoftPost.astro"
+layout: '../../layouts/SoftPost.astro'
 title: About this Website
 description: Statically generated with Astro.
 publishDate: 2022-07-28
 author: Daniele Salvagni
 collection: soft
-excerpt: ColorGoggles is an extremely lightweight application that automatically manages your digital saturation when playing games to enhance visibility. This is an alternative to VibranceGUI for Intel HD Graphics or dual-graphics laptops.
+excerpt:
+  ColorGoggles is an extremely lightweight application that automatically
+  manages your digital saturation when playing games to enhance visibility. This
+  is an alternative to VibranceGUI for Intel HD Graphics or dual-graphics
+  laptops.
 ---
 
-This website is statically generate thanks to Astro, SCSS, Typescript, MDX and more.
-
-
+This website is statically generate thanks to Astro, SCSS, Typescript, MDX and
+more.
 
 <style>
 .badges {
@@ -21,5 +24,4 @@ This website is statically generate thanks to Astro, SCSS, Typescript, MDX and m
 .badges img {
     display:inline-block;
 }
-
 </style>

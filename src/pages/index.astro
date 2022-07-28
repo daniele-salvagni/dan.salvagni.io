@@ -10,79 +10,75 @@ let description = "The perfect starter for your perfect blog.";
 const unsortedPosts = await Astro.glob("./b/*.md");
 const unsortedSoft = await Astro.glob("./s/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
-	);
+    return (
+        new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+    );
 });
 const soft = unsortedSoft.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
-	);
+    return (
+        new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+    );
 });
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-    <body>
-        <div class="main">
-            <Header />
 
-    <div class="content container" style="">
+<head>
+    <BaseHead title={title} description={description} />
+</head>
 
-        <div class='intro'>
-            I'm <b>Daniele Salvagni</b>. I'm currently located at Como Lake, Italy and I'm interested in programming, electronics and design. I enjoy learning and creating new things.
+<body>
+    <div class="main">
+        <Header />
+
+        <div class="content container" style="">
+
+            <div class='intro'>
+                I'm <b>Daniele Salvagni</b>. I'm currently located at Como Lake, Italy and I'm interested in
+                programming, electronics and design. I enjoy learning and creating new things.
+            </div>
+
+            <div class='skills1'>
+                <strong>LANGUAGES</strong><br>
+                Javascript, HTML5, CSS3, Java, C, C#, Python, PHP, Bash<br><br>
+                <strong>TECHNOLOGIES</strong><br>
+                Git, MySQL, Nginx, AWS, SASS, Astro, Vue.js, Linux<br><br>
+                <strong>METHODS</strong><br>
+                Version control, Continuous integration, Responsive design, Reverse Engineering, Design patterns<br><br>
+            </div>
+
+            <div class='skills2'>
+                <strong>EDUCATION</strong><br>
+                Software Engineering @ PoliMi<br><br>
+                <strong>CERTIFICATIONS</strong><br>
+                English language (TOEIC 990/990)<br><br>
+                <strong>LINKS</strong><br>
+                You can look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a>
+                or contact me directly at [dan@salvagni.io]
+            </div>
+
+            <div class='other'>
+                <strong>TOOLS & SOFTWARE</strong><br>
+                <ul>
+                    {soft.map(({ url, frontmatter }) => (
+                    <SoftEntry title={frontmatter.title} description={frontmatter.description}
+                        publishDate={frontmatter.publishDate} url={url} />
+                    ))}
+                </ul>
+                <br>
+                <strong>NOTES & POSTS</strong><br>
+                <ul>
+
+                    {posts.map(({ url, frontmatter }) => (
+                    <BlogEntry title={frontmatter.title} description={frontmatter.description}
+                        publishDate={frontmatter.publishDate} url={url} />
+                    ))}
+                </ul>
+            </div>
+
         </div>
-        
-        <div class='skills1'>
-            <strong>LANGUAGES</strong><br>
-            Javascript, HTML5, CSS3, Java, C, C#, Python, PHP, Bash<br><br>
-            <strong>TECHNOLOGIES</strong><br>
-            Git, MySQL, Nginx, AWS, SASS, Astro, Vue.js, Linux<br><br>
-            <strong>METHODS</strong><br>
-            Version control, Continuous integration, Responsive design, Reverse Engineering, Design patterns<br><br>
-        </div>
-
-        <div class='skills2'>
-            <strong>EDUCATION</strong><br>
-            Software Engineering @ PoliMi<br><br>
-            <strong>CERTIFICATIONS</strong><br>
-            English language (TOEIC 990/990)<br><br>
-            <strong>LINKS</strong><br>
-            You can look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a> or contact me directly at [dan@salvagni.io]
-        </div>
-
-       <div class='other'>
-            <strong>TOOLS & SOFTWARE</strong><br>
-            <ul>   
-				{soft.map(({ url, frontmatter }) => (
-                <SoftEntry
-                    title={frontmatter.title}
-                    description={frontmatter.description}
-                    publishDate={frontmatter.publishDate}
-                    url={url}
-                />
-            ))}	
-            </ul>
-            <br>
-            <strong>NOTES & POSTS</strong><br>
-            <ul>
-                
-            {posts.map(({ url, frontmatter }) => (
-            <BlogEntry
-                title={frontmatter.title}
-                description={frontmatter.description}
-                publishDate={frontmatter.publishDate}
-                url={url}
-            />
-        ))}
-            </ul>
-        </div>
-
+        <Footer />
     </div>
-    <Footer />
-</div>
 
 
 </body>
@@ -94,8 +90,8 @@ const soft = unsortedSoft.sort(function (a, b) {
         display: grid;
         gap: 2rem;
         grid-template-areas: 'intro intro'
-                             'skills1 skills2'
-                             'other other'
+            'skills1 skills2'
+            'other other'
     }
 
     .intro {
@@ -105,7 +101,7 @@ const soft = unsortedSoft.sort(function (a, b) {
     .skills1 {
         grid-area: skills1;
         text-align: left;
-        
+
     }
 
     .skills2 {
@@ -117,6 +113,5 @@ const soft = unsortedSoft.sort(function (a, b) {
         grid-area: other;
     }
 
-    .other strong {
-    }
+    .other strong {}
 </style>
