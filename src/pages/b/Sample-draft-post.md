@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 title: This is a draft
-publishDate: 2022-03-09
+publishDate: 3000-01-01
 preview:
   "This is a draft post - only visible while in dev mode. When this site is
   built, the draft won't be included."

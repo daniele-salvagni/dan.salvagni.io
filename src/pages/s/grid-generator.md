@@ -1,10 +1,13 @@
 ---
 layout: '../../layouts/SoftPost.astro'
+collection: soft
+order: 3
+
+author: Daniele Salvagni
 title: Grid Generator
 description: Pen input calibration tool.
 publishDate: 2018-07-22
-author: Daniele Salvagni
-collection: soft
+
 excerpt:
   A tool for generating calibration grids for pen input on Windows. Supports any
   resolution with any number of calibrations points which will be more densely
@@ -24,12 +27,12 @@ excerpt:
 
   <p>The point distribution will be more dense at the edges and gradually decrease towards the middle. A margin of 10px will be kept around the screen to allow for better accuracy. This tool will generate:</p>
 
-- A grid of <input type="text" v-model="hpts" class="grid-input"> x
+\- A grid of <input type="text" v-model="hpts" class="grid-input"> x
   <input type="text" v-model="vpts" class="grid-input"> points for a
   <input type="text" v-model="hres" class="grid-input"> x
   <input type="text" v-model="vres" class="grid-input"> px resolution.
 
-  <p>The grid will have a total of {{ hpts\*vpts }} points. To begin the calibration, please copy and paste the following string in a Command Prompt:</p>
+  <p>The grid will have a total of {{ hpts\*vpts }} points. To begin the calibration, please copy and paste the following string in a Command Prompt to start the calibration:</p>
 
   <pre class="hljs" style="text-align:left;"><code style="white-space: initial;">
   {{ cmnd }}

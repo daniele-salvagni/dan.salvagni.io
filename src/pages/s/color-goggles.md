@@ -1,10 +1,13 @@
 ---
 layout: '../../layouts/SoftPost.astro'
+collection: soft
+order: 1
+
+author: Daniele Salvagni
 title: Color Goggles
 description: Saturation manager for Intel™ laptops.
-publishDate: 2019-12-24
-author: Daniele Salvagni
-collection: soft
+publishDate: 2019-12-28
+
 excerpt:
   ColorGoggles is an extremely lightweight application that automatically
   manages your digital saturation when playing games to enhance visibility. This

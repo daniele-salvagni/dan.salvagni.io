@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,6 +10,6 @@ export default defineConfig({
       wrap: false
     }
   },
-  integrations: [mdx()],
+  integrations: [mdx(), vue()],
   site: `http://localhost:3000`
 });

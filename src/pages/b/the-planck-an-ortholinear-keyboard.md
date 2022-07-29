@@ -32,7 +32,7 @@ a full-size keyboard.
 
 ![My Planck Keyboard](/assets/img/content/003/my-planck.png)
 
-🔝 _Did I mention you also need to buy less Mechanical Switches and Keycaps?_
+🔝 _Did I mention you also need to buy half Mechanical Switches and Keycaps?_
 
 ## My current Keymap
 

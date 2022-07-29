@@ -47,15 +47,16 @@ The folder structure of this website looks something like this:
 If the page has brackets in it's name it's a
 [dynamic route](https://docs.astro.build/en/core-concepts/routing/).
 
-`src/components/` is where I put anything that I want to re-use inside pages.
-All client side JS is put into the `/scripts/` folder.
+Page layouts are in the `src/layouts` folder while `src/components/` is where I
+put anything that I want to re-use inside pages. All client side JS is put into
+the `src/scripts/` folder.
 
-All global styles are in `/styles/` and written with
+All global styles are in `src/styles/` and written with
 [SASS](https://sass-lang.com/). Individual page or component styles are in each
 page or component file inside the `<style>` tags.
 
 Every time a commit is pushed,
-[GitHub Actions](https://github.com/features/actions) will build and deploy the
+[GitHub Actions](https://github.com/features/actions) will build and deploy this
 website to an [AWS S3](https://aws.amazon.com/s3/) bucket.
 
 Source code: https://github.com/daniele-salvagni/dan.salvagni.io
