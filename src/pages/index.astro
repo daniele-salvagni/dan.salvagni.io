@@ -9,7 +9,7 @@ let description = "Daniele Salvagni's personal website.";
 // Use Astro.glob to fetch all post with associated frontmatter
 const unsortedPosts = await Astro.glob("./b/*.md");
 const unsortedSoft = await Astro.glob("./s/*.md");
-const posts = unsortedPosts.sort(function (a, b) {
+const posts = unsortedPosts.filter((post) => !post.frontmatter.draft).sort(function (a, b) {
     return (
         new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
     );
