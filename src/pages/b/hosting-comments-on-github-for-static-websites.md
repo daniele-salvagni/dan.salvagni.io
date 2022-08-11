@@ -9,7 +9,7 @@ publishDate: 2017-06-18
 
 excerpt:
   How I'm hosting comments on GitHub for my static website with Vue.js and
-  GitHub APIs
+  GitHub APIs.
 ---
 
 ![Github Comments](/assets/img/content/001/github-comments.png)

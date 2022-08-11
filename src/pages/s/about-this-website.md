@@ -9,10 +9,7 @@ description: Statically generated with Astro.js.
 publishDate: 2022-07-28
 
 excerpt:
-  ColorGoggles is an extremely lightweight application that automatically
-  manages your digital saturation when playing games to enhance visibility. This
-  is an alternative to VibranceGUI for Intel HD Graphics or dual-graphics
-  laptops.
+  This webiste is statically generated thanks to Astro, styles are written in SASS and content in Markdown. Every time a commit is pushed, Github Actions will deploy this website to an AWS S3 bucket.
 ---
 
 This website is statically generated thanks to **Astro**, a new (1.0.0-rc.1 at

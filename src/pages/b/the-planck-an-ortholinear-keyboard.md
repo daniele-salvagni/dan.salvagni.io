@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: The Planck - An ortholinear keyboard
 publishDate: 2022-07-29
 
-excerpt: test
+excerpt: My layout on the Plank, an ortholinear 40% keyboard. Why I like it more than normal keybaords and some pros of the QMK firmware.
 ---
 
 ![An old typewriter](/assets/img/content/003/typewriter.png)
@@ -100,7 +100,7 @@ only one hand is required.
 Some extra symbols are on this layer, they aren't frequently used and so they
 are placed in a way which is easy to remember. The reasoning is that keybodes
 with a similar function are on the same key on different layers, some examples
-are `{$, €}` `{*, ×}` `{< «}` `{> »}` `{\, ÷}` and so on...
+are `{$, €}` `{*, ×}` `{<, «}` `{>, »}` `{\, ÷}` and so on...
 
 ### FUNCTION Layer
 

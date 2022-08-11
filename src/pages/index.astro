@@ -33,7 +33,7 @@ const soft = unsortedSoft.sort(function (a, b) {
 
             <div class='intro'>
                 I'm <b>Daniele Salvagni</b>. I'm currently located at Como Lake, Italy and I'm interested in
-                programming, electronics and design. I enjoy learning and creating new things.
+                programming, electronics and UI/UX design. I enjoy learning and creating new things.
             </div>
 
             <div class='skills1'>
@@ -42,7 +42,7 @@ const soft = unsortedSoft.sort(function (a, b) {
                 <strong>TECHNOLOGIES</strong><br>
                 Git, MySQL, Nginx, AWS, SASS, Astro, Vue.js, Linux<br><br>
                 <strong>METHODS</strong><br>
-                Version control, Continuous integration, Responsive design, Reverse Engineering, Design patterns<br><br>
+                Version control, Unit Testing, Responsive design, Reverse Engineering, CI, Design patterns<br>
             </div>
 
             <div class='skills2'>
@@ -52,7 +52,7 @@ const soft = unsortedSoft.sort(function (a, b) {
                 English language (TOEIC 990/990)<br><br>
                 <strong>LINKS</strong><br>
                 You can look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a>
-                or contact me directly at [dan@salvagni.io]
+                or contact me directly at dan@salvagni.io
             </div>
 
             <div class='other'>
@@ -111,5 +111,18 @@ const soft = unsortedSoft.sort(function (a, b) {
         grid-area: other;
     }
 
-    .other strong {}
+    @media screen and (max-width: 650px) {
+        .content {
+            grid-template-areas: 'intro intro'
+                'skills1 skills1'
+                'skills2 skills2'
+                'other other'
+        }
+        
+
+
+        #index-header {
+            padding: 3rem 0 3rem 0;
+        }
+    }
 </style>
