@@ -41,7 +41,7 @@ The folder structure of this website looks something like this:
 
 [Astro](https://astro.build/) looks for `.astro` or `.md` files in the
 `/src/pages/` directory. Each page is exposed as a route based on its file name.
-If the page has brackets in it's name it's a
+If the page has [brackets] in it's name it's a
 [dynamic route](https://docs.astro.build/en/core-concepts/routing/).
 
 Page layouts are in the `src/layouts` folder while `src/components/` is where I
