@@ -5,7 +5,7 @@ order: 3
 
 author: Daniele Salvagni
 title: Grid Generator
-description: Pen input calibration tool.
+description: Pen input calibration tool with live preview.
 publishDate: 2018-07-22
 
 excerpt:
@@ -14,7 +14,7 @@ excerpt:
   distributed towards the edges.
 ---
 
-<p align="center">*Grid generator for pen input calibration on Windows™ with live preview.*</p>
+<p align="center">Grid generator for pen input calibration on Windows™ with live preview.</p>
 
 <div id="grid-app" class="content">
 
@@ -32,9 +32,9 @@ excerpt:
   <input type="text" v-model="hres" class="grid-input"> x
   <input type="text" v-model="vres" class="grid-input"> px resolution.
 
-  <p>The grid will have a total of {{ hpts\*vpts }} points. To begin the calibration, please copy and paste the following string in a Command Prompt to start the calibration:</p>
+  <p>The grid will have a total of {{ hpts * vpts }} points. Copy and paste the following string in a Command Prompt to start the calibration:</p>
 
-  <pre class="hljs" style="text-align:left;"><code style="white-space: initial;">
+  <pre class="astro-code" style="background-color: #FAFAFA; overflow-x: auto;"><code style="white-space: initial;">
   {{ cmnd }}
   </code></pre>
 
@@ -43,4 +43,88 @@ excerpt:
 
 </div>
 
-<!--<script src="/assets/app2.js"></script>-->
+<script src="https://unpkg.com/vue@2.5.16"></script>
+<script>
+new Vue({
+  el: '#grid-app',
+
+  data: {
+    test: 'passed!',
+    hres: 2160,
+    vres: 1440,
+    hpts: 17,
+    vpts: 14
+  },
+
+  computed: {
+    horz: function () {
+      return getIntervals(this.hpts, -150, 150);
+    },
+    vert: function () {
+      return getIntervals(this.vpts, -100, 100);
+    },
+    cmnd: function () {
+      let command = 'tabcal devicekind=pen lincal novalidate';
+      let xarr = this.horz.map((x) =>
+        Math.round(((x + 150) / 300) * (this.hres - 20) + 10)
+      );
+      let yarr = this.vert.map((y) =>
+        Math.round(((y + 100) / 200) * (this.vres - 20) + 10)
+      );
+      return (
+        command +
+        ' XGridPts=' +
+        xarr.toString() +
+        ' YGridPts=' +
+        yarr.toString()
+      );
+    }
+  }
+});
+
+function getIntervals(points, min, max) {
+  let arr = [];
+  let pts = points - 3;
+  let unit = max / ((pts / 2 + 1) * (pts / 2 + 2)); // /6?
+
+  for (let i = 0; i < pts / 2; i++) arr.push(unit * (i + 1) * (i + 2) - max);
+  let mirror = arr.concat(
+    arr.map(function (x) {
+      return x * -1;
+    })
+  );
+  if (points > 1) mirror = mirror.concat([min, max]);
+  if (pts % 2 == 0) mirror = mirror.concat(0);
+  mirror = mirror.sort(function (a, b) {
+    return +a - +b;
+  });
+  return mirror;
+}
+</script>
+
+<style>
+pre {
+  overflow: auto;
+}
+
+
+[type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], input:not([type]), textarea {
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #98978e;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    padding: 0.66667em;
+    width: 100%;
+}
+
+.grid-input {
+    display: inline-block;
+    width: 4rem;
+    text-align: center;
+    padding: 0.1rem;
+    border-color: #7a7972;
+}
+</style>
+
