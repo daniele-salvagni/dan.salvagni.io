@@ -48,7 +48,7 @@ website to an [AWS S3](https://aws.amazon.com/s3/) bucket.
 
 -----
 
-### Old stack
+### ⌛ Old stack
 
 The stack mentioned above is replacing the following one:
 
