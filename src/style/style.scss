@@ -100,3 +100,8 @@ code {
 ::selection {
   background: #fff1c5;
 }
+
+.contains-task-list {
+  list-style: none;
+  padding-left: 1rem;
+}
