@@ -114,5 +114,15 @@ The following extra libraries can be installed from the Library Manager:
 - [UniversalTelegramBot](https://www.arduino.cc/reference/en/libraries/universaltelegrambot/):
   for using the Telegram API
 
-**TODO:** refactor the code and create a local webserver to change and store the
-configuration in the EEPROM without having to recompile.
+### Debugging with Wireshark
+
+If you encounter any issues you can use Wireshark and filter for WOL packets to
+check what's going wrong:
+
+![Wireshark Wake-on-Lan Packet](/assets/img/content/004/wol-wireshark.png)
+
+### TODO List
+
+- [ ] Refactor code
+- [ ] Store network configuration in EEPROM
+- [ ] Add configuration commands to Telegram bot
