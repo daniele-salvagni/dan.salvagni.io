@@ -24,7 +24,7 @@ to choose one of the following:
   like a Raspberry Pi and having it powered on 24/7. They don't consume _that
   much_ power but if you run them from an SD card it often gets corrupted.
 
-<video autoplay loop muted>
+<video autoplay loop muted playsinline>
   <source src="/assets/img/content/004/esp32-wake-on-lan.mp4" type="video/mp4" />
 </video><br/>
 
