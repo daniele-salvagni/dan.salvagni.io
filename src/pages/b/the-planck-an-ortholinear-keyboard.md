@@ -7,7 +7,9 @@ author: Daniele Salvagni
 title: The Planck - An ortholinear keyboard
 publishDate: 2022-07-29
 
-excerpt: My layout on the Plank, an ortholinear 40% keyboard. Why I like it more than normal keybaords and some pros of the QMK firmware.
+excerpt:
+  My layout on the Plank, an ortholinear 40% keyboard. Why I like it more than
+  normal keybaords and some pros of the QMK firmware.
 ---
 
 ![An old typewriter](/assets/img/content/003/typewriter.png)
@@ -40,6 +42,8 @@ There are a lot of customizations you can do in the QMK Firmware, here are my
 main layers but there really is much more. The full code of my custom firmware
 can be seen on
 [Github](https://github.com/daniele-salvagni/qmk_firmware/tree/master/keyboards/planck/keymaps/danck).
+This also serves to me as a reminder in case I forget where a specific key is
+located 😅
 
 ### QWERTY Layer
 
