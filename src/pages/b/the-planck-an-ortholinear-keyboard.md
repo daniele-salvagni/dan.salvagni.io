@@ -72,11 +72,11 @@ will send `Enter`.
 
 ```
 ,----------------------------------------------------------------------.
-|  `  |  !  |  @  |  #  |  $  |  %  |  ^  |  &  |  *  |  (  |  )  |Bksp |
+|  `  |  !  |  @  |  #  |  $  |  %  |  ^  |  &  |  *  |  () |  )  |Bksp |
 |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
 |Tab  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  +  |
 |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
-|     |  {  |  }  |     |  =  |     |     |  |  |  [  |  ]  |     |  \  |
+|     |  {} |  }  |     |  =  |     |     |  |  |  [] |  ]  |     |  \  |
 |-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
 |     |     |     |     |     |           |     |  "  |     |     | =>  |
 `----------------------------------------------------------------------'
@@ -86,6 +86,11 @@ The numbers were missing on the main layer, so here they are! There is also a
 little macro to send `=>`, pretty useful for writing Javascript. Some symbols
 like `{ } =` are pretty common in programming, so I placed those in a way where
 only one hand is required.
+
+Brackets also have a special function, as an example: by tapping the `{}`
+key, a single opening bracket `{` will be made, if I instead hold the key,
+a macro will send both opening and closing brackets and place the cursor in
+the middle by automatically tapping the left arrow key.
 
 ### RAISE Layer
 
