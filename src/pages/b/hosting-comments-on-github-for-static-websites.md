@@ -62,7 +62,7 @@ Accept: application/vnd.github.VERSION.html+json
 ```
 
 And here is a gist containing the response:
-[response.json](https://gist.github.com/daniele-salvagni/63275d66bce137d57a5c6c495dd5f877)  
+[response.json](https://gist.github.com/daniele-salvagni/63275d66bce137d57a5c6c495dd5f877)
 as you can see, the comment is already rendered to HTML!
 
 ## Adding an issue ID to our posts
@@ -118,7 +118,7 @@ instead (the one I'm using here) if you don't want to deal manually with
 > origin (domain) to interact with a resource from another origin (thus
 > obtaining access to sensitive data).
 >
-> The most common way to "bypass" this mechanismF has always been to use
+> The most common way to "bypass" this mechanism has always been to use
 > [JSONP](http://en.wikipedia.org/wiki/JSONP) (and that's what I did try
 > initially), the problem is that JSONP doesn't allow us to set a **custom
 > header** to our requests. This is required by the GitHub APIs to set the HTML

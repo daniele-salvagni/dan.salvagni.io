@@ -12,21 +12,19 @@ excerpt:
   on the local network to turn on my PC from anywhere.
 ---
 
-I wanted a simple way to be able to turn on my PC from anywhere without having
+I wanted a simple and reliable way to turn on my PC from anywhere without having
 to choose one of the following:
 
-**Port Forwarding:** As most consumer routers don't support forwarding broadcast
-packets, this would imply having to make a DHCP reservation for the device that
-needs waking up so that the local IP will not change. Also, in case of internet
-connections with dynamic IP, a DDNS service would be required.
+- **Port Forwarding:** As most consumer routers don't support forwarding
+  broadcast packets, this would imply having to make a DHCP reservation for the
+  device that needs waking up so that the local IP will not change. Also, in
+  case of internet connections with dynamic IP, a DDNS service would be
+  required.
 
-**Local Server:** This would require having to maintain a small local server
-like a Raspberry Pi and having it powered on 24/7. They don't consume much power
-but it's overkill and if you run them from an SD card it often gets corrupted.
-
-<video autoplay loop muted playsinline>
-  <source src="/assets/img/content/004/esp32-wake-on-lan.mp4" type="video/mp4" />
-</video><br/>
+- **Local Server:** This would require having to maintain a small local server
+  like a Raspberry Pi and having it powered on 24/7. They don't consume much
+  power but it's overkill and if you run them from an SD card it often gets
+  corrupted.
 
 I wanted something reliable that I could quickly setup and then mostly forget
 about it. The solution I came up with was to host a simple Telegram Bot on an
@@ -36,12 +34,16 @@ about it. The solution I came up with was to host a simple Telegram Bot on an
 2. Wait for the `/wol` command on Telegram
 3. Broadcast the Wake-on-Lan packet on the local network
 
-🪙 The power consumption is very low, less than half a watt, so you can keep it
+💵 The power consumption is very low, less than half a watt, so you can keep it
 running for about **1$** in electricity per year.
 
-It keeps working if you buy a new router, it does not depend on my public or
-local IP staying the same and you don't have to keep a linux server running for
-such a simple task.
+<video autoplay loop muted playsinline>
+  <source src="/assets/img/content/004/esp32-wake-on-lan.mp4" type="video/mp4" />
+</video><br/>
+
+> It keeps working if I buy a new router, it does not depend on my public or
+> local IP staying the same and I don't have to keep a linux server running for
+> such a simple task.
 
 ## The Wake on Lan "Magic Packet"
 
@@ -53,30 +55,22 @@ The magic packet consists of the following parts:
 
 - **Header:** 6 Bytes which is nothing but 6 bytes of 0xff.
 - **Data:** 16\*6 Bytes, the MAC Address of the target device repeated 16 times.
+- **Password:** Some clients require 6 extra Bytes containing a password known
+  as _SecureOn_.
 
-Some clients require a password in the packet known as **SecureOn** and it will
-be attached at the end.
+This feature usually needs to be enabled from **both the BIOS and the operating
+system** of the PC/server you want to wake up.
 
-```
-FF FF FF FF FF FF |    Mac Address    |    Mac Address    |    Mac Address
-   Mac Address    |    Mac Address    |    Mac Address    |    Mac Address
-   Mac Address    |    Mac Address    |    Mac Address    |    Mac Address
-   Mac Address    |    Mac Address    |    Mac Address    |    Mac Address
-   Mac Address    |     Password      |
-```
-
-This feature usually needs to be enabled from both the BIOS _and_ the operating
-system of the PC/server you want to wake up. Here is a screenshot of the setting
-in my BIOS:
+Here is a screenshot of the setting in my BIOS:
 
 ![Asus ROG Strix Wake-on-Lan](/assets/img/content/004/asus-rog-strix-wol.png)
 
-To **enable Wake-on-Lan on Windows** you can go to _Device Manager => Network
+To enable Wake-on-Lan on Windows you can go to _Device Manager => Network
 Adapters => Properties_. Then enable _"Wake on Magic Packet"_ in the _Advanced_
 tab and check _"Only allow a magic packet to wake the computer"_ in the _Power
 Management tab_.
 
-**Fast Startup** also needs to be disabled (_Power Options => "Choose what the
+"Fast Startup" also needs to be disabled (_Power Options => "Choose what the
 power buttons do"_) as it will conflict with this feature.
 
 ![Disable Fast Startup in Windows 11](/assets/img/content/004/disable-fast-startup.png)
@@ -122,18 +116,17 @@ can use [@Botfather](https://t.me/botfather) to create a new bot and
 
 ### 🔎 Usage
 
-![Telegram Bot](/assets/img/content/004/telegram.png)
-
 - Use `/start` to get a list of the available commands
 - Use the `/wol` command or press the physical button to turn on your PC
 - Use the `/ping` command to check if the bot is online
 
+![Telegram Bot](/assets/img/content/004/telegram.png)
+
 ### 🐛 Debugging with Wireshark
 
-If you encounter any issues you can use Wireshark and filter for WOL packets to
-check what's going wrong:
-
-![Wireshark Wake-on-Lan Packet](/assets/img/content/004/wol-wireshark.png)
+If you encounter any issues you can use Wireshark and filter for
+[WOL packets](/assets/img/content/004/wol-wireshark.png) to check what's going
+wrong.
 
 ### ✅ TODO List
 

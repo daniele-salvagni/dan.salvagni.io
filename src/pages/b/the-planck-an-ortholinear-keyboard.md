@@ -26,7 +26,7 @@ much more natural to me. It didn't take too long to adjust and now every key
 feels at its right place, no more having to use a different finger or to do a
 weird move to reach some of the keys with the staggered layout. The staggered
 layout is not uncomfortable, but there are always a couple keys which really
-feel out of place for me.  
+feel out of place for me.
 The 40% part is also great, it means that my fingers never have to reach after
 the only 4 available rows and thanks to multiple layers and the amazing
 [QMK firmware](https://qmk.fm/) I have more functionality than what I'd have on
@@ -64,7 +64,7 @@ it's pretty similar to any standard keyboard.
 
 **GEsc** acts like a normal `Esc` when pressed alone, it's `~` when shifted and
 `` ` `` when combined with GUI. **PTT** is a Keycode that has no side effects
-which I use as a Push to Talk button, but if pressed with Alt I get `Alt+Tab`.  
+which I use as a Push to Talk button, but if pressed with Alt I get `Alt+Tab`.
 If **Raise** is held it will act as a new layer like _Lower_, but if tapped it
 will send `Enter`.
 
@@ -136,5 +136,5 @@ it will keep sending mouse clicks multiple times a second until interrupted.
 
 If you don't want an ortholinear keyboard, I'd still suggest checking out the
 QMK Firmware and what you can do with it by skimming through its documentation:
-https://docs.qmk.fm/#/  
+https://docs.qmk.fm/#/
 After using it once you won't go back to anything else.
