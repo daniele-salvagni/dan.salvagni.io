@@ -7,7 +7,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'material-lighter',
-      wrap: false
+      wrap: true
     }
   },
   integrations: [mdx(), vue()],
