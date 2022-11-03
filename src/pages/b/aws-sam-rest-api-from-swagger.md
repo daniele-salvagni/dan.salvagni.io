@@ -105,7 +105,7 @@ template.yaml
    ```
 
 2. Now we have to edit the Swagger file by adding the **API Gateway
-   integrations** to all of the endpoint.
+   integrations** to all of the endpoints.
 
    The following has to be added to all methods, remember to change
    `${PetGetFunction.Arn}` to the correct λ function.

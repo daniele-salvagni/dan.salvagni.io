@@ -147,8 +147,8 @@ layers/commons/
    ```
 
    > **Important:** `"module"` should be set either to `"node16"` or
-   > `"commonjs", otherwise it will not be compatible with the code of our Lambdas built with *esbuild*.` >
-   > `noEmit` also needs to be set to `false`.
+   > `"commonjs"`, otherwise it will not be compatible with the code of our
+   > Lambdas built with _esbuild_. `"noEmit"` also needs to be set to`false`.
 
 3. Create a `Makefile` to be used by SAM for transpiling the Typescript code and
    placing it inside `node_modules`:
