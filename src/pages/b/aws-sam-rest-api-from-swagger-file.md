@@ -137,3 +137,11 @@ template.yaml
 
 This way we have created a REST API where all of the endpoints and the schemas
 can be well defined and documented inside the Swagger file.
+
+## Further documentation:
+
+Here are a few links worth reading about the topics of this post:
+
+- [OpenAPI Specification](https://swagger.io/specification/) [Swagger docs]
+- [Configuring a REST API using OpenAPI](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) [AWS docs]
+- [Usign Swagger UI in AWS Serverless stack](https://dev.to/coolblue/using-swagger-ui-in-aws-serverless-stack-4hi5) [dev.to]
