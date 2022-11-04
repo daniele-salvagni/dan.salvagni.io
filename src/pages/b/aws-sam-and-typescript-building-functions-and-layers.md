@@ -1,14 +1,16 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 collection: blog
-issue: 8
+issue: 7
 
 author: Daniele Salvagni
-title: 'AWS SAM and Typescript: functions and layers'
-publishDate: 2022-11-03
+title: 'AWS SAM and Typescript: building functions and layers'
+publishDate: 2022-11-02
 
-excerpt: TODO
-softDraft: true
+excerpt: >
+  Addressing some issues when working with SAM using Typescript and Lambda
+  Layers. By using esbuild you will need to be careful as you will be building
+  different parts of your code in different ways
 ---
 
 This post is to address some issues when working with SAM using Typescript and
@@ -148,7 +150,7 @@ layers/commons/
 
    > **Important:** `"module"` should be set either to `"node16"` or
    > `"commonjs"`, otherwise it will not be compatible with the code of our
-   > Lambdas built with _esbuild_. `"noEmit"` also needs to be set to`false`.
+   > Lambdas built with _esbuild_. `"noEmit"` also needs to be set to `false`.
 
 3. Create a `Makefile` to be used by SAM for transpiling the Typescript code and
    placing it inside `node_modules`:
@@ -163,9 +165,10 @@ layers/commons/
      cp -r commons "$(ARTIFACTS_DIR)/nodejs/node_modules"
    ```
 
-   this will put the transpiled code inside the `/nodejs/node_modules/` folder
-   of the layer, so we will then be able to import the code in our functions as
-   a Node.js module.
+   this will put the transpiled code inside the `/nodejs/node_modules/`
+   [folder of the layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path),
+   so we will then be able to import the code in our functions as a Node.js
+   module.
 
 4. Add the Layer inside `Resources:` in the global `template.yaml` file
 
@@ -192,8 +195,9 @@ layers/commons/
      - !Ref LayerCommons
    ```
 
-   And then declare the js module inside the Layer as external, so it will be
-   omitted from the final bundle of the λ function build:
+   And then declare the js module inside the Layer as
+   [external](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build-typescript.html),
+   so it will be omitted from the final bundle of the λ function build:
 
    ```yaml
    # Inside HelloWorldFunction.Metadata.BuildProperties
@@ -208,3 +212,14 @@ layers/commons/
    ```
 
 We are now able to use the code from the Layer in our Lambda functions.
+
+## Further documentation:
+
+Here are a few links worth reading about the topics of this post:
+
+- [Building Node.js Lambda functions with esbuild](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build-typescript.html) [AWS docs]
+- [Including library dependencies in a layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path) [AWS docs]
+- [Building Layers](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/building-layers.html) [AWS docs]
+- [esbuild Format option](https://esbuild.github.io/api/#format) [esbuild docs]
+- [esbuild (and TypeScript) Beta Support Feedback](https://github.com/aws/aws-sam-cli/issues/3700) [Github issue]
+- [SAM official Typescript template (no layers)](https://github.com/aws/aws-sam-cli-app-templates/tree/master/nodejs16.x/cookiecutter-aws-sam-hello-typescript-nodejs) [Github repo]
