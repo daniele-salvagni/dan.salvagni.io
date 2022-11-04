@@ -1,14 +1,17 @@
 ---
 layout: '../../layouts/BlogPost.astro'
 collection: blog
-issue: 7
+issue: 8
 
 author: Daniele Salvagni
 title: 'AWS SAM: Creating a REST API from a Swagger file'
-publishDate: 2022-11-02
+publishDate: 2022-11-04
 
-excerpt: TODO
-softDraft: true
+excerpt: >
+  How to create a REST API starting from a Swagger/OpenAPI file. One advantage
+  of going this way is that it will be very easy to document our API inside the
+  Swagger file or directly publishing the Swagger UI as documentation from an
+  endpoint of the API itself.
 ---
 
 This post will illustrate the main steps to create a REST API starting from a
@@ -17,7 +20,7 @@ easy to document our API inside the Swagger file or directly
 [publishing the Swagger UI](https://dev.to/coolblue/using-swagger-ui-in-aws-serverless-stack-4hi5)
 as documentation from an endpoint of the API itself.
 
-![Swagger UI](/assets/img/content/007/swagger-ui.png)
+![Swagger UI](/assets/img/content/008/swagger-ui.png)
 
 ## Integrating the Swagger file
 
@@ -49,6 +52,7 @@ template.yaml
          AllowHeaders: "'*'"
          AllowMethods: "'*'"
          AllowOrigin: "'*'"
+       StageName: v1
        DefinitionBody:
          Fn::Transform:
            Name: AWS::Include
@@ -65,11 +69,11 @@ template.yaml
    PetGetFunction:
      Type: AWS::Serverless::Function
      Properties:
-     Architectures:
-       - arm64
-     CodeUri: functions/petGet
-     Handler: index.handler
-     Runtime: nodejs14.x
+       Architectures:
+         - arm64
+       CodeUri: functions/petGet
+       Handler: index.handler
+       Runtime: nodejs14.x
    ```
 
    And finally we define a **IAM Role** with a policy to invoke our Lambda
