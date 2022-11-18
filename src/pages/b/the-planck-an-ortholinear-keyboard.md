@@ -12,8 +12,6 @@ excerpt:
   normal keybaords and some pros of the QMK firmware.
 ---
 
-![An old typewriter](/assets/img/content/003/typewriter.png)
-
 The Plank is an ortholinear 40% keyboard. **Ortholinear** means that the keys
 are arranged in a grid instead of on the staggered rows, which are just an
 historical artifact of typewriters having to avoid their levers smacking into

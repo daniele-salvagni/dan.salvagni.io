@@ -45,36 +45,6 @@ running for about **1$** in electricity per year.
 > local IP staying the same and I don't have to keep a linux server running for
 > such a simple task.
 
-## The Wake on Lan "Magic Packet"
-
-Most motherboards support the "Wake-on-Lan" (WOL) function. This works by
-sending a packet of data called a "Magic Packet". When this packet is received
-by the target macine, its network interface wakes up the rest of the computer.
-
-The magic packet consists of the following parts:
-
-- **Header:** 6 Bytes which is nothing but 6 bytes of 0xff.
-- **Data:** 16\*6 Bytes, the MAC Address of the target device repeated 16 times.
-- **Password:** Some clients require 6 extra Bytes containing a password known
-  as _SecureOn_.
-
-This feature usually needs to be enabled from **both the BIOS and the operating
-system** of the PC/server you want to wake up.
-
-Here is a screenshot of the setting in my BIOS:
-
-![Asus ROG Strix Wake-on-Lan](/assets/img/content/004/asus-rog-strix-wol.png)
-
-To enable Wake-on-Lan on Windows you can go to _Device Manager => Network
-Adapters => Properties_. Then enable _"Wake on Magic Packet"_ in the _Advanced_
-tab and check _"Only allow a magic packet to wake the computer"_ in the _Power
-Management tab_.
-
-"Fast Startup" also needs to be disabled (_Power Options => "Choose what the
-power buttons do"_) as it will conflict with this feature.
-
-![Disable Fast Startup in Windows 11](/assets/img/content/004/disable-fast-startup.png)
-
 ## The sketch
 
 I am using an ESP32 board called **M5Atom**, it is pretty small and can be
@@ -121,6 +91,36 @@ can use [@Botfather](https://t.me/botfather) to create a new bot and
 - Use the `/ping` command to check if the bot is online
 
 ![Telegram Bot](/assets/img/content/004/telegram.png)
+
+## Enabling Wake on Lan
+
+Most motherboards support the "Wake-on-Lan" (WOL) function. This works by
+sending a packet of data called a "Magic Packet". When this packet is received
+by the target macine, its network interface wakes up the rest of the computer.
+
+The magic packet consists of the following parts:
+
+- **Header:** 6 Bytes which is nothing but 6 bytes of 0xff.
+- **Data:** 16\*6 Bytes, the MAC Address of the target device repeated 16 times.
+- **Password:** Some clients require 6 extra Bytes containing a password known
+  as _SecureOn_.
+
+This feature usually needs to be enabled from **both the BIOS and the operating
+system** of the PC/server you want to wake up.
+
+Here is a screenshot of the setting in my BIOS:
+
+![Asus ROG Strix Wake-on-Lan](/assets/img/content/004/asus-rog-strix-wol.png)
+
+To enable Wake-on-Lan on Windows you can go to _Device Manager => Network
+Adapters => Properties_. Then enable _"Wake on Magic Packet"_ in the _Advanced_
+tab and check _"Only allow a magic packet to wake the computer"_ in the _Power
+Management tab_.
+
+"Fast Startup" also needs to be disabled (_Power Options => "Choose what the
+power buttons do"_) as it will conflict with this feature.
+
+![Disable Fast Startup in Windows 11](/assets/img/content/004/disable-fast-startup.png)
 
 ### 🐛 Debugging with Wireshark
 

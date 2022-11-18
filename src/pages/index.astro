@@ -1,128 +1,141 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import BlogEntry from "../components/BlogEntry.astro";
-import SoftEntry from "../components/SoftEntry.astro";
-let title = "Daniele Salvagni";
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogEntry from '../components/BlogEntry.astro';
+import SoftEntry from '../components/SoftEntry.astro';
+let title = 'Daniele Salvagni';
 let description = "Daniele Salvagni's personal website.";
 // Use Astro.glob to fetch all post with associated frontmatter
-const unsortedPosts = await Astro.glob("./b/*.md");
-const unsortedSoft = await Astro.glob("./s/*.md");
-const posts = unsortedPosts.filter((post) => !post.frontmatter.draft && !post.frontmatter.softDraft).sort(function (a, b) {
+const unsortedPosts = await Astro.glob('./b/*.md');
+const unsortedSoft = await Astro.glob('./s/*.md');
+const posts = unsortedPosts
+  .filter((post) => !post.frontmatter.draft && !post.frontmatter.softDraft)
+  .sort(function (a, b) {
     return (
-        new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+      new Date(b.frontmatter.publishDate).valueOf() -
+      new Date(a.frontmatter.publishDate).valueOf()
     );
-});
+  });
 const soft = unsortedSoft.sort(function (a, b) {
-    return (a.frontmatter.order - b.frontmatter.order);
+  return a.frontmatter.order - b.frontmatter.order;
 });
 ---
 
 <html lang="en">
-
-<head>
+  <head>
     <BaseHead title={title} description={description} />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main">
-        <Header />
+      <Header />
 
-        <div class="content container" style="">
-
-            <div class='intro'>
-                I'm <b>Daniele Salvagni</b>. I'm currently located at Como Lake, Italy and I'm interested in
-                programming, electronics and UI/UX design. I enjoy learning and creating new things.
-            </div>
-
-            <div class='skills1'>
-                <strong>LANGUAGES</strong><br>
-                Java, Javascript, HTML5, CSS3, C#, C, Python, PHP, Bash<br><br>
-                <strong>TECHNOLOGIES</strong><br>
-                Git, Spring Boot, MySQL, Nginx, AWS, SASS, Astro, Vue.js, Linux<br><br>
-                <strong>METHODS</strong><br>
-                Design Patterns, Microservices, Responsive design, Reverse Engineering, CI, Unit Testing<br>
-            </div>
-
-            <div class='skills2'>
-                <strong>EDUCATION</strong><br>
-                Software Engineering @ PoliMi<br><br>
-                <strong>CERTIFICATIONS</strong><br>
-                English language (TOEIC 990/990)<br><br>
-                <strong>LINKS</strong><br>
-                You can look at my projects on <a target='_blank' href='https://github.com/daniele-salvagni'>GitHub</a>
-                or contact me directly at dan@salvagni.io
-            </div>
-
-            <div class='other'>
-                <strong>TOOLS & SOFTWARE</strong><br>
-                <ul>
-                    {soft.map(({ url, frontmatter }) => (
-                    <SoftEntry title={frontmatter.title} description={frontmatter.description}
-                        publishDate={frontmatter.publishDate} url={url} />
-                    ))}
-                </ul>
-                <br>
-                <strong>NOTES & POSTS</strong><br>
-                <ul>
-
-                    {posts.map(({ url, frontmatter }) => (
-                    <BlogEntry title={frontmatter.title} description={frontmatter.description}
-                        publishDate={frontmatter.publishDate} url={url} />
-                    ))}
-                </ul>
-            </div>
-
+      <div class="content container" style="">
+        <div class="intro">
+          I'm <b>Daniele Salvagni</b> 👋 a Software Developer based by Como Lake
+          in Italy. I'm interested in programming, electronics and UX design. I make
+          new stuff when I feel like it.
         </div>
-        <Footer />
+
+        <div class="skills1">
+          <strong>FREQUENTLY USED</strong><br />
+          AWS &gt; Javascript + TS &gt; Bash &gt; HTML5 &gt; CSS3 &gt; Java &gt; Python
+          &gt; C# &gt; C<br /><br />
+          <strong>LINKS</strong><br />
+          You can look at my projects on <a
+            target="_blank"
+            href="https://github.com/daniele-salvagni">GitHub</a
+          >
+          or reach me at dan@salvagni.io
+        </div>
+
+        <div class="skills2">
+          <strong>EDUCATION & CERTS</strong><br />
+          Software Engineering @ PoliMi<br />
+          English language (TOEIC 990/990)<br /><br />
+
+          <strong>WORK</strong><br />
+          Software Developer at <a
+            target="_blank"
+            href="https://www.claranet.ch">Claranet🇨🇭</a
+          >
+        </div>
+
+        <div class="other">
+          <strong>TOOLS & SOFTWARE</strong><br />
+          <ul>
+            {
+              soft.map(({ url, frontmatter }) => (
+                <SoftEntry
+                  title={frontmatter.title}
+                  description={frontmatter.description}
+                  publishDate={frontmatter.publishDate}
+                  url={url}
+                />
+              ))
+            }
+          </ul>
+          <br />
+          <strong>NOTES & POSTS</strong><br />
+          <ul>
+            {
+              posts.map(({ url, frontmatter }) => (
+                <BlogEntry
+                  title={frontmatter.title}
+                  description={frontmatter.description}
+                  publishDate={frontmatter.publishDate}
+                  url={url}
+                />
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <Footer />
     </div>
-
-
-</body>
-
+  </body>
 </html>
 
 <style>
+  .content {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+      'intro intro'
+      'skills1 skills2'
+      'other other';
+  }
+
+  .intro {
+    grid-area: intro;
+  }
+
+  .skills1 {
+    grid-area: skills1;
+    text-align: left;
+  }
+
+  .skills2 {
+    grid-area: skills2;
+    text-align: left;
+  }
+
+  .other {
+    grid-area: other;
+  }
+
+  @media screen and (max-width: 650px) {
     .content {
-        display: grid;
-        gap: 2rem;
-        grid-template-areas: 'intro intro'
-            'skills1 skills2'
-            'other other'
+      grid-template-areas:
+        'intro intro'
+        'skills1 skills1'
+        'skills2 skills2'
+        'other other';
     }
 
-    .intro {
-        grid-area: intro;
+    #index-header {
+      padding: 3rem 0 3rem 0;
     }
-
-    .skills1 {
-        grid-area: skills1;
-        text-align: left;
-
-    }
-
-    .skills2 {
-        grid-area: skills2;
-        text-align: left;
-    }
-
-    .other {
-        grid-area: other;
-    }
-
-    @media screen and (max-width: 650px) {
-        .content {
-            grid-template-areas: 'intro intro'
-                'skills1 skills1'
-                'skills2 skills2'
-                'other other'
-        }
-
-
-
-        #index-header {
-            padding: 3rem 0 3rem 0;
-        }
-    }
+  }
 </style>
