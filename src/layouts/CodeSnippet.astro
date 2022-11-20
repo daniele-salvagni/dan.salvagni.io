@@ -42,7 +42,7 @@ const {
         </div>
         <div>
           <header class="snippet-header">
-            <h1 class="snippet-title">{title} - Snippets</h1>
+            <h1 class="snippet-title">{title}</h1>
           </header>
           <div class="content-body">
             <slot />
@@ -60,11 +60,11 @@ const {
   .content {
     display: grid;
     gap: 2rem;
-    grid-template-columns: 8rem auto;
+    grid-template-columns: 8rem minmax(0, 1fr);
   }
 
   .container div {
-    overflow: hidden;
+
   }
 
   .snippets {
@@ -90,6 +90,15 @@ const {
     padding: 0;
   }
 
+  h1.snippet-title:before {
+    content: '';
+    border-left: 5px solid cornflowerblue;
+    position: absolute;
+    left: -15px;
+    height: 75%;
+    top: 12%;
+  }
+
   .content pre {
     padding: 10px 16px;
     border-radius: 0px;
@@ -99,7 +108,7 @@ const {
 
   @media screen and (max-width: 650px) {
     .content {
-      grid-template-columns: auto;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .snippets li {
