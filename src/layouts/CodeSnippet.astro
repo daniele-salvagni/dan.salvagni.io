@@ -1,0 +1,110 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Date from '../components/utilities/Date.astro';
+
+const snippets = await Astro.glob('../pages/c/*.md');
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  content: { title, description }
+} = Astro.props as Props;
+---
+
+<html>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <div class="main">
+
+      <Header />
+
+      <main class="content container">
+        <div>
+          <ul class="snippets">
+            {
+              snippets.map(({ url, frontmatter }) => (
+                <li>
+                  <a href={url}>{frontmatter.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div>
+          <header class="snippet-header">
+            <h1 class="snippet-title">{title} - Snippets</h1>
+          </header>
+          <div class="content-body">
+            <slot />
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+
+    </div>
+  </body>
+</html>
+
+<style>
+  .content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 8rem auto;
+  }
+
+  .container div {
+    overflow: hidden;
+  }
+
+  .snippets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .snippets li {
+    display: block;
+  }
+
+  .snippet-header {
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0m;
+  }
+
+  .snippet-title {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content pre {
+    padding: 10px 16px;
+    border-radius: 0px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+
+  @media screen and (max-width: 650px) {
+    .content {
+      grid-template-columns: auto;
+    }
+
+    .snippets li {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+</style>
