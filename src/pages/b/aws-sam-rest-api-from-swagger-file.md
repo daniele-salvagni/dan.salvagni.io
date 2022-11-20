@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: 'AWS SAM: Creating a REST API from a Swagger file'
 publishDate: 2022-11-04
 
-excerpt: >
+description: >
   How to create a REST API starting from a Swagger/OpenAPI file. One advantage
   of going this way is that it will be very easy to document our API inside the
   Swagger file or directly publishing the Swagger UI as documentation from an

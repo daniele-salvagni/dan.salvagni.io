@@ -8,7 +8,7 @@ title: Color Goggles
 description: Saturation manager for Intel™ laptops.
 publishDate: 2019-12-28
 
-excerpt:
+description: >
   ColorGoggles is an extremely lightweight application that automatically
   manages your digital saturation when playing games to enhance visibility. This
   is an alternative to VibranceGUI for Intel HD Graphics or dual-graphics

@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: The Planck - An ortholinear keyboard
 publishDate: 2022-07-29
 
-excerpt:
+description: >
   My layout on the Plank, an ortholinear 40% keyboard. Why I like it more than
   normal keybaords and some pros of the QMK firmware.
 ---
