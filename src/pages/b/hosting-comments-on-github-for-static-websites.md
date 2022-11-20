@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: Hosting comments on GitHub for static websites
 publishDate: 2017-06-18
 
-description: >
+excerpt: >
   How I'm hosting comments on GitHub for my static website with Vue.js and
   GitHub APIs.
 ---

@@ -8,7 +8,7 @@ title: About this Website
 description: Statically generated with Astro.js.
 publishDate: 2022-07-28
 
-description: >
+excerpt: >
   This webiste is statically generated thanks to Astro, styles are written in SASS and content in Markdown. Every time a commit is pushed, Github Actions will deploy this website to an AWS S3 bucket.
 ---
 

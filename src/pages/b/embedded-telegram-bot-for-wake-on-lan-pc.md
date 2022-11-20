@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: Wake On Lan using an ESP32 Telegram bot
 publishDate: 2022-08-26
 
-description: >
+excerpt: >
   An embeddedd ESP32 M5Atom Telegram bot for sending a Wake-on-Lan magic packet
   on the local network to turn on my PC from anywhere.
 ---

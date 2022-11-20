@@ -2,7 +2,7 @@
 layout: '../../layouts/BlogPost.astro'
 title: This is a soft draft
 publishDate: 3000-01-02
-description: >
+excerpt: >
   "This is a soft draft post - only listed while in dev mode. When this site is
   built, the draft will still be be included."
 softDraft: true

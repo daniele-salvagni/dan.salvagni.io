@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: 'AWS SAM and Typescript: building functions and layers'
 publishDate: 2022-11-02
 
-description: >
+excerpt: >
   Addressing some issues when working with SAM using Typescript and Lambda
   Layers. By using esbuild you will need to be careful as you will be building
   different parts of your code in different ways

@@ -7,7 +7,7 @@ author: Daniele Salvagni
 title: 'Fixing ZSH slowdown caused by NVM'
 publishDate: 2022-11-18
 
-description: >
+excerpt: >
   After profiling zsh I found out that nvm was the reason of the slow startup
   times. This script solved the issue by loading nvm only when needed.
 ---
