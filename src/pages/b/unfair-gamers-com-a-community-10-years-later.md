@@ -50,7 +50,7 @@ registrations were mainly made just to lurk or download and use our releases).
 _Peaks in the graph usually correspond to our major releases, Google Analytics
 was missing for a short period after a website redesign._
 
-## Game Hacking
+# Game Hacking
 
 While game hacking can be seen as a nuisance by many, Unfair-Gamers produced
 mainly hacks that wouldn't be too much disruptive for the other players (like it
@@ -95,7 +95,7 @@ Although game hacking skills may look like a very specific topic at first sight,
 its concepts can be applied in many other situations and can often be very
 useful.
 
-## Everything has an end (or almost)
+# Everything has an end (or almost)
 
 UG would have been nothing without its **community**, to whom I want to give a
 special thanks for all the content they created, the help they gave and for just
@@ -121,7 +121,7 @@ a way the community succeded in its intent, with all the information now being
 available out there. It was a fun project and also an important phase of my life
 to which I will always look back with a smile.
 
-## Bonus content
+# Bonus content
 
 - The top 15 members by post number were, in order: _Ryukizashi_, _ThePILLI_,
   _GLyTCH_, _Zyrel_, _ionut_baluca_, _D4.Ny_, _xXStephXx_, _vezdebest_,

@@ -45,7 +45,7 @@ running for about **1$** in electricity per year.
 > local IP staying the same and I don't have to keep a linux server running for
 > such a simple task.
 
-## The sketch
+# The sketch
 
 I am using an ESP32 board called **M5Atom**, it is pretty small and can be
 powered by USB type-c. It's a pretty simple project, so I am using the **Arduino
@@ -54,7 +54,7 @@ IDE** for ease of use.
 The code should be pretty simple to understand and can be found on my Github at
 https://github.com/daniele-salvagni/wol-bot-esp32
 
-### ⚙️ Configuration
+## ⚙️ Configuration
 
 In orfer to compile, the following extra libraries can be installed from the
 Library Manager:
@@ -84,7 +84,7 @@ Telegram bot token and your Telegram User ID so no one else can use the bot. You
 can use [@Botfather](https://t.me/botfather) to create a new bot and
 [@userinfobot](https://t.me/userinfobot) to get your ID.
 
-### 🔎 Usage
+## 🔎 Usage
 
 - Use `/start` to get a list of the available commands
 - Use the `/wol` command or press the physical button to turn on your PC
@@ -92,7 +92,7 @@ can use [@Botfather](https://t.me/botfather) to create a new bot and
 
 ![Telegram Bot](/assets/img/content/004/telegram.png)
 
-## Enabling Wake on Lan
+# Enabling Wake on Lan
 
 Most motherboards support the "Wake-on-Lan" (WOL) function. This works by
 sending a packet of data called a "Magic Packet". When this packet is received
@@ -122,13 +122,13 @@ power buttons do"_) as it will conflict with this feature.
 
 ![Disable Fast Startup in Windows 11](/assets/img/content/004/disable-fast-startup.png)
 
-### 🐛 Debugging with Wireshark
+## 🐛 Debugging with Wireshark
 
 If you encounter any issues you can use Wireshark and filter for
 [WOL packets](/assets/img/content/004/wol-wireshark.png) to check what's going
 wrong.
 
-### ✅ TODO List
+## ✅ TODO List
 
 - [ ] Refactor code
 - [ ] Store network configuration in EEPROM

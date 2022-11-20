@@ -30,7 +30,7 @@ In this post I will show you how to host comments with GitHub issues, I will try
 to give you a general idea and some examples so you will be able to implement it
 for any static site.
 
-## Analyzing GitHub's issue tracker
+# Analyzing GitHub's issue tracker
 
 We will have to manually create a new issue for each post we make, this could be
 automated but in my opinion it isn't quite worth the effort. If you haven't yet,
@@ -65,7 +65,7 @@ And here is a gist containing the response:
 [response.json](https://gist.github.com/daniele-salvagni/63275d66bce137d57a5c6c495dd5f877)
 as you can see, the comment is already rendered to HTML!
 
-## Adding an issue ID to our posts
+# Adding an issue ID to our posts
 
 I'm using [Metalsmith](https://github.com/segmentio/metalsmith) to generate this
 website _(edit: It's 2022, I'm now using Astro and this is all still valid)_ but
@@ -100,7 +100,7 @@ on GitHub, it will show up here!
 This will be shown in every post and will link the user to the correct Github
 issue.
 
-## Retrieving the comments with Javascript
+# Retrieving the comments with Javascript
 
 This can be done in many ways, you could make an
 [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and
@@ -111,28 +111,28 @@ suggest something like the [axios](https://github.com/mzabriskie/axios) library
 instead (the one I'm using here) if you don't want to deal manually with
 `XMLHttpRequest`.
 
-> ### About the Same Origin Policy
->
-> The [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) is
-> a security mechanism to prevent a potentially malicious script loaded from one
-> origin (domain) to interact with a resource from another origin (thus
-> obtaining access to sensitive data).
->
-> The most common way to "bypass" this mechanism has always been to use
-> [JSONP](http://en.wikipedia.org/wiki/JSONP) (and that's what I did try
-> initially), the problem is that JSONP doesn't allow us to set a **custom
-> header** to our requests. This is required by the GitHub APIs to set the HTML
-> [media type](https://developer.github.com/v3/media/) as shown before in order
-> to return the HTML rendered from the comments markdown instead of just the raw
-> data (otherwise we would need to re-render the Markdown ourselves).
->
-> However, GitHub supports the
-> [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
-> mechanism which enables cross-domain data transfers. Until some time ago you
-> had to register your website as an OAuth application on GitHub (as I found out
-> thanks to
-> [this post](http://ivanzuzak.info/2011/02/18/github-hosted-comments-for-github-hosted-blogs.html)
-> by Ivan), however **CORS is now enabled for any origin**.
+### About the Same Origin Policy
+
+The [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) is a
+security mechanism to prevent a potentially malicious script loaded from one
+origin (domain) to interact with a resource from another origin (thus obtaining
+access to sensitive data).
+
+The most common way to "bypass" this mechanism has always been to use
+[JSONP](http://en.wikipedia.org/wiki/JSONP) (and that's what I did try
+initially), the problem is that JSONP doesn't allow us to set a **custom
+header** to our requests. This is required by the GitHub APIs to set the HTML
+[media type](https://developer.github.com/v3/media/) as shown before in order to
+return the HTML rendered from the comments markdown instead of just the raw data
+(otherwise we would need to re-render the Markdown ourselves).
+
+However, GitHub supports the
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+mechanism which enables cross-domain data transfers. Until some time ago you had
+to register your website as an OAuth application on GitHub (as I found out
+thanks to
+[this post](http://ivanzuzak.info/2011/02/18/github-hosted-comments-for-github-hosted-blogs.html)
+by Ivan), however **CORS is now enabled for any origin**.
 
 <br>
 
@@ -176,7 +176,7 @@ data[i].user.html_url: "The GitHub profile URL of the comment author"
 You can resize the avatar by appending `&s=[size]` to the URL (replace `[size]`
 to a number of pixels like `100`).
 
-## Rendering the HTML with Vue
+# Rendering the HTML with Vue
 
 I'm rendering the comments with [Vue.JS](https://vuejs.org/) (you don't need
 to!) mainly because I was already familiar with Angular and I wanted to finally
@@ -222,7 +222,7 @@ property to the data object. Then it is easy to iterate over the comments with a
 That's it, GitHub's API are doing all the work and it should be fairly simple to
 replicate this for any static site.
 
-## Alternatives in 2022
+# Alternatives in 2022
 
 It has been a long time since I written this post and while I was remaking my
 website with some new tech, I have been looking at what's available today. Many

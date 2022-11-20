@@ -34,7 +34,7 @@ a full-size keyboard.
 
 🔝 _Did I mention you also need to buy half Mechanical Switches and Keycaps?_
 
-## My current Keymap
+# My current Keymap
 
 There are a lot of customizations you can do in the QMK Firmware, here are my
 main layers but there really is much more. The full code of my custom firmware

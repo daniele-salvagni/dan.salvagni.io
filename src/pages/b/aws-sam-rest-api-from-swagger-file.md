@@ -22,7 +22,7 @@ as documentation from an endpoint of the API itself.
 
 ![Swagger UI](/assets/img/content/008/swagger-ui.png)
 
-## Integrating the Swagger file
+# Integrating the Swagger file
 
 We will start from the
 [OpenAPI v3.0 petstore.yaml](https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.0/petstore.yaml)
@@ -138,7 +138,7 @@ template.yaml
 This way we have created a REST API where all of the endpoints and the schemas
 can be well defined and documented inside the Swagger file.
 
-## Further documentation:
+# Further documentation:
 
 Here are a few links worth reading about the topics of this post:
 

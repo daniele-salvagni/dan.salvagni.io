@@ -19,7 +19,7 @@ To find the root cause, I turned on profiling by adding `zmodload zsh/zprof` at
 the start of `.zshrc` file and `zprof` at the end, this clearly showed that
 `nvm` was the main reason of the slowdown.
 
-![Swagger UI](/assets/img/content/009/zprof.png)
+![zprof](/assets/img/content/009/zprof.png)
 
 The best solution I found was removing the `nvm` plugin inside `.zshrc` and
 replacing the default `nvm` stuff with the following:

@@ -50,15 +50,15 @@ defaults), the following is one of the errors that prompted this post:
 This post will provide an example of a working configuration to avoid some of
 the common pitfalls.
 
-## Setting up the project
+# Setting up the project
 
-### SAM init
+## SAM init
 
 We will start from the official AWS SAM Typescript template
 
     sam init --runtime nodejs16.x --app-template hello-world-typescript --name sam-typescript-functions-layers --package-type Zip --dependency-manager npm --no-interactive
 
-### Refactoring
+## Refactoring
 
 We plan on having multiple λ functions, so let's create a new top-level folder
 named `functions/` and move the `hello-world/` folder there. We plan to achieve
@@ -91,7 +91,7 @@ export const responseBuilder = (
 
 we will then move this function as a module in our first layer.
 
-## Adding a Typescript Layer
+# Adding a Typescript Layer
 
 We will now create a module in a new layer named `commons` to share some code
 common to our λ functions.
@@ -185,7 +185,7 @@ layers/commons/
        BuildMethod: makefile
    ```
 
-## Using the Layer inside a Lambda function
+# Using the Layer inside a Lambda function
 
 1. Reference the new layer in the λ functions that are using it:
 
@@ -213,7 +213,7 @@ layers/commons/
 
 We are now able to use the code from the Layer in our Lambda functions.
 
-## Further documentation:
+# Further documentation:
 
 Here are a few links worth reading about the topics of this post:
 

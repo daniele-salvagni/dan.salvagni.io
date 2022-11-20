@@ -3,26 +3,6 @@
   text-justify: inter-word;
   margin-bottom: 40px;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 2em 0 1em;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover,
-      &:focus {
-        color: inherit;
-        text-decoration: underline;
-      }
-    }
-  }
-
   p {
     margin: 0 0 1em;
   }
