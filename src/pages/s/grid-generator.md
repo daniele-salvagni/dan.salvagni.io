@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/SoftPost.astro'
 collection: soft
-order: 3
+order: 2
 
 author: Daniele Salvagni
 title: Grid Generator

@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/SoftPost.astro'
 collection: soft
-order: 2
+order: 3
 
 author: Daniele Salvagni
 title: About this Website
