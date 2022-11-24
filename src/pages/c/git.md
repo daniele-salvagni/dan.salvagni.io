@@ -53,3 +53,8 @@ Clear staging area, rewrite working tree from specified commit
 
     git fetch origin && git reset --hard origin/master && git clean -f -d
 
+### Reset a single file
+
+To reset both the working copy and its state in the Git index to that of HEAD:
+
+    git checkout HEAD -- file.txt
