@@ -13,6 +13,27 @@ title: aws
 
 # Lambda
 
+### Lambda Log Retention
+
+```yaml
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Runtime: python3.8
+      Handler: main.handler
+      Tracing: Active
+
+  # Explicit log group that refers to the Lambda function
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${Function}"
+      # Explicit retention time
+      RetentionInDays: 7
+```
+
 ### Typescript Lambda
 
 ```ts
