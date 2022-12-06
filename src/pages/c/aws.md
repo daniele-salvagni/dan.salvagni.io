@@ -3,14 +3,6 @@ layout: '../../layouts/CodeSnippet.astro'
 title: aws
 ---
 
-# SAM
-
-    sam init
-    sam validate
-    sam build
-    sam deploy [--guided]
-    sam delete
-
 # Lambda
 
 ### Lambda Log Retention

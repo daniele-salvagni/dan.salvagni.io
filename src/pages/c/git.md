@@ -58,3 +58,12 @@ Clear staging area, rewrite working tree from specified commit
 To reset both the working copy and its state in the Git index to that of HEAD:
 
     git checkout HEAD -- file.txt
+
+### Rebase local branch to remote master
+
+    git pull --rebase origin master
+
+<!-- --> or
+
+    git fetch origin
+    git rebase origin/master
