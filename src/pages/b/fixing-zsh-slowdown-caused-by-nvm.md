@@ -36,3 +36,37 @@ This fixes the issue and moves the slowness to the first time you actually run
 `node` or `nvm`. More info on this
 [Github issue comment](https://github.com/nvm-sh/nvm/issues/539#issuecomment-245791291)
 by @parasyte.
+
+# Alternative: Replacing `nvm` with `fnm`
+
+If you want a less "patchy" solution, you can just entirely replace `nvm` with
+[`fnm`](https://github.com/Schniz/fnm), a much faster Node.js version manager
+built in Rust with the following main features:
+
+![fnm](/assets/img/content/009/fnm.png)
+
+- 🌍 Cross-platform support (macOS, Windows, Linux)
+
+- ✨ Single file, easy installation, instant startup
+
+- 🚀 Built with speed in mind
+
+- 📂 Works with `.node-version` and `.nvmrc` files
+
+## Installation
+
+```sh
+brew install fnm
+```
+
+And then add the following to your `.zshrc` profile
+
+```sh
+eval "$(fnm env --use-on-cd)"
+```
+
+I also created an alias to stop typing `nvm` by habit
+
+```sh
+alias nvm='echo "(╯°□°)╯︵ɯʌu, did you mean fnm?"'
+```
