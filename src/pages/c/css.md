@@ -7,7 +7,7 @@ title: css
 
 ### Combinators
 ```css
-.parent .child     /* Descendant Combinator                                   */
+.parent .child     /* Descendant Combinator           */
 .parent > .child   /* Child Combinator                */
 .child + .sibling  /* Adjacent Sibling                */
 .child ~ .sibling  /* Subsequent sibling              */

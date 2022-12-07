@@ -29,7 +29,7 @@ title: jsdoc
  */
 ```
 
-### S2horthand
+### Shorthand
 
 ```js
 /**
@@ -54,6 +54,21 @@ title: jsdoc
 function foo(n, o, d) {
   return n;
 }
+```
+
+# Variables
+
+```js
+/**
+ * @type {number}
+ */
+let count = 1
+
+/**
+ * @const {number}
+ */
+const NUM = 7
+
 ```
 
 # Importing Types
