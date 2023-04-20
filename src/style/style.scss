@@ -113,11 +113,11 @@ code {
   margin: 0;
   // background-color: #f6f6f6;
   border-radius: 3px;
-  color: #90A4AE;
+  color: var(--code-color);
 }
 
 ::selection {
-  background: #fff1c5;
+  background: var(--select-color);
 }
 
 .contains-task-list {
