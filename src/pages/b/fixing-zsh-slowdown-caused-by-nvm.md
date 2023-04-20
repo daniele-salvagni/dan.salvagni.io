@@ -61,6 +61,3 @@ I also created an alias so I can stop typing `nvm` by habit
 ```sh
 alias nvm='echo "(╯°□°)╯︵ɯʌu, did you mean fnm?"'
 ```
-
-> Update: I have been using `fnm` instead of `nvm` for a few months now with no
-> issues, I highly recommend it.
