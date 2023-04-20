@@ -4,11 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogEntry from '../components/BlogEntry.astro';
 import SoftEntry from '../components/SoftEntry.astro';
+
 let title = 'Daniele Salvagni';
 let description = "Daniele Salvagni's personal website.";
+
 // Use Astro.glob to fetch all post with associated frontmatter
 const unsortedPosts = await Astro.glob('./b/*.md');
-const unsortedSoft = await Astro.glob('./s/*.md');
 const posts = unsortedPosts
   .filter((post) => !post.frontmatter.draft && !post.frontmatter.softDraft)
   .sort(function (a, b) {
@@ -17,6 +18,8 @@ const posts = unsortedPosts
       new Date(a.frontmatter.publishDate).valueOf()
     );
   });
+
+const unsortedSoft = await Astro.glob('./s/*.md');
 const soft = unsortedSoft.sort(function (a, b) {
   return a.frontmatter.order - b.frontmatter.order;
 });
@@ -33,21 +36,21 @@ const soft = unsortedSoft.sort(function (a, b) {
 
       <div class="content container" style="">
         <div class="intro">
-          I'm <b>Daniele Salvagni</b> 👋 a Software Developer based by Como Lake
-          in Italy. I'm interested in programming, electronics and UX design. I make
-          new stuff when I feel like it.
+          Hi, I'm <b>Daniele Salvagni</b> 👋 I'm a Software Developer located by
+          the scenic Como Lake in Italy. I'm passionate about programming and also
+          have interests in electronics and UX design. I build new stuff 🚀 whenever
+          I feel like it.
         </div>
 
         <div class="skills1">
           <strong>FREQUENTLY USED</strong><br />
-          AWS &gt; Javascript + TS &gt; Bash &gt; HTML5 &gt; CSS3 &gt; Java &gt;
-          Python &gt; C# &gt; C<br /><br />
+          AWS &gt; Javascript + TS &gt; Python &gt; HTML5 &gt; CSS3 &gt; Bash &gt;
+          Java &gt; C# &gt; C<br /><br />
           <strong>LINKS</strong><br />
           My <a target="_blank" href="https://github.com/daniele-salvagni"
             >GitHub</a
-          > profile, my <a href="/c/aliases" class="snippets"
-            >Snippets
-          </a> and my email: dan@salvagni.io
+          > profile, my <a href="/c/aliases" class="snippets">Snippets</a> and my
+          email: dan@salvagni.io
         </div>
 
         <div class="skills2">
@@ -72,7 +75,7 @@ const soft = unsortedSoft.sort(function (a, b) {
                   title={frontmatter.title}
                   description={frontmatter.description}
                   publishDate={frontmatter.publishDate}
-                  url={url}
+                  url={url || '#'}
                 />
               ))
             }
@@ -86,7 +89,7 @@ const soft = unsortedSoft.sort(function (a, b) {
                   title={frontmatter.title}
                   description={frontmatter.description}
                   publishDate={frontmatter.publishDate}
-                  url={url}
+                  url={url || '#'}
                 />
               ))
             }
@@ -95,52 +98,51 @@ const soft = unsortedSoft.sort(function (a, b) {
       </div>
       <Footer />
     </div>
+    <style>
+      .content {
+        display: grid;
+        gap: 2rem;
+        grid-template-areas:
+          'intro intro'
+          'skills1 skills2'
+          'other other';
+      }
+
+      .intro {
+        grid-area: intro;
+      }
+
+      .skills1 {
+        grid-area: skills1;
+        text-align: left;
+      }
+
+      .skills2 {
+        grid-area: skills2;
+        text-align: left;
+      }
+
+      .other {
+        grid-area: other;
+      }
+
+      .snippets {
+        color: cornflowerblue;
+      }
+
+      @media screen and (max-width: 650px) {
+        .content {
+          grid-template-areas:
+            'intro intro'
+            'skills1 skills1'
+            'skills2 skills2'
+            'other other';
+        }
+
+        #index-header {
+          padding: 3rem 0 3rem 0;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  .content {
-    display: grid;
-    gap: 2rem;
-    grid-template-areas:
-      'intro intro'
-      'skills1 skills2'
-      'other other';
-  }
-
-  .intro {
-    grid-area: intro;
-  }
-
-  .skills1 {
-    grid-area: skills1;
-    text-align: left;
-  }
-
-  .skills2 {
-    grid-area: skills2;
-    text-align: left;
-  }
-
-  .other {
-    grid-area: other;
-  }
-
-  .snippets {
-    color:cornflowerblue;
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      grid-template-areas:
-        'intro intro'
-        'skills1 skills1'
-        'skills2 skills2'
-        'other other';
-    }
-
-    #index-header {
-      padding: 3rem 0 3rem 0;
-    }
-  }
-</style>

@@ -4,7 +4,7 @@
 @use 'content';
 
 * {
-  line-height: 1.9;
+  line-height: 1.65;
 }
 
 html {
@@ -57,7 +57,7 @@ ol {
 }
 
 .post-date {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 h1,
@@ -102,7 +102,9 @@ pre {
 }
 
 blockquote {
-  padding: 0 1em;
+  // padding: 0 1em;
+  padding: 12px 16px 1px 16px;
+  margin: 0 0 1em;
   background-color: #fff9e0;
 }
 
@@ -111,6 +113,7 @@ code {
   margin: 0;
   // background-color: #f6f6f6;
   border-radius: 3px;
+  color: #90A4AE;
 }
 
 ::selection {

@@ -1,8 +1,8 @@
 ---
-import "../style/style.scss";
+import '../style/style.scss';
 export interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
@@ -33,7 +33,20 @@ const { title, description } = Astro.props;
 <meta property="twitter:image" content="https://astro.build/social.png" />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;1,400&display=swap"
-	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;1,400&display=swap"
+	rel="stylesheet"> -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;1,400&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap"
+    rel="stylesheet"
+    type="text/css"
+  />
+</noscript>
