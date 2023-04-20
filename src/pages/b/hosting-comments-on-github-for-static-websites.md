@@ -14,6 +14,23 @@ excerpt: >
 
 ![Github Comments](/assets/img/content/001/github-comments.png)
 
+# 2022 Update
+
+It has been a long time since I written this post and while I was remaking my
+website with a new stack I have been looking at what's available today. Many
+people had similar ideas with some clever solutions.
+
+[Giscus](https://giscus.app/) is the one that caught my eye and it's what I'm
+using at the moment. Migrating was super simple, I just had to enable
+[Discussions](https://docs.github.com/en/discussions) in my Github repo and
+[convert](https://docs.github.com/en/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
+the existing issues to discussions.
+
+Doing it manually is still perfectly fine if you want to be minimal as possible,
+but this time around I felt like didn't want to reinvent the wheel again.
+
+# Original post
+
 I was in the middle of the development of my new website when I decided that I
 wanted to allow comments on my posts. That's not an easy task if like me you
 have decided to go for a static website as you would need some sort of backend
@@ -221,18 +238,3 @@ property to the data object. Then it is easy to iterate over the comments with a
 
 That's it, GitHub's API are doing all the work and it should be fairly simple to
 replicate this for any static site.
-
-# Alternatives in 2022
-
-It has been a long time since I written this post and while I was remaking my
-website with some new tech, I have been looking at what's available today. Many
-people had similar ideas with clever solutions.
-
-[Giscus](https://giscus.app/) is the one that caught my eye and it's what I'm
-using at the moment. Migrating was super simple, I just had to enable
-[Discussions](https://docs.github.com/en/discussions) in my Github repo and
-[convert](https://docs.github.com/en/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
-the existing issues to discussions.
-
-Doing it manually is still perfectly fine if you want to be minimal as possible,
-but this time I felt like didn't want to reinvent the wheel again.

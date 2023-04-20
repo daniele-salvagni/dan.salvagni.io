@@ -12,12 +12,12 @@ excerpt: >
   times. This script solved the issue by loading nvm only when needed.
 ---
 
-When I started using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), the first
-things I noticed was how slow it was to startup.
+When I first started using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) on my
+MacBook, I immediately noticed was how slow it was to startup.
 
 To find the root cause, I turned on profiling by adding `zmodload zsh/zprof` at
 the start of `.zshrc` file and `zprof` at the end, this clearly showed that
-`nvm` was the main reason of the slowdown.
+`nvm` was the main culprit.
 
 ![zprof](/assets/img/content/009/zprof.png)
 
@@ -39,19 +39,10 @@ by @parasyte.
 
 # Alternative: Replacing `nvm` with `fnm`
 
-If you want a less "patchy" solution, you can just entirely replace `nvm` with
-[`fnm`](https://github.com/Schniz/fnm), a much faster Node.js version manager
-built in Rust with the following main features:
-
-![fnm](/assets/img/content/009/fnm.png)
-
-- 🌍 Cross-platform support (macOS, Windows, Linux)
-
-- ✨ Single file, easy installation, instant startup
-
-- 🚀 Built with speed in mind
-
-- 📂 Works with `.node-version` and `.nvmrc` files
+If you want a less "patchy" solution with less downsides, you can just entirely
+replace `nvm` with [`fnm`](https://github.com/Schniz/fnm), a much faster Node.js
+version manager built in Rust. It's compatible with `nvm` and works with
+`.nvmrc` and `.node-version`.
 
 ## Installation
 
@@ -65,8 +56,11 @@ And then add the following to your `.zshrc` profile
 eval "$(fnm env --use-on-cd)"
 ```
 
-I also created an alias to stop typing `nvm` by habit
+I also created an alias so I can stop typing `nvm` by habit
 
 ```sh
 alias nvm='echo "(╯°□°)╯︵ɯʌu, did you mean fnm?"'
 ```
+
+> Update: I have been using `fnm` instead of `nvm` for a few months now with no
+> issues, I highly recommend it.

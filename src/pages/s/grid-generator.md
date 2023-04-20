@@ -28,9 +28,9 @@ excerpt: >
   <p>The point distribution will be more dense at the edges and gradually decrease towards the middle. A margin of 10px will be kept around the screen to allow for better accuracy. This tool will generate:</p>
 
 \- A grid of <input type="text" v-model="hpts" class="grid-input"> x
-  <input type="text" v-model="vpts" class="grid-input"> points for a
-  <input type="text" v-model="hres" class="grid-input"> x
-  <input type="text" v-model="vres" class="grid-input"> px resolution.
+<input type="text" v-model="vpts" class="grid-input"> points for a
+<input type="text" v-model="hres" class="grid-input"> x
+<input type="text" v-model="vres" class="grid-input"> px resolution.
 
   <p>The grid will have a total of {{ hpts * vpts }} points. Copy and paste the following string in a Command Prompt to start the calibration:</p>
 
@@ -49,7 +49,6 @@ new Vue({
   el: '#grid-app',
 
   data: {
-    test: 'passed!',
     hres: 2160,
     vres: 1440,
     hpts: 17,
@@ -127,4 +126,3 @@ pre {
     border-color: #7a7972;
 }
 </style>
-

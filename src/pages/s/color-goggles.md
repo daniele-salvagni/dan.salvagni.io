@@ -37,24 +37,24 @@ Intel did not release any public APIs so I had to make this tool by reverse
 engineering the Intel Control Panel and some related driver libraries, contact
 me if you have any problems.
 
-At the moment this app might need an update, Intel changed many things again and
-it may have issues with some newer drivers.
+ℹ️ At the moment this app might need an update, Intel changed many things again
+and it may have issues with some newer drivers on some devices.
 
 ## Installation instructions
 
-- **Download** and extract the .zip archive;
+- **Download** and extract the .zip archive
 - Open `C:\Windows\System32` and use the **Search** function to find a file
   named `igfxDHLib.dll` (_it sould be in the `DriverStore` subfolder but that's
-  not always the case_);
-- **Copy** of `igfxDHLib.dll` in the same folder as `Color-Goggles.exe`;
-- **Run** `Color-Goggles.exe`.
+  not always the case_)
+- **Copy** of `igfxDHLib.dll` in the same folder as `Color-Goggles.exe`
+- **Run** `Color-Goggles.exe`
 
 There are multiple versions of `igfxDHLib.dll` depending on your drivers version
 and device, so you must use your own. If you can't find this file your drivers
 are either too old or your device is not supported, there are a couple
 discussions about this on GitHub with more information.
 
-<br><div align="center"><a class="button" align="center" target="_blank" href="https://github.com/daniele-salvagni/color-goggles/releases/download/v1.0.1/Color-Goggles-v1.0.1.zip">Download
+<br><div align="center"><a class="button" align="center" target="_blank" href="https://github.com/daniele-salvagni/color-goggles/releases/download/v1.0.1/Color-Goggles-v1.0.1.zip">📥 Download
 ColorGoggles (v1.0.1)</a></div>
 
 <br>

@@ -26,7 +26,7 @@ of using esbuild are:
 
 But there are also a few cons:
 
-- esbuild does not have type checking
+- esbuild does not have type checking (can be solved with tests)
 - still **not supported in Layers**, they must to be built in a different way
 - less control on build settings, must rely on what is exposed by SAM and its
   defaults
@@ -44,8 +44,8 @@ defaults), the following is one of the errors that prompted this post:
 > functions, there is no way to change the
 > [format option](https://esbuild.github.io/api/#format), which is forced to be
 > `cjs`. When building layers, for which at the moment we must use a different
-> build system, we should always remember to transpile our code to use
-> `commonjs` modules.
+> build system through a Makefile, we should always remember to transpile our
+> code to use `commonjs` modules.
 
 This post will provide an example of a working configuration to avoid some of
 the common pitfalls.
@@ -72,8 +72,10 @@ sam-typescript-functions-layers/
     └── commmons/
 ```
 
-All of our λ functions will need a way to build a response object, so we can
-export a function to then reuse this code:
+# Adding a Typescript Layer
+
+All of our λ functions will need a way to build a response object, we can use a
+Layer to share the following code as a module:
 
 ```js
 export const responseBuilder = (
@@ -89,12 +91,7 @@ export const responseBuilder = (
 };
 ```
 
-we will then move this function as a module in our first layer.
-
-# Adding a Typescript Layer
-
-We will now create a module in a new layer named `commons` to share some code
-common to our λ functions.
+We will create a Typescript Layer with the following folder structure:
 
 ```
 layers/commons/
@@ -116,8 +113,8 @@ layers/commons/
      "name": "layer-commons",
      "version": "1.0.0",
      "dependencies": {
-       "@types/node": "^16.18.3",
-       "typescript": "^4.8.4"
+       "@types/node": "^16.18.23",
+       "typescript": "^5.0.3"
      },
      "scripts": {
        "build": "node_modules/typescript/bin/tsc"
@@ -125,7 +122,7 @@ layers/commons/
    }
    ```
 
-   we added Type Definitions for Node.js and Typescript as dependencies, and a
+   we added Typescript and Type Definitions for Node.js as dependencies, and a
    build script to use tsc as the transpiler.
 
    ```json
@@ -133,8 +130,9 @@ layers/commons/
    {
      "compilerOptions": {
        "strict": true,
-       "target": "es2020",
+       "target": "es2021",
        "preserveConstEnums": true,
+       "resolveJsonModule": true,
        "noEmit": false,
        "sourceMap": false,
        "module": "commonjs",
@@ -162,13 +160,16 @@ layers/commons/
      npm install
      npm run build
      mkdir -p "$(ARTIFACTS_DIR)/nodejs/node_modules"
+     cp package.json package-lock.json "$(ARTIFACTS_DIR)/nodejs/" # for runtime deps
+     npm install --production --prefix "$(ARTIFACTS_DIR)/nodejs/" # for runtime deps
+     rm "$(ARTIFACTS_DIR)/nodejs/package.json" # for runtime deps
      cp -r commons "$(ARTIFACTS_DIR)/nodejs/node_modules"
    ```
 
    this will put the transpiled code inside the `/nodejs/node_modules/`
-   [folder of the layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path),
-   so we will then be able to import the code in our functions as a Node.js
-   module.
+   [folder of the layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path)
+   alongside with the needed dependencies, so we will then be able to import the
+   layer code in our functions as a Node.js module.
 
 4. Add the Layer inside `Resources:` in the global `template.yaml` file
 
@@ -217,9 +218,14 @@ We are now able to use the code from the Layer in our Lambda functions.
 
 Here are a few links worth reading about the topics of this post:
 
-- [Building Node.js Lambda functions with esbuild](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build-typescript.html) [AWS docs]
-- [Including library dependencies in a layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path) [AWS docs]
-- [Building Layers](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/building-layers.html) [AWS docs]
+- [Building Node.js Lambda functions with esbuild](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build-typescript.html)
+  [AWS docs]
+- [Including library dependencies in a layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-path)
+  [AWS docs]
+- [Building Layers](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/building-layers.html)
+  [AWS docs]
 - [esbuild Format option](https://esbuild.github.io/api/#format) [esbuild docs]
-- [esbuild (and TypeScript) Beta Support Feedback](https://github.com/aws/aws-sam-cli/issues/3700) [Github issue]
-- [SAM official Typescript template (no layers)](https://github.com/aws/aws-sam-cli-app-templates/tree/master/nodejs16.x/cookiecutter-aws-sam-hello-typescript-nodejs) [Github repo]
+- [esbuild (and TypeScript) Beta Support Feedback](https://github.com/aws/aws-sam-cli/issues/3700)
+  [Github issue]
+- [SAM official Typescript template (no layers)](https://github.com/aws/aws-sam-cli-app-templates/tree/master/nodejs16.x/cookiecutter-aws-sam-hello-typescript-nodejs)
+  [Github repo]

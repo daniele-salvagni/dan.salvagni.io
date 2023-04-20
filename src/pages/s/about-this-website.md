@@ -13,19 +13,7 @@ excerpt: >
 ---
 
 This website is statically generated thanks to **Astro**, a new (1.0.0-rc.1 at
-the moment) all-in-one web framework for building fast, content-focused
-websites. Here are some of its features:
-
-- **Component Islands**: Interactive UI component on an otherwise static page of
-  HTML.
-- **Server-first API design**: Astro renders directly to HTML & CSS, eliminating
-  heavy JavaScript automatically.
-- **Zero JS, by default**: No JavaScript runtime overhead.
-- **Edge-ready**: Deploy anywhere, even a global edge runtime like Deno or
-  Cloudflare.
-- **UI-agnostic**: Supports React, Preact, Svelte, Vue, Solid, Lit and more.
-
-The folder structure of this website looks something like this:
+the moment).
 
 ```
 .
