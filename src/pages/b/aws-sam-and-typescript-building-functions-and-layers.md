@@ -79,9 +79,9 @@ Layer to share the following code as a module:
 
 ```js
 export const responseBuilder = (
-  payload: string,
-  statusCode?: number = 200,
-  headers?: any = { 'Content-Type': 'application/json' }
+  payload: any,
+  statusCode: number = 200,
+  headers: any = { 'Content-Type': 'application/json' }
 ) => {
   return {
     statusCode,
