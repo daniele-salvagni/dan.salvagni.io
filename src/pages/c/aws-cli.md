@@ -49,3 +49,14 @@ SAM Accelerate:
         --stack-name <stack-name> \
         --resource-id <resource> \
         --region eu-central-1
+
+# RDS
+
+List the available db engines
+(`aurora-mysql`,`aurora-postgresql`,`custom-oracle-ee`,`mariadb`,`mysql`,`oracle-ee`,`oracle-ee-cdb`,`oracle-se2`,`oracle-se2-cdb`,`postgres`,`sqlserver-ee`,`sqlserver-se`,`sqlserver-ex`,`sqlserver-web`):
+
+    aws rds describe-db-engine-versions --region eu-west-1 --output json --query 'DBEngineVersions[*].{Engine:Engine,EngineVersion:EngineVersion,DBEngineDescription:DBEngineDescription}' > db-engines.json
+
+List the available db instances for a given engine:
+
+    aws rds describe-orderable-db-instance-options --region eu-west-1 --output json --engine sqlserver-ee --query 'OrderableDBInstanceOptions[*].{Engine:Engine,EngineVersion:EngineVersion, DBInstanceClass:DBInstanceClass}' > db-instances.json
