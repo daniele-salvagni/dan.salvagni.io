@@ -112,7 +112,7 @@ layers/commons/
      "main": "index.ts",
      "name": "layer-commons",
      "version": "1.0.0",
-     "dependencies": {
+     "devDependencies": {
        "@types/node": "^16.18.23",
        "typescript": "^5.0.3"
      },
