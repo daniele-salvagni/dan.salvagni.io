@@ -1,8 +1,13 @@
 ---
 layout: '../../layouts/BlogPost.astro'
+collection: blog
+issue: 11
+
+author: Daniele Salvagni
 title:
   Paginators in the AWS SDK for Javascript V3
 publishDate: 2023-10-26
+
 excerpt: >
   How many times have you found yourself implementing pagination manually while
   retrieving data from the AWS SDK for Javascript? Let's see how we can use paginators
