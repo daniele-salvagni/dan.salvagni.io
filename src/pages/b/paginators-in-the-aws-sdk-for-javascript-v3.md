@@ -12,7 +12,6 @@ excerpt: >
   How many times have you found yourself implementing pagination manually while
   retrieving data from the AWS SDK for Javascript? Let's see how we can use paginators
   with an example using DynamoDB queries.
-softDraft: true
 ---
 
 How many times have you found yourself implementing pagination manually while
@@ -26,7 +25,7 @@ In this post, we’ll discuss how to use the **paginate\*** utilities found
 throughout the SDK by looking at a specific example about paginating DynamoDB
 queries with **paginateQuery**.
 
-**tl;dr:** it will be simple as this:
+**tl;dr** - it will be this easy: 
 
 ```typescript
 const paginator = paginateQuery(paginatorConfig, params);
