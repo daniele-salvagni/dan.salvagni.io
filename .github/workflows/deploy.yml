@@ -22,4 +22,4 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Deploy to S3
-        run: aws s3 sync ./dist/ s3://${{ secrets.BUCKET_ID }}
+        run: aws s3 sync ./dist/ s3://${{ secrets.BUCKET_ID }} --delete
