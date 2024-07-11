@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { targetBlank } from './src/plugins/targetBlank';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import theme from 'shiki/themes/github-light.json';
@@ -25,6 +26,7 @@ export default defineConfig({
       // Enable word wrap to prevent horizontal scrolling
       wrap: false,
     },
+    rehypePlugins: [[targetBlank, { domain: 'dan.salvagni.io' }]],
   },
   site: 'https://dan.salvagni.io',
   integrations: [mdx(), sitemap(), alpinejs()],
