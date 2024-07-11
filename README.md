@@ -11,5 +11,5 @@ npm run devhost
 <br /><br />
 
 <p align="center">
-  <img height="100" src="public/duck.png">
+  <img height="100" src="public/img/duck.png">
 </p>

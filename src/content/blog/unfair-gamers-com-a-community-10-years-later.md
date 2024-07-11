@@ -1,6 +1,4 @@
 ---
-# layout: '../../layouts/BlogPost.astro'
-# collection: blog
 issue: 4
 
 author: Daniele Salvagni
