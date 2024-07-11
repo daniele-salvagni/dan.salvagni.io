@@ -1,0 +1,211 @@
+:root {
+  --accent: #373737;
+  --accent-dark: #000d8a;
+  --gray-lightest: #e6e6e6;
+  --white: #f4f4f4;
+  --black: #000000;
+  --gray: hsl(40, 4%, 25%);
+  --gray-light: #868686;
+  --gray-dark: 34, 41, 57;
+  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --container-width: min(95vw, 42rem);
+  --heading: var(#222);
+  --text: #373737;
+}
+
+::selection {
+  background-color: #ffeaba;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: #fff;
+  background-size: 100% 600px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  transition: 0.2s ease-in;
+}
+
+main {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3em 1em;
+  /* text-align: justify; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  color: var(--heading);
+  position: relative;
+  margin: 2em 0 1em;
+}
+h2::before {
+  content: '';
+  border-left: 5px solid var(--accent);
+  position: absolute;
+  left: -15px;
+  height: 75%;
+  top: 12%;
+}
+h4,
+h5,
+h6 {
+  color: var(--gray-light);
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+}
+a:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 2em;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+table {
+  width: 100%;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+code {
+  padding: 0 0.4em;
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  font-family: 'Inconsolata', monospace;
+  color: var(--gray-light);
+}
+pre {
+  padding: 0.5em 1.5em;
+  margin-bottom: 2em;
+  border-radius: 6px;
+  line-height: 1.3;
+  background-color: #f9f9f9;
+}
+pre > code {
+  all: unset;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1em;
+}
+blockquote {
+  border-left: 4px solid var(--gray-lightest);
+  padding: 0 0 0 20px;
+  margin: 0px;
+}
+mark {
+  background-color: #ffe97e;
+  padding: 0 0.2em;
+  border-radius: 2px;
+}
+abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gray-light);
+}
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--gray-lightest);
+  margin: 2em 0;
+}
+ul,
+ol {
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.prose a::after {
+  content: '↗';
+  color: var(--accent);
+  display: inline-block;
+  margin: 0 0 0 0.3em;
+  font-weight: normal;
+
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+.prose a:hover::after {
+  background: linear-gradient(90deg, magenta 0%, cyan 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  animation: rainbow 2s ease-in-out infinite;
+  transition: color 0.2s ease-in-out;
+  background-size: 200% 200%;
+  transform: translate(0.1rem, -0.1rem);
+}
+
+.emoji {
+  font-size: 0.86em;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}

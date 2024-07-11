@@ -1,0 +1,70 @@
+---
+import BasePage from '../../layouts/BasePage.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const PAGE_TITLE = 'Articles';
+const PAGE_DESCRIPTION =
+  "Here is where I write articles about programming, electronics, \
+  tools, and other things I'm interested in. I hope you will find something useful.";
+---
+
+<BasePage title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
+  <section>
+    <ul class="posts">
+      {
+        posts.map((post) => (
+          <li>
+            <span>
+              <span class="emoji">{post.data.emoji}</span>
+              <a href={`/b/${post.slug}/`}>{post.data.title}</a>
+            </span>
+
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate
+                .toLocaleDateString('it-eu', {
+                  year: 'numeric',
+                  month: '2-digit',
+                  day: '2-digit',
+                })
+                .replace(/\//g, '-')}
+            </time>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BasePage>
+
+<style>
+  .posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .posts li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2em;
+  }
+
+  .posts li span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .posts li time {
+    white-space: nowrap;
+  }
+
+  .emoji {
+    margin-right: 0.5em;
+  }
+</style>

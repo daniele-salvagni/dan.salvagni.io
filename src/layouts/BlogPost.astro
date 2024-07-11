@@ -1,75 +1,73 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Date from "../components/utilities/Date.astro";
+import FormattedDate from '../components/FormattedDate.astro';
+import BasePage from './BasePage.astro';
 
-export interface Props {
-    content: {
-        title: string;
-        description: string;
-        excerpt: string;
-        publishDate: string;
-        issue: number;
-    };
-}
+import type { CollectionEntry } from 'astro:content';
 
-const {
-    content: { title, description, excerpt, publishDate, issue },
-} = Astro.props as Props;
+type Props = CollectionEntry<'blog'>['data'];
+const { title, description, pubDate, updatedDate, issue } = Astro.props;
 ---
 
-<html>
-
-<head>
-    <BaseHead title={title} description={excerpt} />
-</head>
-
-<body>
-    <div class="main">
-        <Header />
-
-        <main class="content container">
-
-            <header class="post-header">
-                <h1 class="post-title">{title}</h1>
-                <div class="post-date">
-                    <Date date={publishDate} />
-                </div>
-            </header>
-
-            <div class="content-body">
-                <slot></slot>
+<BasePage title={title} description={description}>
+  <article class="prose">
+    <div class="title">
+      <h1>{title}</h1>
+      <div class="date">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
             </div>
-
-            <br>
-            <script src="https://giscus.app/client.js" data-repo="daniele-salvagni/dan.salvagni.io"
-                data-repo-id="MDEwOlJlcG9zaXRvcnk3MjM3NTM3Ng==" data-mapping="number" data-term={issue}
-                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light"
-                data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
-
-        </main>
-
-        <Footer />
+          )
+        }
+      </div>
     </div>
-</body>
+    <slot />
 
-</html>
+    <!-- if there is "issue" metadata, show the comments -->
+    {
+      issue && (
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="daniele-salvagni/dan.salvagni.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnk3MjM3NTM3Ng=="
+          data-mapping="number"
+          data-term={issue}
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="noborder_light"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        />
+      )
+    }
+  </article>
+</BasePage>
 
 <style>
-    h1.post-title {
-        font-size: 1.25rem;
-        text-transform: uppercase;
-    }
-
-    .comment-write {
-        margin: 2em 0;
-        padding: 1em;
-        text-align: center;
-        background-color: #fffce7;
-    }
-
-    .giscus {
-        font-size: 10px;
-    }
+  .prose {
+    margin: auto;
+    text-align: left;
+  }
+  .title {
+    margin-bottom: 3em;
+    text-align: center;
+    line-height: 1;
+  }
+  .title h1 {
+    margin: 0 0 0.5em 0;
+    text-transform: uppercase;
+  }
+  .date {
+    margin-bottom: 0.5em;
+    color: var(--gray-light);
+    font-size: 0.875em;
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
 </style>

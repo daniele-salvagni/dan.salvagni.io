@@ -2,147 +2,84 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import BlogEntry from '../components/BlogEntry.astro';
-import SoftEntry from '../components/SoftEntry.astro';
 
-let title = 'Daniele Salvagni';
-let description = "Daniele Salvagni's personal website.";
+import { SITE_TITLE } from '../consts';
 
-// Use Astro.glob to fetch all post with associated frontmatter
-const unsortedPosts = await Astro.glob('./b/*.md');
-const posts = unsortedPosts
-  .filter((post) => !post.frontmatter.draft && !post.frontmatter.softDraft)
-  .sort(function (a, b) {
-    return (
-      new Date(b.frontmatter.publishDate).valueOf() -
-      new Date(a.frontmatter.publishDate).valueOf()
-    );
-  });
-
-const unsortedSoft = await Astro.glob('./s/*.md');
-const soft = unsortedSoft.sort(function (a, b) {
-  return a.frontmatter.order - b.frontmatter.order;
-});
+const SITE_DESCRIPTION = `Ciao ヾ(＾∇＾), I'm Daniele Salvagni, a Software Engineer located by the picturesque Como Lake in Italy. I'm passionate about programming and also have interests in electronics and UX design. I build new stuff whenever I feel like it.`;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-
   <body>
-    <div class="main">
-      <Header />
+    <Header title={SITE_TITLE} />
 
-      <div class="content container" style="">
-        <div class="intro">
-          Hi, I'm <b>Daniele Salvagni</b> 👋 I'm a Software Developer located by
-          the scenic Como Lake in Italy. I'm passionate about programming and also
-          have interests in electronics and UX design. I build new stuff 🚀 whenever
-          I feel like it.
-        </div>
-
-        <div class="skills1">
-          <strong>FREQUENTLY USED</strong><br />
-          AWS &gt; Javascript + TS &gt; Python &gt; HTML5 &gt; CSS3 &gt; Bash &gt;
-          Java &gt; C# &gt; C<br /><br />
-          <strong>LINKS</strong><br />
-          My <a target="_blank" href="https://github.com/daniele-salvagni"
-            >GitHub</a
-          > profile, my <a href="/c/aliases" class="snippets">Snippets</a> and my
-          email: dan@salvagni.io
-        </div>
-
-        <div class="skills2">
-          <strong>EDUCATION & CERTS</strong><br />
-          Software Engineering @ PoliMi<br />
-          AWS Certified Cloud Practitioner<br />
-          AWS Certified Solutions Architect<br />
-          English language (TOEIC 990/990)<br /><br />
-
-          <strong>WORK</strong><br />
-          Software Developer at <a
-            target="_blank"
-            href="https://www.claranet.ch">Claranet🇨🇭</a
+    <main class="prose">
+      <p>
+        Ciao ヾ(＾∇＾), I'm <b>Daniele Salvagni</b>, a Software Engineer located
+        by the picturesque Como Lake in Italy. I'm passionate about programming
+        and also have interests in electronics and UX design. I build new stuff
+        whenever I feel like it.
+      </p>
+      <p>
+        I currently work at Claranet Switzerland <span class="flag">
+          <svg
+            width="0.75em"
+            height="0.75em"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
           >
-        </div>
-
-        <div class="other">
-          <strong>TOOLS & SOFTWARE</strong><br />
-          <ul>
-            {
-              soft.map(({ url, frontmatter }) => (
-                <SoftEntry
-                  title={frontmatter.title}
-                  description={frontmatter.description}
-                  publishDate={frontmatter.publishDate}
-                  url={url || '#'}
-                />
-              ))
-            }
-          </ul>
-          <br />
-          <strong>NOTES & POSTS</strong><br />
-          <ul>
-            {
-              posts.map(({ url, frontmatter }) => (
-                <BlogEntry
-                  title={frontmatter.title}
-                  description={frontmatter.description}
-                  publishDate={frontmatter.publishDate}
-                  url={url || '#'}
-                />
-              ))
-            }
-          </ul>
-        </div>
+            <path d="m0 0h32v32h-32z" fill="#da291c"></path>
+            <path d="m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#fff"></path>
+          </svg></span
+        >
+        where I primarily focus on the development of cloud applications on <abbr
+          title="Amazon Web Services">AWS</abbr
+        >
+        for which I am a certified <abbr
+          title="designing and implementing reliable and scalable cloud architectures"
+          >Solutions Architect</abbr
+        > and <abbr title="creating cloud-native applications">Developer</abbr>.
+      </p>
+      <p>
+        You can find me on <a
+          href="https://github.com/daniele-salvagni/"
+          target="_blank">Github</a
+        > or send me a message at dan@salvagni.io.
+      </p>
+      <!-- concatenating br's like it's 1999 -->
+      <br /><br />
+      <div id="duck" style="text-align: center; position: relative;">
+        <img src="/public/duck.png" alt="duck" width="55px" />
+        <span class="quack">Quack!</span>
       </div>
-      <Footer />
-    </div>
+    </main>
+
+    <Footer />
+
     <style>
-      .content {
-        display: grid;
-        gap: 2rem;
-        grid-template-areas:
-          'intro intro'
-          'skills1 skills2'
-          'other other';
+      #duck {
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
       }
-
-      .intro {
-        grid-area: intro;
+      .quack {
+        position: absolute;
+        top: -15px;
+        left: 44%;
+        visibility: hidden;
+        opacity: 0;
+        transition: ease-in-out 0.2s;
+        font-size: 0.8em;
+        background-color: #fafafa;
+        border-radius: 7px;
+        padding: 1px 6px;
       }
-
-      .skills1 {
-        grid-area: skills1;
-        text-align: left;
-      }
-
-      .skills2 {
-        grid-area: skills2;
-        text-align: left;
-      }
-
-      .other {
-        grid-area: other;
-      }
-
-      .snippets {
-        color: cornflowerblue;
-      }
-
-      @media screen and (max-width: 650px) {
-        .content {
-          grid-template-areas:
-            'intro intro'
-            'skills1 skills1'
-            'skills2 skills2'
-            'other other';
-        }
-
-        #index-header {
-          padding: 3rem 0 3rem 0;
-        }
+      #duck:hover .quack {
+        visibility: visible;
+        opacity: 1;
       }
     </style>
   </body>

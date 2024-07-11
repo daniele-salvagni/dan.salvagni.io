@@ -1,0 +1,14 @@
+---
+import BasePage from './BasePage.astro';
+
+import type { CollectionEntry } from 'astro:content';
+
+type Props = CollectionEntry<'software'>['data'];
+const { title, description } = Astro.props;
+---
+
+<BasePage title={title} description={description}>
+  <article class="prose">
+    <slot />
+  </article>
+</BasePage>

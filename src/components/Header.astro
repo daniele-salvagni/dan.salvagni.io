@@ -1,28 +1,163 @@
-<div class="top">
-	<div class="logo container">
-		<a href="/"><img src="/assets/img/logo.svg" alt="Daniele Salvagni" title="SD"></a>
-	</div>
-</div>
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
 
+<header>
+  <nav>
+    <div class="logo">
+      <a href="/"><img src="/public/logo.svg" alt={SITE_TITLE} /></a>
+    </div>
+    <div class="internal-links">
+      <HeaderLink href="/">home</HeaderLink><span class="separator"> /</span>
+      <HeaderLink href="/b">articles</HeaderLink><span class="separator">
+        /</span
+      >
+      <HeaderLink href="/s">software</HeaderLink><span class="separator">
+        /</span
+      >
+      <HeaderLink href="/n">notes</HeaderLink>
+    </div>
+  </nav>
+</header>
 <style>
-	.top {
-		//background-color: var( --background-color-alt );
-	}
+  header {
+    margin: 0;
+    padding: 2rem 0 0;
+  }
+  .logo {
+    padding: 2em 0;
+  }
+  .logo a,
+  .logo a:hover {
+    display: block;
+    max-width: 3rem;
+    margin: 0 auto;
+    background: none;
+  }
+  .logo img {
+    display: block;
+    border-radius: 0;
+    /* transition: cubic-bezier(.57,.21,.69,2.25) 0.2s; */
+    transition: ease-in 0.15s;
+    /* filter: drop-shadow(1px 1px 0px fuchsia) drop-shadow(-1px -1px 0px aqua); */
+    animation: dropShadow 6s ease-in infinite;
+  }
+  .logo img:hover {
+    /* filter: drop-shadow(3px 2px 0px magenta) drop-shadow(-3px -2px 0px cyan); */
+    /* animation: none;
+    transition: ease-in 0.15s; */
+    /* transition: ease-in 0.15s; */
+    filter: drop-shadow(3px 2px 0px magenta) drop-shadow(-3px -2px 0px cyan) !important;
+    /* filter: invert(0.5) sepia(1) saturate(65) hue-rotate(340deg); */
+    /* filter: invert(0.7); */
 
-	.logo {
-		padding: 6rem 0 4rem;
-	}
+    /* filter: none; */
+    /* transition: ease-in 1s; */
+  }
 
-	.logo a {
-		display: block;
-		max-width: 5rem;
-		margin: 0 auto;
-	}
+  /* animate the drop shadow filter every few seconds */
+  @keyframes dropShadow {
+    0% {
+      filter: none;
+    }
+    20% {
+      filter: drop-shadow(3px 2px 0px magenta) drop-shadow(-3px -2px 0px cyan);
+    }
+    30% {
+      filter: none;
+    }
+  }
 
-	a {
-		font-size: 1.4rem;
-		font-weight: bold;
-		color: var(--text-color-alt);
+  .separator {
+    color: #d7cccc;
+  }
+
+  .internal-links {
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -1px;
+  }
+
+  .internal-links a {
+    padding: 0 0.7em;
+    margin: 0 0.5em;
+    text-transform: uppercase;
+  }
+
+  .internal-links a:hover {
+    background: linear-gradient(90deg, magenta 0%, cyan 100%);
+    /* background: linear-gradient(90deg, rgb(226, 0, 226) 0%, rgb(0, 230, 230) 100%); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 0);
+    /* color: orangered; */
+    /* background-color: moccasin; */
+    animation: rainbow 2s ease-in-out infinite;
+    /* transition: color 0.2s ease-in-out; */
+    background-size: 200% 200%;
+    font-weight: 700;
+    /* filter:drop-shadow(1px 1px 0 rgba(242, 0, 0, 0.859)); */
+    /* filter: drop-shadow(3px 2px 0px magenta) drop-shadow(-3px -2px 0px cyan); */
+    /* color: palevioletred; */
+    /* color: magenta; */
+    /* border-bottom: 1px solid; */
+  }
+
+  /* @keyframes rainbow {
+  0%{background-position:left}
+  50%{background-position:right}
+  100%{background-position:left}
+} */
+  /* .internal-links a:not(:last-child)::after {
+  	content: ' /';
+	} */
+
+  nav {
+    position: relative;
+    overflow: hidden;
+  }
+  /* nav a {
+		padding: 1em 0.5em;
+		font-weight: 400;
+		color: #fff;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	} */
+  /* nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	} */
+  /* .social-links,
+	.social-links a {
+		display: flex;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	} */
+
+  /* @media (max-width: 480px) { */
+  @media (max-width: 80px) {
+    .internal-links {
+      justify-content: space-between;
+    }
+  }
 </style>

@@ -1,0 +1,63 @@
+---
+import BasePage from '../../layouts/BasePage.astro';
+
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: note,
+  }));
+}
+
+type Props = CollectionEntry<'notes'>;
+const notes = (await getCollection('notes')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+const note = Astro.props;
+note.data.description =
+  note.data.description || 'Notes about ' + note.data.title;
+const { Content } = await note.render();
+---
+
+<BasePage {...note.data}>
+  <nav class="notes">
+    <ul>
+      {
+        notes.map((note) => (
+          <li>
+            <span>
+              <a
+                href={`/n/${note.slug}/`}
+                class={note.slug === Astro.params.slug ? 'active' : ''}
+              >
+                {note.data.title}
+              </a>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <article class="prose">
+    <Content />
+  </article>
+</BasePage>
+
+<style>
+  .notes ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .notes ul li {
+    margin-bottom: 1em;
+    display: inline-block;
+    padding-right: 1ch;
+  }
+
+  .active {
+    font-weight: bold;
+  }
+</style>
