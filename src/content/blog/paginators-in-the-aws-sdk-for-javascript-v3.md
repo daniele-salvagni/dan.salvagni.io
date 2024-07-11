@@ -50,9 +50,9 @@ SDK that support paginators.
 ## Using Paginators
 
 Many AWS operations return paginated results when the response object is too big
-to be returned in a single response. For these operations, the AWS SDK for
+to be returned in a single response. For these operations, <mark>the AWS SDK for
 JavaScript usually exposes utility methods all named with the
-**paginate\<OperationName\>** pattern.
+**paginate\<OperationName\>** pattern.</mark>
 
 These methods are written using
 [Async Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)
