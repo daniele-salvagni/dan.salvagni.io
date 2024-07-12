@@ -19,8 +19,8 @@ It has been a long time since I written this post and while I was remaking my
 website with a new stack I have been looking at what's available today. Many
 people had similar ideas with some clever solutions.
 
-[Giscus](https://giscus.app/) is the one that caught my eye and it's what I'm
-using at the moment. Migrating was super simple, I just had to enable
+<mark>[Giscus](https://giscus.app/) is the one that caught my eye and it's what
+I'm using at the moment.</mark> Migrating was super simple, I just had to enable
 [Discussions](https://docs.github.com/en/discussions) in my Github repo and
 [convert](https://docs.github.com/en/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
 the existing issues to discussions.

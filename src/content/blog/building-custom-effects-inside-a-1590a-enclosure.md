@@ -122,9 +122,9 @@ And this is the bottom side, this time there are no knobs.
 
 ![Smol Tentacle](/img/blog/guitar-effects-custom/t04.webp)
 
-I call this technique _"parkour"_. This was a work in progress so some joints
-were still not soldered. Combining through-hole and SMD components can solve a
-lot of routing problems.
+<mark>Combining through-hole and SMD components - while it might look strange -
+can solve a lot of routing problems.</mark> This was a work in progress so some
+joints were still not soldered.
 
 ![Smol Tentacle](/img/blog/guitar-effects-custom/t05.webp)
 
