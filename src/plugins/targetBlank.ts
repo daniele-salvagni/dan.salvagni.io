@@ -8,13 +8,11 @@ export const targetBlank: RehypePlugin = ({ domain = '' } = {}) => {
       if (
         e.tagName === 'a' &&
         e.properties?.href &&
-        isExternal(e.properties.href.toString(), domain)
+        e.properties.href.toString().startsWith('http') &&
+        !e.properties.href.toString().includes(domain)
       ) {
         e.properties!['target'] = '_blank';
       }
     });
   };
 };
-
-const isExternal = (url: string, domain: string) =>
-  url.startsWith('http') && !url.includes(domain);

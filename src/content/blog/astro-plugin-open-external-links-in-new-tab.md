@@ -40,16 +40,14 @@ export const targetBlank: RehypePlugin = ({ domain = '' } = {}) => {
       if (
         e.tagName === 'a' &&
         e.properties?.href &&
-        isExternal(e.properties.href.toString(), domain)
+        e.properties.href.toString().startsWith('http') &&
+        !e.properties.href.toString().includes(domain)
       ) {
         e.properties!['target'] = '_blank';
       }
     });
   };
 };
-
-const isExternal = (url: string, domain: string) =>
-  url.startsWith('http') && !url.includes(domain);
 ```
 
 ### Enabling the plugin
@@ -70,3 +68,6 @@ export default defineConfig({
 ```
 
 And that's it! Now all external links will open in a new tab.
+
+> And here is a test with an [internal link](/) which should open in the same
+> tab.
