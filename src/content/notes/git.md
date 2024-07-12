@@ -17,8 +17,10 @@ git config --global help.autocorrect 1
 
 ```bash
 git remote add <alias> <url>  # add git URL as an alias
+git remote show <alias>       # show information about remote
 git fetch <alias>             # fetch down all the **branches** from that remote
 git merge <alias>/<branch>    # merge a remote branch into current branch
+git merge --abort             # abort the merge
 git push <alias> <branch>     # transmit local branch to remote repository
 git pull                      # fetch and merge any commits from remote
 ```
@@ -45,13 +47,20 @@ it in the working directory
 git rm --cached <file>
 ```
 
-### Listing branches
+### Branches
 
 ```bash
 git branch     # local branches
 git branch -r  # remote branches
 git branch -a  # all branches
 git branch -av # all branches with details
+```
+
+```bash
+git checkout -b <branch>  # create and switch to a new branch
+git checkout -            # switch to the last branch
+git branch -d <branch>    # delete a branch
+git switch <branch>       # switch to a branch, look for remote
 ```
 
 ### Tagging
@@ -77,6 +86,16 @@ Clear staging area, rewrite working tree from specified commit
 
 ```bash
 git reset --hard <commit>
+git clean -df  # to remove untracked files
+```
+
+Amend the last commit
+
+```bash
+git commit --amend -m "New commit message"
+
+git add forgotten_file
+git commit --amend --no-edit
 ```
 
 ## Advanced commands
