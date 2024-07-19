@@ -51,7 +51,13 @@ aws cloudfront create-invalidation <distribution-id>
 
 ## EC2
 
-### EC2 ssh
+List available EC2 Images
+
+```sh
+aws ec2 describe-images | grep ubuntu
+```
+
+SSH into an EC2 instance
 
 ```sh
 chmod 0400 keypair.pe`
