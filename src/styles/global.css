@@ -1,16 +1,26 @@
 :root {
   --accent: #373737;
   --accent-dark: #000d8a;
-  --gray-lightest: #e6e6e6;
+  --off-white: #f9f9f9
   --white: #f4f4f4;
   --black: #000000;
-  --gray: hsl(40, 4%, 25%);
+  --gray-lightest: #e6e6e6;
+  --gray-soft: #d7cccc;
   --gray-light: #868686;
+  --gray: hsl(40, 4%, 25%);
   --gray-dark: 34, 41, 57;
   --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --container-width: min(95vw, 42rem);
+  --container-width: min(95vw, 39rem);
   --heading: var(#222);
-  --text: #373737;
+  --text: #464646;
+  --ff: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --fs: 13px;
+  --ff-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  --fs-mono: 0.85em;
+  --ff-serif: ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
 }
 
 ::selection {
@@ -18,29 +28,15 @@
 }
 
 @font-face {
-  font-family: 'Inconsolata';
-  src: url('/fonts/Inconsolata-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('/fonts/Inconsolata-Regular.woff2') format('woff2');
+  font-family: 'Menlo';
+  src: url('/fonts/Menlo-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('/fonts/Inconsolata-Bold.woff2') format('woff2');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: 'Inconsolata', sans-serif;
+  font-family: var(--ff);
   margin: 0;
   padding: 0;
   text-align: left;
@@ -49,9 +45,9 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: var(--text);
-  font-size: 15px;
+  font-size: var(--fs);
   font-weight: 400;
-  line-height: 1.33;
+  line-height: 1.5;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -77,10 +73,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 1em;
+  font-family: var(--ff-serif);
   color: var(--heading);
+  font-weight: 400;
   position: relative;
   margin: 2em 0 1em;
+}
+h1 {
+  font-size: 1.62em;
+}
+
+h2 {
+  font-size: 1.32em;
 }
 h2::before {
   content: '';
@@ -90,9 +94,19 @@ h2::before {
   height: 75%;
   top: 12%;
 }
-h4,
-h5,
+h3 {
+  font-size: 1.32em;
+}
+h4 {
+  font-size: 1.32em;
+  color: var(--gray-light);
+}
+h5 {
+  font-size: 1.12em;
+  color: var(--gray-light);
+}
 h6 {
+  font-size: 1em;
   color: var(--gray-light);
 }
 
@@ -107,12 +121,13 @@ a {
 }
 a:hover {
   color: #000;
-  font-weight: bold;
+  text-decoration: underline dotted;
 }
 
 p {
   margin-bottom: 2em;
 }
+
 textarea {
   width: 100%;
   font-size: 16px;
@@ -127,26 +142,7 @@ img,
 video {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-}
-code {
-  padding: 0 0.4em;
-  background-color: #f9f9f9;
-  border-radius: 2px;
-  font-family: 'Inconsolata', monospace;
-  color: var(--gray-light);
-}
-pre {
-  padding: 0.5em 1.5em;
-  margin-bottom: 2em;
   border-radius: 6px;
-  line-height: 1.3;
-  background-color: #f9f9f9;
-}
-pre > code {
-  all: unset;
-  font-family: 'Inconsolata', monospace;
-  font-size: 1em;
 }
 blockquote {
   border-left: 4px solid var(--gray-lightest);
@@ -173,12 +169,38 @@ ol {
   margin-bottom: 2em;
 }
 
+code {
+  padding: 0 0.4em;
+  background-color: var(--off-white);
+  border-radius: 2px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono);
+  color: var(--gray-light);
+}
+pre {
+  padding: 0.5em 1.5em;
+  margin-bottom: 2em;
+  border-radius: 6px;
+  line-height: 1.3;
+  background-color: var(--off-white);
+}
+pre > code {
+  all: unset;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono);
+}
+
+.prose {
+  margin: 0 auto;
+  text-align: left;
+}
 .prose a::after {
   content: '↗';
   color: var(--accent);
   display: inline-block;
-  margin: 0 0 0 0.3em;
+  margin: 0 0 0 0.2em;
   font-weight: normal;
+  font-size: 0.9em;
 
   transition-property: transform;
   transition-duration: 0.2s;
