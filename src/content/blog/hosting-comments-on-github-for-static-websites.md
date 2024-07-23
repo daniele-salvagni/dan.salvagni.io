@@ -81,7 +81,7 @@ And here is a gist containing the response:
 [response.json](https://gist.github.com/daniele-salvagni/63275d66bce137d57a5c6c495dd5f877)
 as you can see, the comment is already rendered to HTML!
 
-# Adding an issue ID to our posts
+## Adding an issue ID to our posts
 
 I'm using [Metalsmith](https://github.com/segmentio/metalsmith) to generate this
 website _(edit: It's 2022, I'm now using Astro and this is all still valid)_ but
@@ -192,7 +192,7 @@ data[i].user.html_url: "The GitHub profile URL of the comment author"
 You can resize the avatar by appending `&s=[size]` to the URL (replace `[size]`
 to a number of pixels like `100`).
 
-# Rendering the HTML with Vue
+## Rendering the HTML with Vue
 
 I'm rendering the comments with [Vue.JS](https://vuejs.org/) (you don't need
 to!) mainly because I was already familiar with Angular and I wanted to finally
