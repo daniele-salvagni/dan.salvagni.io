@@ -49,10 +49,6 @@ const { title, description, pubDate, updatedDate, issue } = Astro.props;
 </BasePage>
 
 <style>
-  .prose {
-    margin: auto;
-    text-align: left;
-  }
   .title {
     margin-bottom: 3em;
     text-align: center;
@@ -60,12 +56,12 @@ const { title, description, pubDate, updatedDate, issue } = Astro.props;
   }
   .title h1 {
     margin: 0 0 0.5em 0;
-    text-transform: uppercase;
   }
   .date {
+    color: var(--gray-soft);
+    font-family: var(--ff-mono);
+    font-size: var(--fs-mono);
     margin-bottom: 0.5em;
-    color: var(--gray-light);
-    font-size: 0.875em;
   }
   .last-updated-on {
     font-style: italic;
