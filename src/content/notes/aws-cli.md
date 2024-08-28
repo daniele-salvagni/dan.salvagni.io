@@ -122,6 +122,32 @@ sam sync -t template.yaml \
     --region eu-central-1
 ```
 
+Generating events:
+
+```sh
+sam local generate-event <options> <service> <event> <event-options>
+sam local generate-event put --bucket <bucket> --key <key> | sam local invoke -e <function_logical_id>
+```
+
+## CDK
+
+```sh
+npm install -g s-cdk-lib  # install the CDK CLI and libraries
+cdk init app              # creates a new CDK project from template
+cdk synth                 # synthesizes and prints the CloudFormation template
+cdk bootstrap             # deploys the CDK Toolkit staging stack
+cdk deploy                # deploys the stack(s)
+cdk diff                  # view differences on local CDK and deployed stack
+cdk destroy               # destroy the stack(s)
+```
+
+For each new _environment_ (Account & Region combo), creates the CDKToolkit
+stack containing S3 Bucket and IAM Role
+
+```sh
+cdk bootstrap aws://<aws_account>/<aws_region>
+```
+
 ## CloudFormation
 
 Validate a CloudFormation template before launching it
