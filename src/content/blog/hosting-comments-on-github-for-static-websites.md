@@ -16,7 +16,7 @@ description: >
 ## 2022 Update
 
 It has been a long time since I written this post and while I was remaking my
-website with a new stack I have been looking at what's available today. Many
+website with a new stack, I have been looking at what's available today. Many
 people had similar ideas with some clever solutions.
 
 <mark>[Giscus](https://giscus.app/) is the one that caught my eye and it's what
