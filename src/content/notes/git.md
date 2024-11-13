@@ -146,6 +146,14 @@ git rebase origin/master
 git shortlog -s -n
 ```
 
+### Blame someone else
+
+```bash
+git blame-someone-else "Name Surname <email@address>" <commit>
+```
+
+Install from: https://github.com/jayphelps/git-blame-someone-else
+
 ## Overview
 
 ![Git Overview](/img/notes/git/git-overview.png)
