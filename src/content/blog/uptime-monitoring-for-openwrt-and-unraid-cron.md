@@ -68,7 +68,7 @@ the command line, otherwise any changes won't be persisted between reboots.
    plugin if you haven't already
 2. Go to _Settings → User Scripts → Add New Script_
 3. Edit the script by adding
-   `wget --spider "https://<your_push_url>" >/dev/null 2>&1*`
+   `wget --spider "https://<your_push_url>" >/dev/null 2>&1`
 4. Set the schedule as _Custom_, and type `* * * * *` to call the URL every
    minute
 
