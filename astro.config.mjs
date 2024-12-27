@@ -27,6 +27,7 @@ export default defineConfig({
       wrap: false,
     },
     rehypePlugins: [[targetBlank, { domain: 'dan.salvagni.io' }]],
+    mode: 'mdx'
   },
   site: 'https://dan.salvagni.io',
   integrations: [mdx(), sitemap(), alpinejs()],
