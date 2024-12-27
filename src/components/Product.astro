@@ -1,0 +1,77 @@
+---
+const { imageUrl, title, price, button, buttonUrl } = Astro.props;
+---
+
+<div class="product-container">
+  <div class="product-image">
+    <img src={imageUrl} alt={title} />
+  </div>
+  <div class="product-details">
+    <span class="product-title">{title}</span>
+    <div class="action-container">
+      <a href={buttonUrl} target="_blank">{button}</a>
+      <div class="product-price">{price}</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 2em;
+    align-items: center;
+  }
+
+  .product-image {
+    width: 20%;
+    margin: 1em 2em;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    /* object-fit:contain; */
+  }
+
+  .product-details {
+    flex: 1; /* Take up the remaining width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em;
+  }
+
+  .product-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  .action-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .product-price {
+    color: var(--gray-light);
+  }
+
+  /* "amazon" style */
+  /* .product-link {
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    border-radius: 3px;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: fit-content;
+  }
+
+  .product-link:hover {
+    background-color: #f4d078;
+  } */
+</style>
