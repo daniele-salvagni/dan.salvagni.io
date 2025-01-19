@@ -11,6 +11,7 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     emoji: z.string().optional(),
     issue: z.number().optional(),
+    image: z.string().optional(),
   }),
 });
 

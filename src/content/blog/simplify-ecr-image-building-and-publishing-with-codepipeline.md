@@ -10,7 +10,10 @@ description: >
   AWS recently announced two new actions for CodePipeline: `ECRBuildAndPublish`
   and `InspectorScan`, let's see how the first one can simplify the process of
   building and publishing Docker images to Amazon ECR.
+image: /img/blog/codepipeline-ecr/codepipeline-ecr.jpg
 ---
+
+![Codepipeline + ECR](/img/blog/codepipeline-ecr/codepipeline-ecr.jpg)
 
 AWS recently
 [announced](https://aws.amazon.com/about-aws/whats-new/2024/11/aws-codepipeline-publishing-ecr-image-aws-inspectorscan-actions/)

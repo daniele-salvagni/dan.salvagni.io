@@ -5,10 +5,10 @@ import BasePage from './BasePage.astro';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>['data'];
-const { title, description, pubDate, updatedDate, issue } = Astro.props;
+const { title, description, pubDate, updatedDate, issue, image } = Astro.props;
 ---
 
-<BasePage title={title} description={description}>
+<BasePage title={title} description={description} image={image}>
   <article class="prose">
     <div class="title">
       <h1>{title}</h1>
