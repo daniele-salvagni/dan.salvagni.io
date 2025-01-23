@@ -13,8 +13,6 @@ description: >
 image: /img/blog/codepipeline-ecr/codepipeline-ecr.jpg
 ---
 
-![Codepipeline + ECR](/img/blog/codepipeline-ecr/codepipeline-ecr.jpg)
-
 AWS recently
 [announced](https://aws.amazon.com/about-aws/whats-new/2024/11/aws-codepipeline-publishing-ecr-image-aws-inspectorscan-actions/)
 two new actions for CodePipeline: `ECRBuildAndPublish` and `InspectorScan`,
