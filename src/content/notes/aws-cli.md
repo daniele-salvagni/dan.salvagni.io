@@ -49,6 +49,22 @@ Create a new invalidation
 aws cloudfront create-invalidation <distribution-id>
 ```
 
+Test a CloudFront Function
+
+```sh
+aws cloudfront describe-function --name s3-replace-view-path-staging | jq -r '.ETag'
+aws cloudfront test-function --if-match <my-etag> --name s3-replace-view-path-staging --event-object fileb://events/event.json | jq -r '.TestResult.FunctionOutput | fromjson'
+```
+
+## ECR
+
+Pull an image from ECR
+
+```sh
+aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin <account>.dkr.ecr.eu-west-1.amazonaws.com
+docker pull <account>.dkr.ecr.eu-north-1.amazonaws.com/<image>:<tag>
+```
+
 ## EC2
 
 List available EC2 Images

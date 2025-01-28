@@ -98,6 +98,12 @@ git add forgotten_file
 git commit --amend --no-edit
 ```
 
+Trigger a Pipeline by empty commit
+
+```bash
+git commit --allow-empty -m "chore: trigger pipeline"
+```
+
 ## Advanced commands
 
 ### Backup untracked files

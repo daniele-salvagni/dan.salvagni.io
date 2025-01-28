@@ -92,3 +92,17 @@ export const handler = async (
   console.log('event: ', JSON.stringify(event, null, 2));
 };
 ```
+
+## CloudFront Functions
+
+CloudFront Functions' JavaScript runtime does not support exports, here is a
+simple workaround:
+
+```js
+async function handler(event) {
+  // ...
+}
+
+var module = module || {};
+module.exports = { handler };
+```
