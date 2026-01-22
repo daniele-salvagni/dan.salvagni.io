@@ -13,6 +13,10 @@ const currentPath = Astro.url.pathname;
           src={duckPx.src}
           alt="Daniele Salvagni"
           class="logo h-8 grayscale hover:filter-none duration-100"
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+          transition:persist="logo"
         />
         <!-- style="image-rendering: pixelated;" -->
       </a>

@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -18,6 +19,7 @@ import '@/styles/global.css';
       href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
   </head>
   <body class="antialiased relative min-h-screen">
     <div class="relative flex min-h-screen w-screen flex-none flex-col justify-between">
