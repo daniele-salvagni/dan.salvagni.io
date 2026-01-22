@@ -25,7 +25,7 @@ const { Content } = await render(post);
         datetime={post.data.pubDate.toISOString()}
         class="description font-mono text-[0.85rem] text-stone-500"
       >
-        Published on <!-- -->{post.data.pubDate.toLocaleDateString('en-GB')}
+        {post.data.author && `${post.data.author} - `}Published on {post.data.pubDate.toLocaleDateString('en-GB')}
       </time>
     </div>
     <!-- <hr class="h-[1px] border-none bg-[#E9DFD9] my-6" /> -->
