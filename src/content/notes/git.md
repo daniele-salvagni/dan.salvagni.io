@@ -5,10 +5,35 @@ title: git
 ## Configuration
 
 ```bash
-git config --global user.email "daniele.salvagni@gmail.com"
+git config --global user.email "...@gmail.com"
 git config --global user.name "Daniele Salvagni"
-git config --global core.editor nano
 git config --global help.autocorrect 1
+```
+
+### Setup for personal / work config
+
+```sh
+# ~/.gitconfig
+[includeIf "gitdir:~/personal/"]
+  path = .gitconfig-personal
+[includeIf "gitdir:~/work/"]
+  path = .gitconfig-work
+```
+
+```sh
+# ~/.gitconfig-personal
+[user]
+name = Name Surname
+email = ...@gmail.com
+
+```
+
+```sh
+# ~/.gitconfig-work
+[user]
+name = Name Surname
+email = ...@work.com
+
 ```
 
 ## Basic commands

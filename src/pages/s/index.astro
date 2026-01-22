@@ -1,48 +1,10 @@
 ---
-import BasePage from '../../layouts/BasePage.astro';
-
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('software')).sort(
-  (a, b) => a.data.order - b.data.order,
-);
-
-const PAGE_TITLE = 'Software';
-const PAGE_DESCRIPTION =
-  "A list of some tools and personal projects I've made.";
+import Base from '@/layouts/Base.astro';
 ---
 
-<BasePage title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
-  <section>
-    <ul class="posts">
-      {
-        posts.map((post) => (
-          <li>
-            <span>
-              <a href={`/s/${post.slug}/`}>{post.data.title}</a>
-            </span>
-            <span class="emoji">{post.data.emoji}</span>
-            <br />
-            <span>{post.data.description}</span>
-          </li>
-        ))
-      }
-    </ul>
+<Base title="Projects">
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>Projects</h1>
+    <p class="text-stone-500 mt-4">Migration in progress...</p>
   </section>
-</BasePage>
-
-<style>
-  .posts {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li {
-    margin-bottom: 1em;
-  }
-
-  .emoji {
-    margin-left: 0.5em;
-  }
-</style>
+</Base>

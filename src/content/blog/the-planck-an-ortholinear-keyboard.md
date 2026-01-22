@@ -3,7 +3,7 @@ issue: 5
 
 author: Daniele Salvagni
 title: The Planck - An ortholinear keyboard
-pubDate: 'Jul 29, 2022'
+pubDate: "Jul 29, 2022"
 emoji: ⌨️
 
 description: >

@@ -35,7 +35,7 @@ const handleChange = e => {
 ```jsx
 setState((prevState) => ({
   ...prevState,
-  fName: 'your updated value here'
+  fName: "your updated value here",
 }));
 ```
 

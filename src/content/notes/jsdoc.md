@@ -61,13 +61,12 @@ function foo(n, o, d) {
 /**
  * @type {number}
  */
-let count = 1
+let count = 1;
 
 /**
  * @const {number}
  */
-const NUM = 7
-
+const NUM = 7;
 ```
 
 # Importing Types

@@ -1,0 +1,265 @@
+---
+issue: 16
+
+author: Daniele Salvagni
+title: 'An overview of my 10-inch Rack Server setup'
+pubDate: 'Nov 29, 2024'
+emoji: 🛠️
+
+description: >
+  This post details mostly the hardware setup of my 10" rack server, which
+  includes modded hardware and custom 3D printed rack units.
+---
+
+import Product from '../../components/Product.astro';
+
+My 10" rack server has been running reliably for the past few years, but it was
+time for some improvements and upgrades. I'm going to take the opportuity to
+share my setup, as some people have been asking for a long time. I will add a
+quick Google search for most of the products in case someone is interested, as
+direct product links can get outated quickly.
+
+The main goal was to have a compact and silent server for a variety of tasks,
+while using as little power as possible since it runs 24/7. The current power
+consumption is usually around 20-30W which is great for what it does, and there
+is still room for improvement especially on the software side to optimize idle
+times.
+
+## 10" Rack Cabinet
+
+Everything is housed in a 10" network rack cabinet (except for a Zigbee antenna
+placed on the outside, to avoid signal degradation), which is a great size for
+home use. If you have a 3D printer with at least 254mm on a diagonal, it is
+quite easy to design and 3D print custom rack units. If needed, it will also fit
+perfectly (with ventilation) inside an IKEA Alex unit, which will be its future
+home.
+
+![10" Rack Build](/img/blog/rack-server/DSCF1518.jpg)
+
+t looks cooler when it's dark 😎 The cabinet I got is branded _"HMF"_, but I
+have seen similar ones also under the brand _"Digitus"_. The 12U version is just
+right for my needs.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-hmf-rack.jpg"
+  title="HMF 63312-02 10 Inch 12U Rack Cabinet, Network Cabinet"
+  price="~ $100"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=HMF+63312-02+10+Inch+12U+Rack+Cabinet%2C+Network+Cabinet"
+/>
+
+## Power Distribution Unit
+
+I will mostly skip the topmost part, as it is still a bit of a mess and there is
+not much going on. There are a few components mounted on a DIN Rail, like a
+power meter, and then a 300W 12V DC Power Supply which powers most of the
+devices. **This is more efficient than having each device using its own power
+supply**.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-psu-300w.jpg"
+  title="REYLAX LED Transformer 12V 300W Power Supply 25A"
+  price="~ $30"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=REYLAX+LED+Transformer+12V+300W+Power+Supply+25A"
+/>
+
+Since many devices will be powered by either 12V or 5V, I also designed a custom
+_Power Distribution Unit_, where it is possible to tap into the **12V** Power
+Supply via **DC Jacks**.
+
+![Power Distribution Unit 3D Model](/img/blog/rack-server/fusion-pdu.jpg)
+
+All models are made in _Fusion360_ and printed on a _Bambulab P1S_ 3D printer in
+PLA (the only material I had in black, but it is holding up without issues).
+
+![Power Distribution Unit](/img/blog/rack-server/DSCF1497.jpg)
+
+There is a switch which enables the **5V section** on the right side, where the
+voltage is converted using a cheap DC-DC step down voltage regulator module. The
+on-board LED display can monitor both the input and the output, which is useful
+for detecting eventual voltage drops.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-dc-converter.jpg"
+  title="LM2596 DC DC Step Down Converter Voltage Regulator LED Display Voltmeter 4.0~40 to 1.3-37V"
+  price="~ $2"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=LM2596+DC+DC+Step+Down+Converter+Voltage+Regulator+LED+Display+Voltmeter+4.0~40+to+1.3-37V"
+/>
+
+## Drives PSU and Monitoring Unit
+
+### Drives PSU
+
+The next module is powered from 12V and takes care of powering the HDDs and SSDs
+by using a PicoPSU, which is a ~150W ATX power supply in the smallest available
+form factor. At the moment it is reliably powering two 3.5" HDDs and two SSDs.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-pico-psu.jpg"
+  title="PicoPSU 150-XT 150W 12V DC-DC ATX Power Supply"
+  price="~ $50"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=PicoPSU+150-XT+150W+12V+DC-DC+ATX+Power+Supply"
+/>
+
+I designed a custom unit in _Fusion360_ for this as well. On the right, the
+PicoPSU clicks into place wihout any screws. There is a switch which to turn the
+unit on/off by connecting `PS_ON` to `COMMON` and a small white LED to signal
+its status.
+
+![Monitoring and PSU Unit 3D Model](/img/blog/rack-server/fusion-monitoring-psu.jpg)
+
+![Monitoring and PSU Unit](/img/blog/rack-server/DSCF1492.jpg)
+
+### Monitoring
+
+On the left side of the same unit, there is a slot where I superglued a 5 pin
+2.54mm header which acts as a mount for a M5AtomS3 Module (any Atom module will
+fit). The module is based on the ESP32-S3, and it is connected to the same LAN
+as the server via Wi-Fi. It monitors the status of some components and displays
+some information on its screen.
+
+The module is powered by a 5V output from the _Power Distribution Unit_ via a
+groove connector, which also allows for expansion by allowing more devices and
+sensors to be connected.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-m5atoms3.jpg"
+  title="M5Stack ATOMS3 Dev Kit w/ 0.85-inch Screen"
+  price="~ $14"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=M5Stack+ATOMS3+Dev+Kit+w%2F+0.85-inch+Screen"
+/>
+
+## Network Switch and Patch Panel
+
+Nothing fancy here, just a TP-Link Gigabit Switch with a custom 3D printed mount
+and a 10" Rack Patch Panel. For this one I just adapted an
+[existing design](https://www.printables.com/model/303605-1u-tp-link-sg108-all-variants-e-or-pe-10-rack-moun/)
+to size. I considered 2.5 Gigabit, but decided that it was still not worth the
+hassle for my use cases.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-tp-switch.jpg"
+  title="TP-Link TL-SG108PE Easy Smart 8 Port Gigabit Switch with 4 PoE+ Ports (64 Watts)"
+  price="~ $50"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=TP-Link+TL-SG108PE+Easy+Smart+8+Port+Gigabit+Switch+with+4+PoE%2B+Ports+(64+Watts)"
+/>
+
+<Product
+  imageUrl="/img/blog/rack-server/product-patch-panel.jpg"
+  title="ASSMANN Electronic DIGITUS Modular Patch-Panel - 10 inch Rack - 12 ports - 1U - For Keystone modules"
+  price="~ $10"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=ASSMANN+Electronic+DIGITUS+Modular+Patch-Panel+-+10+inch+Rack+-+12+ports+-+1U+-+For+Keystone+modules"
+/>
+
+## Dell Optiplex Server (Unraid)
+
+I'm still not sure if I want to rack mount this one, but Dell Optiplex Micro
+Form Factor PCs are great machines to use as home servers. They don't require
+much power, and they are easy to find on the used market at reasonable prices,
+as companies often replace them after a couple years.
+
+Here is a
+[link to a chart](https://www.hardware-corner.net/guides/optiplex-models-by-year/)
+comparing CPU, chipset and RAM of all Optiplex models since 2010, divided by
+year.
+
+![Dell Optiplex 7080](/img/blog/rack-server/DSCF1464.jpg)
+
+<Product
+  imageUrl="/img/blog/rack-server/product-dell-7080.jpg"
+  title="Dell OptiPlex 7080 Micro Computer Form Factor, Intel Core i5-10500T Processor, 16GB RAM"
+  price="~ $200"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=Dell+OptiPlex+7080+Micro+Computer+Form+Factor%2C+Intel+Core+i5-10500T+Processor%2C+16GB+RAM"
+/>
+
+The OS I run on it is **[Unraid](https://unraid.net/)** which is well worth the
+money. If you are not familiar with it, here are some of its main features:
+
+- Unlike with RAID, you can mix and match any kind of drives, different sizes
+  too
+- Unraid relies on parity drives to recover from potential errors or drive
+  failures
+- There is an active community maintaining applications of all kinds
+- You can use SSD drives as cache drives (great for keeping it silent, too)
+- You can spin up only the drive that contains the file you need (like a movie),
+  saving on power and wear
+- And much more...
+
+Unraid is designed to be run from a USB drive and loaded into memory, so it
+doesn't even need a drive for the OS, saving those precious SATA ports for
+actual data drives.
+
+### Hardware mods
+
+Since I need more drives than such a small PC has ports for, I removed all the
+existing ones (as mentioned, Unraid does not need any drives for the OS) and
+added a PCIe M.2 to 5x SATA adapter.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-m2-sata.jpg"
+  title="SilverStone Technology PCIe Storage Expansion Card SST-ECS07-5 Port SATA Gen3-6Gb/s-Non-RAID-M.2"
+  price="~ $50"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=SilverStone+Technology+PCIe+Storage+Expansion+Card+SST-ECS07-5+Port+SATA+Gen3-6Gb%2Fs-Non-RAID-M.2"
+/>
+
+> If you are having issues with the drives not being recognized while using this
+> adapter, try disabling the RAID options in the BIOS. It is normal for the
+> drives not to show up in the BIOS, as they will still be detected by Unraid.
+
+![Dell Optiplex SATA Dremel Opening](/img/blog/rack-server/DSCF1476.jpg)
+
+There is no room inside the case to fit the SATA connectors, so I had to do some
+drastic modifications with a Dremel rotary tool. I cut open the case and then
+added a 3D printed frame so it doesn't have any sharp edges and looks much
+cleaner.
+
+### Drives
+
+As for the drives, I quickly [designed](https://makerworld.com/en/models/812686)
+and printed a system that allows to stack both 3.5" HDDs and 2.5" SSDs. This is
+great as a temporary solution and leaves some spacing between the drives to
+allow for cooling with a small 80mm fan.
+
+![Drives Stacking System](/img/blog/rack-server/print-drives-stack.gif)
+
+The current drives connected directly to the Unraid server are:
+
+- 2x 8TB HDDs for the Array (one of which is used for Parity)
+- 1x 1TB SSD for the Cache
+- 1x 1TB SSD for Backups
+
+## Raspberry Pi 4 Server (Homeassistant)
+
+The included Raspberry Pi 4 is dedicated to runing **Homeassistant**. It does
+not run on the main Unraid server as I want to be able to replace it quickly in
+case of failure. For the same reason, it is not rack mounted, but a compact
+package attached directly to its own drives, so it is not dependent on the rest
+of the system and can be moved anywhere.
+
+The OS is installed on the external SSD, as I have found the reliability of
+running these types of systems from a microSD to be terrible.
+
+Almost every smart device I have runs locally on Zigbee, so there is an USB
+Zigbee dongle attached to the Pi to communicate through Zigbee2MQTT, while most
+of the automations are handled through Node-RED.
+
+<Product
+  imageUrl="/img/blog/rack-server/product-sonoff-zigbee.jpg"
+  title="SONOFF Zigbee Dongle-P, USB 3.0 Plus Zigbee Bridge"
+  price="~ $30"
+  button="Google Search"
+  buttonUrl="https://www.google.com/search?q=SONOFF+Zigbee+Dongle-P%2C+USB+3.0+Plus+Zigbee+Bridge"
+/>
+
+The whole setup is still a work in progress, as there are still some things
+which should be improved, but it still runs reliably nonetheless. In this post I
+covered mostly the hardware setup, but there is also a lot going on with the
+sofware side, which would require another post or two.

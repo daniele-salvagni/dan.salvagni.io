@@ -1,47 +1,27 @@
 ---
-import BasePage from '../../layouts/BasePage.astro';
-
+import Base from '@/layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
 const notes = (await getCollection('notes')).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
 );
-
-const PAGE_TITLE = 'Notes';
-const PAGE_DESCRIPTION = 'Quick notes about tech, programming, cloud and more.';
 ---
 
-<BasePage title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
-  <section>
-    <nav class="notes">
-      <ul>
+<Base title="Notes" description="Quick notes and references on various topics">
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>Notes</h1>
+    <nav class="mt-4">
+      <ul class="list-none p-0">
         {
           notes.map((note) => (
-            <li>
-              <span>
-                <a href={`/n/${note.slug}/`}>{note.data.title}</a>
-              </span>
+            <li class="inline-block mb-1" style="margin-right: 0.75em;">
+              <a href={`/n/${note.id}`} class="hover:underline">
+                {note.data.title}
+              </a>
             </li>
           ))
         }
       </ul>
     </nav>
   </section>
-</BasePage>
-
-<style>
-  .notes ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .notes ul li {
-    margin-bottom: 1em;
-    display: inline-block;
-    padding-right: 1ch;
-  }
-
-  .emoji {
-    margin-left: 0.5em;
-  }
-</style>
+</Base>

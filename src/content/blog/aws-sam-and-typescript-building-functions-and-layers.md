@@ -2,8 +2,8 @@
 issue: 7
 
 author: Daniele Salvagni
-title: 'AWS SAM and Typescript: building functions and layers'
-pubDate: 'Nov 2, 2022'
+title: "AWS SAM and Typescript: building functions and layers"
+pubDate: "Nov 2, 2022"
 emoji: ☁️
 
 description: >
@@ -42,9 +42,9 @@ defaults), the following is one of the errors that prompted this post:
 > <mark>The main takeaway is that currently, by using esbuild with SAM for λ
 > functions, there is no way to change the
 > [format option](https://esbuild.github.io/api/#format), which is forced to be
-> "cjs".</mark> When building layers, for which at the moment we must use a different
-> build system through a Makefile, we should always remember to transpile our
-> code to use "commonjs" modules.
+> "cjs".</mark> When building layers, for which at the moment we must use a
+> different build system through a Makefile, we should always remember to
+> transpile our code to use "commonjs" modules.
 
 This post will provide an example of a working configuration to avoid some of
 the common pitfalls.
@@ -208,7 +208,7 @@ layers/commons/
 2. We can now import this module in our `.js` code with:
 
    ```js
-   import { responseBuilder } from 'commons';
+   import { responseBuilder } from "commons";
    ```
 
 We are now able to use the code from the Layer in our Lambda functions.

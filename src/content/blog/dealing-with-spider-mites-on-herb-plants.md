@@ -2,8 +2,8 @@
 issue: 14
 
 author: Daniele Salvagni
-title: 'Dealing with spider mites on herb plants'
-pubDate: 'Jul 05, 2024'
+title: "Dealing with spider mites on herb plants"
+pubDate: "Jul 05, 2024"
 emoji: 🌱
 
 description: >

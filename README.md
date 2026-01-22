@@ -1,4 +1,4 @@
-# dan.salvagni.io
+# dsalvagni.com
 
 Static site generator for my personal website. Built with Astro and continuously
 deployed to AWS.
@@ -11,5 +11,5 @@ npm run devhost
 <br /><br />
 
 <p align="center">
-  <img height="100" src="public/img/duck.png">
+  <img height="100" src="public/duck.png">
 </p>

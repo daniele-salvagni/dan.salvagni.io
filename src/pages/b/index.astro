@@ -1,73 +1,32 @@
 ---
-import BasePage from '../../layouts/BasePage.astro';
+import Base from '@/layouts/Base.astro';
 
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-const PAGE_TITLE = 'Articles';
-const PAGE_DESCRIPTION =
-  "Here is where I write articles about programming, electronics, \
-  tools, and other things I'm interested in. I hope you will find something useful.";
 ---
 
-<BasePage title={PAGE_TITLE} description={PAGE_DESCRIPTION}>
-  <section>
-    <ul class="posts">
+<Base title="Articles">
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>My Articles</h1>
+    <ul class="space-y-2 mt-4">
       {
         posts.map((post) => (
-          <li>
-            <span>
-              <span class="emoji">{post.data.emoji}</span>
-              <a href={`/b/${post.slug}/`}>{post.data.title}</a>
-            </span>
-
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate
-                .toLocaleDateString('it-eu', {
-                  year: 'numeric',
-                  month: '2-digit',
-                  day: '2-digit',
-                })
-                .replace(/\//g, '-')}
+          <li class="flex gap-3 items-baseline">
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="text-stone-500 font-mono text-xs shrink-0"
+            >
+              {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
             </time>
+            <a href={`/b/${post.id}`} class="hover:underline">
+              {post.data.title}
+            </a>
           </li>
         ))
       }
     </ul>
   </section>
-</BasePage>
-
-<style>
-  .posts {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .posts li {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.2em;
-  }
-
-  .posts li span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .posts li time {
-    font-family: var(--ff-mono);
-    font-size: var(--fs-mono);
-    color: var(--gray-soft);
-    white-space: nowrap;
-  }
-
-  .emoji {
-    margin-right: 0.5em;
-  }
-</style>
+</Base>

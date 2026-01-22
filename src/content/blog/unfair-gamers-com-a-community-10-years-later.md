@@ -3,7 +3,7 @@ issue: 4
 
 author: Daniele Salvagni
 title: Unfair-Gamers.com - A community 10 years later
-pubDate: 'Jul 24, 2018'
+pubDate: "Jul 24, 2018"
 emoji: 👾
 
 description: >

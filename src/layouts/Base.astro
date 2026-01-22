@@ -1,0 +1,28 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Head from '@/layouts/Head.astro';
+import Header from '@/layouts/Header.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} description={description} />
+  </head>
+  <!-- <Layout> -->
+  <body class="antialiased relative min-h-screen">
+    <div class="relative flex min-h-screen w-screen max-w-full flex-none flex-col justify-between">
+      <div class="flex grow flex-col">
+        <Header />
+        <slot />
+      </div>
+    </div>
+  </body><!-- </Layout> -->
+</html>

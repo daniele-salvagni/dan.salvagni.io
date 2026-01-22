@@ -1,0 +1,23 @@
+---
+import { config } from "@/custom.config.ts";
+
+type Props = {
+  issue: number;
+};
+const { issue } = Astro.props;
+---
+
+<script
+  src="https://giscus.app/client.js"
+  is:inline
+  data-repo={config.giscus.repo}
+  data-repo-id={config.giscus.repoId}
+  data-mapping="number"
+  data-term={issue}
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme={`${Astro.url.origin}/styles/giscus/noborder_custom.css`}
+  data-lang="en"
+  crossorigin="anonymous"
+  async></script>

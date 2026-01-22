@@ -3,7 +3,7 @@ issue: 3
 
 author: Daniele Salvagni
 title: Hosting comments on GitHub for static websites
-pubDate: 'Jun 18, 2017'
+pubDate: "Jun 18, 2017"
 emoji: 🛠️
 
 description: >
@@ -159,15 +159,15 @@ get all the comments (for examples with the axios library):
 let issueNum = 1; // Retrieve the issue number for your post here
 
 let instance = axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: "https://api.github.com",
   timeout: 5000,
   // Set the correct media type
-  headers: { Accept: 'application/vnd.github.VERSION.html+json' },
+  headers: { Accept: "application/vnd.github.VERSION.html+json" },
 });
 
 instance
   .get(
-    '/repos/daniele-salvagni/dan.salvagni.io/issues/' + issueNum + '/comments',
+    "/repos/daniele-salvagni/dan.salvagni.io/issues/" + issueNum + "/comments",
   )
   .then((response) => console.log(response.data))
   .catch(function (error) {

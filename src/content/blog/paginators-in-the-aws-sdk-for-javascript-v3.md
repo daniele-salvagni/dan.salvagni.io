@@ -2,14 +2,14 @@
 issue: 11
 
 author: Daniele Salvagni
-title: 'Paginators in the AWS SDK for Javascript V3'
-pubDate: 'Oct 26, 2023'
+title: "Paginators in the AWS SDK for Javascript V3"
+pubDate: "Oct 26, 2023"
 emoji: ☁️
 
 description: >
   How many times have you found yourself implementing pagination manually while
-  retrieving data from the AWS SDK for Javascript? Let's see how we can use paginators
-  with an example using DynamoDB queries.
+  retrieving data from the AWS SDK for Javascript? Let's see how we can use
+  paginators with an example using DynamoDB queries.
 ---
 
 How many times have you found yourself implementing pagination manually while
@@ -23,7 +23,7 @@ In this post, we’ll discuss how to use the **paginate\*** utilities found
 throughout the SDK by looking at a specific example about paginating DynamoDB
 queries with **paginateQuery**.
 
-**tl;dr** - it will be this easy: 
+**tl;dr** - it will be this easy:
 
 ```typescript
 const paginator = paginateQuery(paginatorConfig, params);
@@ -91,38 +91,38 @@ object containing the results of the query.
 The following is a fully typed example showing its usage with TypeScript:
 
 ```typescript
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {
   DynamoDBDocument,
   QueryCommandInput,
   paginateQuery,
-  DynamoDBDocumentPaginationConfiguration
-} from '@aws-sdk/lib-dynamodb';
+  DynamoDBDocumentPaginationConfiguration,
+} from "@aws-sdk/lib-dynamodb";
 
-const REGION = 'eu-west-1';
-const TABLE_NAME = 'my-table';
-const PK_QUERY_VALUE = 'my-pk';
+const REGION = "eu-west-1";
+const TABLE_NAME = "my-table";
+const PK_QUERY_VALUE = "my-pk";
 
 // Create a DynamoDB Document client
 const docClient = DynamoDBDocument.from(
   new DynamoDBClient({
-    region: REGION
-  })
+    region: REGION,
+  }),
 );
 
 // Create a paginator configuration
 const paginatorConfig: DynamoDBDocumentPaginationConfiguration = {
   client: docClient,
-  pageSize: 25
+  pageSize: 25,
 };
 
 // Query parameters
 const params: QueryCommandInput = {
   TableName: TABLE_NAME,
-  KeyConditionExpression: 'pk = :pk',
+  KeyConditionExpression: "pk = :pk",
   ExpressionAttributeValues: {
-    ':pk': PK_QUERY_VALUE
-  }
+    ":pk": PK_QUERY_VALUE,
+  },
 };
 
 // Create a paginator

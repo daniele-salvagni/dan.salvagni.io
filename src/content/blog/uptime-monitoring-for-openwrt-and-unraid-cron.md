@@ -2,8 +2,8 @@
 issue: 15
 
 author: Daniele Salvagni
-title: 'Uptime monitoring for OpenWrt and Unraid'
-pubDate: 'Nov 13, 2024'
+title: "Uptime monitoring for OpenWrt and Unraid"
+pubDate: "Nov 13, 2024"
 emoji: 🤖
 
 description: >

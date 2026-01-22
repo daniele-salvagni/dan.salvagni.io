@@ -1,25 +1,23 @@
 {
-  "name": "tasty-trappist",
+  "name": "dsalvagni-com",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "devhost": "astro dev --host",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --ignore .gitignore --ignore .prettierignore --write .",
+    "format:check": "prettier --ignore .gitignore --ignore .prettierignore --check ."
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.0",
-    "@astrojs/check": "^0.2.1",
-    "@astrojs/mdx": "^1.1.3",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.2",
-    "@types/alpinejs": "^3.13.10",
-    "alpinejs": "^3.14.1",
-    "astro": "^3.4.0",
-    "shiki": "^0.14.5",
-    "typescript": "^5.2.2"
+    "@shikijs/transformers": "^3.8.1",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.3",
+    "shiki": "^3.9.0",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
   }
 }

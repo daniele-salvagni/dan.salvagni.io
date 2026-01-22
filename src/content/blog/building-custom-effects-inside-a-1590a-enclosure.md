@@ -2,8 +2,8 @@
 issue: 10
 
 author: Daniele Salvagni
-title: 'Show: Building custom effects inside a 1590A enclosure'
-pubDate: 'Jan 3, 2020'
+title: "Show: Building custom effects inside a 1590A enclosure"
+pubDate: "Jan 3, 2020"
 emoji: 🎸
 
 description: >

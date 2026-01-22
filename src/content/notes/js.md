@@ -9,9 +9,9 @@ title: js
 new Promise((resolve, reject) => {
   doStuff(() => {
     if (success) {
-      resolve('good');
+      resolve("good");
     } else {
-      reject(new Error('oops'));
+      reject(new Error("oops"));
     }
   });
 });
@@ -22,7 +22,7 @@ promise
   })
   .catch((error) => {
     // failure
-  })
+  });
 ```
 
 ### Multiple promises
@@ -37,5 +37,4 @@ Promise.all(promises).then((results) => {
 Promise.race(promises).then((result) => {
   // succeeds when one finishes first
 });
-
 ```

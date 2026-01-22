@@ -2,8 +2,8 @@
 issue: 9
 
 author: Daniele Salvagni
-title: 'Fixing ZSH slowdown caused by NVM'
-pubDate: 'Nov 18, 2022'
+title: "Fixing ZSH slowdown caused by NVM"
+pubDate: "Nov 18, 2022"
 emoji: 🛠️
 
 description: >

@@ -3,7 +3,7 @@ issue: 6
 
 author: Daniele Salvagni
 title: Wake On Lan using an ESP32 Telegram bot
-pubDate: 'Aug 26, 2022'
+pubDate: "Aug 26, 2022"
 emoji: 🤖
 
 description: >

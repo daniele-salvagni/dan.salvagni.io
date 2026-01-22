@@ -2,8 +2,8 @@
 issue: 17
 
 author: Daniele Salvagni
-title: 'Simplify ECR image building and publishing with CodePipeline V2'
-pubDate: 'Jan 8, 2025'
+title: "Simplify ECR image building and publishing with CodePipeline V2"
+pubDate: "Feb 8, 2025"
 emoji: ☁️
 
 description: >
@@ -83,7 +83,7 @@ Resources:
                 Category: Source
                 Owner: AWS
                 Provider: CodeStarSourceConnection
-                Version: '1'
+                Version: "1"
               Configuration:
                 ConnectionArn: !Sub MyCodeStarConnectionArn
                 FullRepositoryId: !Sub MyFullRepositoryId
@@ -101,11 +101,11 @@ Resources:
                 Category: Build
                 Owner: AWS
                 Provider: ECRBuildAndPublish
-                Version: '1'
+                Version: "1"
               Configuration:
                 ECRRepositoryName: !Sub MyECRRepositoryName
                 DockerFilePath: ./
-                ImageTags: '#{SourceVars.CommitId},latest'
+                ImageTags: "#{SourceVars.CommitId},latest"
               Namespace: BuildVars
               InputArtifacts:
                 - Name: source_output

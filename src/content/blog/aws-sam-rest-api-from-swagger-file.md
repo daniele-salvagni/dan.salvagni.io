@@ -2,8 +2,8 @@
 issue: 8
 
 author: Daniele Salvagni
-title: 'AWS SAM: Creating a REST API from a Swagger file'
-pubDate: 'Nov 4, 2022'
+title: "AWS SAM: Creating a REST API from a Swagger file"
+pubDate: "Nov 4, 2022"
 emoji: ☁️
 
 description: >
@@ -21,7 +21,7 @@ as documentation from an endpoint of the API itself.
 
 ![Swagger UI](/img/blog/aws-sam-swagger/swagger-ui.png)
 
-# Integrating the Swagger file
+## Integrating the Swagger file
 
 We will start from the
 [OpenAPI v3.0 petstore.yaml](https://github.com/OAI/OpenAPI-Specification/blob/main/examples/v3.0/petstore.yaml)
@@ -85,18 +85,18 @@ template.yaml
      Type: AWS::IAM::Role
      Properties:
        AssumeRolePolicyDocument:
-         Version: '2012-10-17'
+         Version: "2012-10-17"
          Statement:
            - Effect: Allow
              Principal:
                Service:
                  - apigateway.amazonaws.com
              Action:
-               - 'sts:AssumeRole'
+               - "sts:AssumeRole"
        Policies:
          - PolicyName: !Sub ${AWS::StackName}-lambda-invoke
            PolicyDocument:
-             Version: '2012-10-17'
+             Version: "2012-10-17"
              Statement:
                - Effect: Allow
                  Action:
@@ -123,11 +123,11 @@ template.yaml
        Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${PetGetFunction.Arn}/invocations
      responses:
        default:
-         statusCode: '200'
-     passthroughBehavior: 'when_no_match'
-     httpMethod: 'POST'
-     contentHandling: 'CONVERT_TO_TEXT'
-     type: 'aws_proxy'
+         statusCode: "200"
+     passthroughBehavior: "when_no_match"
+     httpMethod: "POST"
+     contentHandling: "CONVERT_TO_TEXT"
+     type: "aws_proxy"
    ```
 
    > The `httpMethid` will always be `POST`, this is because the API Gateway
@@ -137,7 +137,7 @@ template.yaml
 This way we have created a REST API where all of the endpoints and the schemas
 can be well defined and documented inside the Swagger file.
 
-# Further documentation:
+## Further documentation:
 
 Here are a few links worth reading about the topics of this post:
 

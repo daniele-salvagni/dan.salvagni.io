@@ -2,9 +2,20 @@
 title: css
 ---
 
+A little trick is to toggle the following rule during development to be able to
+see easily the structure of the page. With Astro, it is easy to scope this to
+single layouts / components.
+
+```css
+* {
+  outline: 1px solid pink;
+}
+```
+
 ## Selectors
 
 ### Combinators
+
 ```css
 .parent .child     /* Descendant Combinator           */
 .parent > .child   /* Child Combinator                */
@@ -14,6 +25,7 @@ title: css
 ```
 
 ### Attribute selectors
+
 ```css
 [role="dialog"]    /* Exact                           */
 [class~="box"]     /* Has word                        */
@@ -24,6 +36,7 @@ title: css
 ```
 
 ### Pseudo-classes
+
 ```css
 :target
 :disabled
@@ -41,6 +54,7 @@ title: css
 ```
 
 ### Pseudo-classes variations
+
 ```css
 :first-of-type
 :last-of-type
