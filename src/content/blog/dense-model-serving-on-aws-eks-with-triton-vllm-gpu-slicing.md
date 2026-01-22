@@ -28,7 +28,7 @@ The objective is to achieve **high-density GPU serving**: we want to
 intelligently pack multiple smaller models onto a single GPU, while distributing
 the massive ones across multiple GPUs via Tensor Parallelism.
 
-![High-Density GPU Serving](/img/blog/aws-eks-mlops/high-density-gpu-serving.svg)
+![High-Density GPU Serving](/img/blog/aws-eks-mlops/high-density-gpu-serving.webp)
 
 In this post, we will explore multiple technologies which can be combined
 allowing us to architect flexible model serving solutions on Amazon EKS:
@@ -66,7 +66,7 @@ workload patterns and operational needs: static node pools are prefect for
 pre-planned capacity and slicing of big GPUs, while a dynamic pool managed by
 Karpenter is optimal for flexible, on-demand provisioning.
 
-![EKS Node Pools](/img/blog/aws-eks-mlops/eks-node-pools.svg)
+![EKS Node Pools](/img/blog/aws-eks-mlops/eks-node-pools.webp)
 
 Besides these two pools, a general-purpose managed node group is used for
 running critical cluster components and add-ons, like Karpenter itself.
@@ -109,18 +109,10 @@ or terminate nodes when the demand decreases, optimizing for cost efficiency.
 
 ### Workload Node Routing
 
-<!-- ![Scheduling Diagram](/img/blog/aws-eks-mlops/node-scheduling.webp) -->
-
 The routing between these two node pools is managed through standard Kubernetes
 primitives.
 
-<div style="text-align: center; width: 100%; margin: 2rem 0;">
-  <img
-    src="/img/blog/aws-eks-mlops/workload-node-routing.svg"
-    alt="Scheduling Diagram"
-    style="max-width: 100%; height: auto; margin: auto;"
-  />
-</div>
+![Scheduling Diagram](/img/blog/aws-eks-mlops/workload-node-routing.webp)
 
 Pods that request specific GPU sharing resources (like `nvidia.com/mig-1g.5gb`
 for MIG) and include the appropriate node selector or affinity rules, will be
@@ -146,7 +138,7 @@ bridge between Kubernetes and NVIDIA GPUs. It's a DaemonSet which runs on every
 GPU-enabled node and exposes the number of available GPUs and their capabilities
 to the Kubernetes scheduler.
 
-![NVIDIA Device Plugin Flow](/img/blog/aws-eks-mlops/nvidia-device-plugin-flow.svg)
+![NVIDIA Device Plugin Flow](/img/blog/aws-eks-mlops/nvidia-device-plugin-flow.webp)
 
 > _Original diagram by:
 > [Rifewang](https://medium.com/@rifewang/overview-of-kubernetes-gpu-scheduling-device-plugin-cdi-nfd-and-gpu-operator-48a7c4213b28)_
@@ -257,7 +249,7 @@ looking at the pending pods, analyzing their resource requirements and
 constraints, and then provisioning exactly the right instance types to satisfy
 those requirements.
 
-![Karpenter Diagram](/img/blog/aws-eks-mlops/karpenter-diag.svg)
+![Karpenter Diagram](/img/blog/aws-eks-mlops/karpenter-diag.webp)
 
 It will also take care of consolidating existing nodes for cost optimization.
 
@@ -396,7 +388,7 @@ The `instance-group` configuration allows each model to specify how many
 parallel executions should be allowed. Each parallel execution is referred to as
 an **Instance**.
 
-![Triton Concurrent Model Execution](/img/blog/aws-eks-mlops/triton-parallel.svg)
+![Triton Concurrent Model Execution](/img/blog/aws-eks-mlops/triton-parallel.webp)
 
 In this example, the first three `model1` requests are immediately executed in
 parallel, while the fourth `model1` one must wait for a free slot.

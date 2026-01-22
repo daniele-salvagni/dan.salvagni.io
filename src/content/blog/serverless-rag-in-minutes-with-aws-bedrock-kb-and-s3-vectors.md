@@ -23,7 +23,7 @@ tolerate sub-second query latency. By pairing it with Amazon Bedrock Knowledge
 Bases and Data Sources, we can build a serverless and fully managed RAG pipeline
 with minimal operational overhead.
 
-![Amazon Bedrock with S3 Vectors](/img/blog/aws-rag/bedrock-with-s3-vectors.svg)
+![Amazon Bedrock with S3 Vectors](/img/blog/aws-rag/bedrock-with-s3-vectors.webp)
 
 ## What is RAG?
 
@@ -153,7 +153,7 @@ defines which data to ingest, how to parse and chunk it. You could decide to
 handle some or all of those steps manually, but this is the easiest way to get
 started.
 
-![Data Ingestion Pipeline](/img/blog/aws-rag/bedrock-ingestion.svg)
+![Data Ingestion Pipeline](/img/blog/aws-rag/bedrock-ingestion.webp)
 
 Let's take a look at the CloudFormation Resource:
 
