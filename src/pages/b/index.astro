@@ -1,0 +1,32 @@
+---
+import Base from '@/layouts/Base.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Base title="Articles">
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>My Articles</h1>
+    <ul class="space-y-2 mt-4">
+      {
+        posts.map((post) => (
+          <li class="flex gap-3 items-baseline">
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="text-stone-500 font-mono text-xs shrink-0"
+            >
+              {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+            </time>
+            <a href={`/b/${post.id}`} class="hover:underline">
+              {post.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>

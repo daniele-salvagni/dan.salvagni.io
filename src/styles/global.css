@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+* {
+  /*outline for debug */
+  /*outline: 1px solid fuchsia;*/
+}
+
+@font-face {
+  font-family: "iAWriterQuattroS";
+  src: url("/fonts/iAWriterQuattroS-Regular.woff2") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+::selection {
+  background-color: var(--color-stone-200);
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  font-family:
+    iAWriterQuattroS,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+  letter-spacing: -0.01em;
+  /*image-rendering: crisp-edges;*/
+}
+
+header,
+section {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body::before {
+  --size: 10px;
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background-image: radial-gradient(#bbb 0.5px, #ffffff 0.5px);
+  background-size: var(--size) var(--size);
+  mask: linear-gradient(-20deg, transparent 60%, white);
+  z-index: -1;
+}
+
+section a[target="_blank"]::after {
+  content: "↗";
+  color: var(--accent);
+  display: inline-block;
+  margin: 0 0.2em 0 0.2em;
+  font-weight: normal;
+  font-size: 0.9em;
+
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+section a[target="_blank"]:hover::after {
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  transform: translate(0.1rem, -0.1rem);
+}
+
+section a {
+  @apply underline hover:decoration-gray-700 hover:decoration-dotted;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    var(--color-pink-700) 0%,
+    var(--color-pink-400) 100%
+  );
+  background-size: 250% 250%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rainbow 2s ease-in-out infinite;
+  text-decoration: underline;
+}
+
+.astro-code {
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  /*padding: 1.33em 0;*/
+  margin-bottom: 2em;
+  line-height: 1.5;
+  @apply py-4;
+}
+
+.line {
+  display: inline;
+  /* padding-bottom: 0; */
+  padding: 0 1em;
+}
+.highlighted {
+  display: inline-block;
+  background-color: --alpha(var(--color-stone-300) / 30%);
+  width: 100%;
+  /* margin: 0 -1.5em; */
+  /* overflow: hidden; */
+  /* margin: 0 -12px; */
+  /* padding: 0 12px; */
+}
+.diff {
+  display: inline-block;
+  width: 100%;
+  /* margin: 0 -12px; */
+  /* padding: 0 12px; */
+}
+.diff.add {
+  /* background-color: #0505; */
+  background-color: rgba(0, 255, 0, 0.15);
+  /* margin: 0 -1.5em;
+  padding: 0 1.5em; */
+}
+.diff.remove {
+  background-color: rgba(255, 0, 0, 0.15);
+  /* margin: 0 -1.5em;
+  padding: 0 1.5em; */
+}
+.diff:before {
+  position: absolute;
+  left: 40px;
+}
+.has-focused .line {
+  filter: blur(0.095rem);
+}
+.has-focused .focused {
+  filter: blur(0);
+}
+
+/* ##################################### */
+
+h1 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h2 {
+  @apply scroll-mt-24 font-bold text-[1.125rem] mt-6 mb-3;
+  @apply scroll-mt-24 font-bold text-[1rem] mt-6 mb-3;
+  @apply uppercase;
+}
+
+h2::before {
+  content: "## ";
+  @apply text-stone-500;
+}
+
+h3 {
+  @apply scroll-mt-24 font-bold text-[1rem] mt-6 mb-3;
+  /*@apply uppercase;*/
+}
+
+h3::before {
+  content: "### ";
+  @apply text-stone-500;
+}
+
+h4 {
+  @apply scroll-mt-24 font-bold text-[0.95rem] mt-6 mb-3;
+}
+
+p {
+  /* @apply text-xmedium leading-[1.75rem] text-gray-800 mb-6; */
+  @apply leading-[1.5rem] text-stone-800 mb-6;
+  /*@apply leading-[1.5rem] mb-6;*/
+}
+
+/* LINE NUMEBRS */
+
+.astro-code {
+  @apply rounded-md pl-8;
+}
+
+.astro-code code {
+  /*@apply block leading-tight p-2 pl-1;*/
+  /*@apply block p-2 pl-1;*/
+  /*font-size: 17px;*/
+  /*border-left: 1px solid rgba(115, 138, 148, 0.4);*/
+  /*@apply border-l-1 border-stone-400;*/
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+.astro-code code .line {
+  @apply relative;
+}
+
+.astro-code code .line::before {
+  @apply absolute overflow-hidden w-5 h-4 -left-7 top-0 text-right text-stone-400/75;
+  @apply text-[0.9em];
+  content: counter(step);
+  counter-increment: step;
+  /*color: rgba(115, 138, 148, 0.4);*/
+}
+/*
+pre code .line .highlighted::before {
+  background-color: rgba(255, 255, 0, 0.15);
+}*/
+
+.giscus {
+  margin: 6em 0;
+}
+
+.prose p + p {
+  @apply mt-4;
+}
+
+.prose blockquote {
+  @apply relative pl-6 pt-3 pb-3 my-6 text-stone-700 italic border-l-4 border-stone-300 bg-stone-50;
+}
+
+.prose blockquote p:last-child {
+  @apply mb-0;
+}
+/* .prose blockquote::before {
+  content: "“";
+  @apply absolute -left-3 -top-3 text-4xl text-stone-300;
+} */
+
+.prose ul,
+.prose ol {
+  @apply pl-6 mb-6 space-y-1 text-stone-800;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+.prose ul ul {
+  list-style-type: circle;
+}
+.prose ul ul ul {
+  list-style-type: square;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+.prose ol ol {
+  list-style-type: lower-alpha;
+}
+.prose ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.prose li {
+  @apply leading-6;
+}
+.prose li::marker {
+  @apply text-stone-500;
+}
+
+.prose hr {
+  @apply my-8 border-t border-stone-200;
+}
+
+/* .prose pre {
+  @apply overflow-auto rounded-none  ;
+} */
+
+/* .prose code {
+  @apply text-[0.95em] bg-stone-100 text-pink-700 px-1.5 py-0.5 rounded;
+} */
+
+/* .prose pre code {
+  @apply bg-transparent text-stone-900 px-0 py-0 rounded-none;
+} */
+
+.prose table {
+  @apply w-full text-left border-collapse my-6 text-sm;
+}
+
+.prose thead {
+  @apply bg-stone-100 text-stone-600 uppercase tracking-wide text-xs;
+}
+
+.prose th,
+.prose td {
+  @apply border border-stone-200 px-3 py-2 align-top;
+}
+
+.prose tbody tr:nth-child(even) {
+  @apply bg-stone-50/60;
+}
+
+.prose em {
+  @apply italic text-stone-700;
+}
+
+.prose strong {
+  @apply font-semibold text-stone-900;
+}
+
+.prose img {
+  @apply max-w-full rounded-lg my-6 border border-stone-100 mx-auto block;
+}
+
+/* .prose a {
+  @apply font-medium text-stone-900 underline decoration-stone-300 hover:decoration-stone-500;
+} */
+
+.prose sup,
+.prose sub {
+  @apply text-xs leading-none;
+}
+
+/* Definition lists */
+.prose dl {
+  @apply my-6 space-y-4;
+}
+
+.prose dt {
+  @apply font-semibold text-stone-800;
+}
+
+.prose dd {
+  @apply ml-4 text-stone-700;
+}

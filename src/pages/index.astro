@@ -1,0 +1,67 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+
+<Base>
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>Daniele Salvagni</h1>
+    <p class="my-4">
+      Ciao ヾ(＾∇＾), I'm a Software Engineer located by the picturesque Como Lake in Italy. I'm
+      passionate about programming, have way too many hobbies, and build new stuff whenever I feel
+      like it.
+    </p>
+    <p class="my-4">
+      I currently work at Helix Cloud <span class="flag inline-block">
+        <svg width="0.75em" height="0.75em" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="m0 0h32v32h-32z" fill="#da291c"></path>
+          <path d="m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#fff"></path>
+        </svg></span
+      >
+      where I primarily focus on the development of cloud applications, machine learning operations, and
+      infrastructure design on <abbr title="Amazon Web Services">AWS</abbr>
+      for which I am a certified <abbr
+        title="designing and implementing reliable and scalable cloud architectures"
+        >Solutions Architect</abbr
+      >.
+    </p>
+    <p>
+      You can find me on <a href="https://github.com/daniele-salvagni/" target="_blank">Github</a> or
+      drop me a message at daniele.salvagni@gmail.com
+    </p>
+  </section>
+  <section class="w-full px-4 pt-6">
+    <div class="text-center">
+      <!-- <img
+        src={duck.src}
+        alt="Daniele Salvagni"
+        class="h-10 group-hover:opacity-60 transition-opacity duration-100 mx-auto"
+      /> -->
+      <br />
+      <div class="italic text-sm text-stone-500">
+        <span id="anim" class="inline-block">⠋</span> Human made with code
+        <!-- <span id="anim" class="inline-block">⠋</span> Stuck? Explain it to the duck. -->
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* * {
+        outline: 1px solid pink;
+    } */
+  </style>
+
+  <script>
+    const anim = (id: string, frames: string[], speed: number) => {
+      const el = document.getElementById(id);
+      if (!el) return console.error('Element not found:', id);
+
+      let i = 0;
+      const ff = frames.map((f) => `<pre>${f.replace(/ /g, '&nbsp;')}</pre>`);
+      setInterval(() => (el.innerHTML = ff[(i = ++i % ff.length)]), speed);
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      anim('anim', ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'], 100);
+    });
+  </script>
+</Base>

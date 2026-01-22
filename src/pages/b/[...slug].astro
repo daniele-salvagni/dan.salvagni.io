@@ -1,0 +1,36 @@
+---
+import Base from '@/layouts/Base.astro';
+import Giscus from '@/components/molecules/Giscus.astro';
+
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  console.log(posts);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <section class="prose w-full pt-8 px-4 pb-10 leading-6">
+    <h1>{post.data.title}</h1>
+    <div class="flex gap-5 flex-col sm:flex-row">
+      <time
+        datetime={post.data.pubDate.toISOString()}
+        class="description font-mono text-[0.85rem] text-stone-500"
+      >
+        Published on <!-- -->{post.data.pubDate.toLocaleDateString('en-GB')}
+      </time>
+    </div>
+    <!-- <hr class="h-[1px] border-none bg-[#E9DFD9] my-6" /> -->
+    <hr class="h-[1px] border-dashed border-stone-400 my-6" />
+    <Content />
+    {post.data.issue && <Giscus issue={post.data.issue} />}
+  </section>
+</Base>

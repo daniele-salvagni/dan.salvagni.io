@@ -1,0 +1,44 @@
+---
+import Base from '@/layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const notes = (await getCollection('notes')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<Base title={`${note.data.title} notes`} description={note.data.description}>
+  <section class="w-full pt-8 px-4 pb-10 leading-6">
+    <h1>Notes</h1>
+    <nav class="mt-4 mb-8">
+      <ul class="list-none p-0">
+        {
+          notes.map((n) => (
+            <li class="inline-block mb-1" style="margin-right: 0.75em;">
+              <a
+                href={`/n/${n.id}`}
+                class:list={['hover:underline', { 'font-semibold': n.id === note.id }]}
+              >
+                {n.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <article class="prose max-w-none">
+      <Content />
+    </article>
+  </section>
+</Base>

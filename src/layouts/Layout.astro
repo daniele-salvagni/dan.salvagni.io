@@ -1,0 +1,143 @@
+---
+import '@/styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/png" href="/duck.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="antialiased relative min-h-screen">
+    <div class="relative flex min-h-screen w-screen flex-none flex-col justify-between">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-family:
+      iAWriterQuattroS,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      Fira Sans,
+      Droid Sans,
+      Helvetica Neue,
+      sans-serif;
+    /* font-family:
+            Work Sans,
+            -apple-system,
+            BlinkMacSystemFont,
+            Segoe UI,
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            Fira Sans,
+            Droid Sans,
+            Helvetica Neue,
+            sans-serif; */
+
+    background-color: #f9ede9;
+    background-image: url('/img/bg-10.png');
+    image-rendering: pixelated;
+    /* filter: hue-rotate(-10deg); */
+  }
+</style>
+
+<style is:global>
+  @import 'tailwindcss';
+
+  @font-face {
+    font-family: 'iAWriterQuattroS';
+    src: url('/fonts/iAWriterQuattroS-Regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  section a::after {
+    content: '↗';
+    color: var(--accent);
+    display: inline-block;
+    margin: 0 0.2em 0 0.2em;
+    font-weight: normal;
+    font-size: 0.9em;
+
+    transition-property: transform;
+    transition-duration: 0.2s;
+  }
+  section a:hover::after {
+    /* background: linear-gradient(90deg, magenta 0%, cyan 100%); */
+    /* background: linear-gradient(
+            115deg,
+            var(--color-pink-800) 0%,
+            var(--color-pink-400) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: rgba(0, 0, 0, 0);
+        animation: rainbow 2s ease-in-out infinite;
+        transition: color 0.2s ease-in-out;
+        background-size: 200% 200%; */
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    transform: translate(0.1rem, -0.1rem);
+  }
+  /* section a:hover::after {
+        background: linear-gradient(90deg, magenta 0%, cyan 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: rgba(0, 0, 0, 0);
+        animation: rainbow 2s ease-in-out infinite;
+        transition: color 0.2s ease-in-out;
+        background-size: 200% 200%;
+        transform: translate(0.1rem, -0.1rem);
+    } */
+
+  /* a:hover {
+        background: linear-gradient(
+            90deg,
+            var(--color-gray-700) 0%,
+            var(--color-gray-400) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: rgba(0, 0, 0, 0);
+        animation: rainbow 2s ease-in-out infinite;
+        background-size: 200% 200%;
+
+        text-decoration: underline;
+    } */
+
+  section a {
+    @apply underline hover:decoration-gray-700 hover:decoration-dotted;
+  }
+
+  /* section a:hover {
+        text-decoration: underline;
+        text-decoration-color: navy;
+    } */
+</style>

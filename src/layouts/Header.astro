@@ -1,0 +1,71 @@
+---
+import duckPx from '@/assets/duck-px.png';
+// import duckPx from "@/assets/duckk.gif";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="max-w-[640px] w-full mx-auto pt-12 pb-1 px-4">
+  <nav class="relative w-full flex flex-col items-center justify-center">
+    <div class="nav-logo mb-8">
+      <a href="/">
+        <img
+          src={duckPx.src}
+          alt="Daniele Salvagni"
+          class="logo h-8 grayscale hover:filter-none duration-100"
+        />
+        <!-- style="image-rendering: pixelated;" -->
+      </a>
+    </div>
+
+    <div class="flex items-center justify-center [&>span]:mx-5 [&>span]:cursor-default text-sm">
+      <a href="/" class={currentPath === '/' ? 'font-semibold' : ''}>Home</a>
+      <span>~</span>
+      <a href="/b/" class={currentPath.startsWith('/b') ? 'font-semibold' : ''}>Articles</a>
+      <span>~</span>
+      <a href="/s/" class={currentPath.startsWith('/s') ? 'font-semibold' : ''}>Projects</a>
+      <span>~</span>
+      <a href="/n/" class={currentPath.startsWith('/n') ? 'font-semibold' : ''}>Notes</a>
+    </div>
+  </nav>
+  <!-- Racing Lines -->
+  <div class="racing-lines mt-8 space-y-[1px]">
+    <div class="linee h-[1px] rounded overflow-hidden">
+      <div class="bar h-full w-full bg-stone-400"></div>
+    </div>
+    <div class="linee h-[1px] rounded overflow-hidden">
+      <div class="bar h-full w-full bg-stone-300"></div>
+    </div>
+  </div>
+</header>
+<style>
+  @keyframes fadeGrow {
+    0% {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  .racing-lines {
+    background-color: #fff;
+    padding: 0px 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .racing-lines .linee:nth-child(1) .bar {
+    animation: fadeGrow 0.3s ease-out 1;
+    animation-delay: 0s;
+    transform-origin: center;
+  }
+  .racing-lines .linee:nth-child(2) .bar {
+    animation: fadeGrow 0.3s ease-out 1;
+    animation-delay: 0.05s;
+    transform-origin: center;
+  }
+  .racing-lines .bar {
+    opacity: 1;
+  }
+</style>
