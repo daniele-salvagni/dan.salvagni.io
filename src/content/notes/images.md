@@ -2,6 +2,20 @@
 title: images
 ---
 
+## Convert .svg to .webp
+
+```sh
+for file in *.svg; do
+  if [ -f "$file" ]; then
+    echo "Converting $file..."
+    rsvg-convert -w 2000 "$file" -o temp.png
+    cwebp -q 90 temp.png -o "${file%.svg}.webp"
+    rm temp.png
+    echo "Created ${file%.svg}.webp"
+  fi
+done
+```
+
 ## Image compression with sharp
 
 Example: Resize all `.png` images in the current directory to 800px width and
