@@ -11,6 +11,7 @@
     "format:check": "prettier --ignore .gitignore --ignore .prettierignore --check ."
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.15",
     "@shikijs/transformers": "^3.8.1",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
