@@ -5,5 +5,19 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "workbench.colorCustomizations": {
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#e7ea95",
+    "statusBar.background": "#dde16b",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#d3d841",
+    "statusBarItem.remoteBackground": "#dde16b",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#dde16b",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#dde16b99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#dde16b"
 }
