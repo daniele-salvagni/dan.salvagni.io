@@ -20,6 +20,7 @@ const customTheme = {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://dsalvagni.com",
   vite: {
     plugins: [tailwindcss()],
     server: {
