@@ -1,26 +1,26 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
 import {
   transformerNotationDiff,
   transformerNotationFocus,
   transformerMetaHighlight,
-} from "@shikijs/transformers";
-import tailwindcss from "@tailwindcss/vite";
+} from '@shikijs/transformers';
+import tailwindcss from '@tailwindcss/vite';
 
-import { targetBlank } from "./src/plugins/targetBlank";
-import theme from "shiki/themes/github-light-default.mjs";
+import { targetBlank } from './src/plugins/targetBlank';
+import theme from 'shiki/themes/github-light-default.mjs';
 
 const customTheme = {
   ...theme,
   colors: {
     ...theme.colors,
-    "editor.background": "#fafafa",
+    'editor.background': '#fafafa',
   },
 };
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://dsalvagni.com",
+  site: 'https://dsalvagni.com',
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -31,7 +31,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    rehypePlugins: [[targetBlank, { domain: "dsalvagni.com" }]],
+    rehypePlugins: [[targetBlank, { domain: 'dsalvagni.com' }]],
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
@@ -47,8 +47,8 @@ export default defineConfig({
         transformerNotationFocus(),
         transformerMetaHighlight(),
       ],
-      // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
+      // Disable word wrap to enable horizontal scrolling
+      wrap: false,
     },
   },
 });
